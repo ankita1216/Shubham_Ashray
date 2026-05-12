@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { COLORS } from '../../constants/colors';
 import { WaveDarkToLight } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
-import aerialImage from "../../assets/images/Aerial view .jpg";
+import aerialImage from "../../assets/images/Aerial view .webp";
 
 // ── Architectural Corner Brackets ────────────────────────────────────────────
 function CornerBrackets({ size = 32, thickness = 2, color = "#C9A44D", opacity = 1 }) {
