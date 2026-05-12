@@ -1,0 +1,39 @@
+import React from 'react';
+import { COLORS } from '../../constants/colors';
+import { LogoStar } from './LogoStar';
+
+export function Navbar({ scrolled }) {
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        padding: scrolled ? "0" : "0", // Padding handled by container
+        background: scrolled ? "rgba(7,17,31,0.9)" : "transparent",
+        backdropFilter: scrolled ? "blur(24px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "none",
+      }}>
+      <div className="sa-container flex items-center justify-between"
+        style={{
+          paddingTop: scrolled ? "12px" : "24px",
+          paddingBottom: scrolled ? "12px" : "24px",
+          transition: "padding 0.3s ease"
+        }}>
+      <div className="flex items-center gap-3">
+        <LogoStar />
+        <span className="sa-serif text-white" style={{ fontSize: 18, fontWeight: 700, letterSpacing: .5 }}>
+          SUBHAM <span style={{ color: COLORS.pink }}>ASHRAY</span>
+        </span>
+      </div>
+      <ul className="hidden lg:flex items-center gap-9" style={{ listStyle: "none" }}>
+        {["Overview", "Amenities", "Floor Plans", "Location", "About", "Contact"].map((item) => (
+          <li key={item}>
+            <a href={`#${item.toLowerCase().replace(" ", "-")}`} className="sa-nav-link sa-sans">{item}</a>
+          </li>
+        ))}
+      </ul>
+      <a href="#contact" className="sa-btn-primary sa-sans" style={{ padding: "10px 24px", fontSize: 13, textDecoration: "none" }}>
+        Book Site Visit
+      </a>
+      </div>
+    </nav>
+  );
+}
