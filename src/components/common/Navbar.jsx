@@ -1,6 +1,6 @@
 import React from 'react';
 import { COLORS } from '../../constants/colors';
-import { LogoStar } from './LogoStar';
+import logoImg from '../../assets/images/logo.png';
 
 export function Navbar({ scrolled, onOpenModal }) {
   return (
@@ -13,15 +13,20 @@ export function Navbar({ scrolled, onOpenModal }) {
       }}>
       <div className="sa-container flex items-center justify-between"
         style={{
-          paddingTop: scrolled ? "12px" : "24px",
-          paddingBottom: scrolled ? "12px" : "24px",
+          paddingTop: scrolled ? "4px" : "8px",
+          paddingBottom: scrolled ? "4px" : "8px",
           transition: "padding 0.3s ease"
         }}>
-      <div className="flex items-center gap-3">
-        <LogoStar />
-        <span className="sa-serif text-white" style={{ fontSize: 18, fontWeight: 700, letterSpacing: .5 }}>
-          SUBHAM <span style={{ color: COLORS.primary }}>ASHRAY</span>
-        </span>
+      <div className="flex items-center">
+        <img 
+          src={logoImg} 
+          alt="Subham Ashray" 
+          style={{ 
+            height: scrolled ? "56px" : "80px", 
+            width: "auto",
+            transition: "height 0.3s ease" 
+          }} 
+        />
       </div>
       <ul className="hidden lg:flex items-center gap-9" style={{ listStyle: "none" }}>
         {["Overview", "Amenities", "Floor Plans", "Location", "About", "Contact"].map((item) => (

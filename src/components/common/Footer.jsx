@@ -1,7 +1,7 @@
 import React from 'react';
 import { COLORS } from '../../constants/colors';
-import { LogoStar } from './LogoStar';
 import { DecorativeShape } from './DecorativeShape';
+import logoImg from '../../assets/images/logo.png';
 
 export function Footer() {
   const cols = [
@@ -21,9 +21,12 @@ export function Footer() {
       <div className="sa-container">
         <div className="grid gap-12 lg:gap-16 mb-20" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
           <div style={{ gridColumn: "span 2" }}>
-            <div className="flex items-center gap-3 mb-6">
-              <LogoStar size={32} />
-              <span className="sa-serif text-white" style={{ fontSize: 20, fontWeight: 700 }}>SUBHAM <span style={{ color: COLORS.primary }}>ASHRAY</span></span>
+            <div className="flex items-center mb-6">
+              <img 
+                src={logoImg} 
+                alt="Subham Ashray" 
+                style={{ height: "80px", width: "auto" }} 
+              />
             </div>
             <p style={{ fontSize: 15, color: COLORS.mutedDark, lineHeight: 1.8, marginBottom: 16, maxWidth: 360 }}>A luxury residential township in Guwahati's Aerocity corridor. Where everyday life becomes an extraordinary experience.</p>
             <p style={{ fontSize: 13, color: COLORS.hintDark, marginBottom: 24 }}>A Unit of <strong style={{ color: COLORS.mutedDark }}>Lohia Group</strong></p>
