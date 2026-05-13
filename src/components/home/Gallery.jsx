@@ -1,12 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { COLORS } from '../../constants/colors';
 import { WaveLightToDark } from '../common/Dividers';
+import { SectionLabel } from '../common/SectionLabel';
 import { galleryData } from '../../data/galleryData';
 
 /* ─── injected styles ─── */
 const CSS = `
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Italiana&family=Space+Mono:ital@0;1&display=swap');
-
 .gal-item { cursor: none; position: relative; overflow: hidden; }
 .gal-item img {
   width: 100%; height: 100%; object-fit: cover; display: block;
@@ -32,7 +31,8 @@ const CSS = `
 .gal-item:hover .gal-label { transform: translateY(0); opacity: 1; }
 .gal-ghost-num {
   position: absolute; top: -10px; right: 12px;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
   font-size: 88px; line-height: 1;
   color: rgba(255,255,255,0.08);
   pointer-events: none; user-select: none;
@@ -45,12 +45,25 @@ const CSS = `
 }
 .gal-item:hover .gal-corner { width: 34px; height: 34px; }
 
+.gal-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  gap: 10px;
+  padding: 10px 44px 0;
+}
+
+.gal-item-cell {
+  grid-column: var(--desktop-col);
+  height: var(--cell-height);
+}
+
 /* custom cursor */
 .gal-cursor {
   position: fixed; pointer-events: none; z-index: 9999;
   width: 72px; height: 72px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Space Mono', monospace; font-size: 8.5px;
+  font-family: 'Outfit', sans-serif; font-size: 8.5px;
   letter-spacing: 0.12em; color: #fff; text-transform: uppercase;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -65,6 +78,36 @@ const CSS = `
 }
 .gal-ticker-track:hover { animation-play-state: paused; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+@media (max-width: 768px) {
+  .gal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px 18px 0;
+  }
+  .gal-item-cell {
+    grid-column: auto;
+    height: 220px;
+  }
+  .gal-item-cell:first-child {
+    grid-column: 1 / -1;
+    height: 280px;
+  }
+  .gal-ghost-num {
+    font-size: 58px;
+  }
+}
+
+@media (max-width: 430px) {
+  .gal-grid {
+    gap: 8px;
+  }
+  .gal-item-cell {
+    height: 190px;
+  }
+  .gal-item-cell:first-child {
+    height: 240px;
+  }
+}
 `;
 
 export function Gallery() {
@@ -110,16 +153,17 @@ export function Gallery() {
         View
       </div>
 
-      <section id="gallery" style={{ background: COLORS.luxBeige, overflow: 'hidden' }}>
+      <section id="gallery" className="sa-sans" style={{ background: COLORS.luxBeige, overflow: 'hidden' }}>
 
         {/* ── Header ── */}
-        <div style={{ padding: '64px 44px 0', position: 'relative' }}>
+        <div className="sa-container" style={{ paddingTop: 92, position: 'relative' }}>
           {/* watermark behind */}
           <div aria-hidden style={{
-            position: 'absolute', top: 10, left: 24, zIndex: 0,
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 'clamp(90px, 16vw, 200px)',
-            lineHeight: 1, letterSpacing: '0.06em',
+            position: 'absolute', top: 30, right: 64, zIndex: 0,
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 700,
+            fontSize: 'clamp(86px, 12vw, 170px)',
+            lineHeight: 1, letterSpacing: '0',
             color: `${COLORS.textDark}05`,
             pointerEvents: 'none', userSelect: 'none',
           }}>
@@ -129,20 +173,13 @@ export function Gallery() {
           <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'flex-end', gap: 32, flexWrap: 'wrap' }}>
             <div style={{ flex: 1, minWidth: 240 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-                <span style={{ display: 'block', width: 32, height: 1, background: COLORS.primary }} />
-                <span style={{
-                  fontFamily: "'Space Mono', monospace",
-                  fontSize: 9, letterSpacing: '0.45em',
-                  color: COLORS.primary, textTransform: 'uppercase',
-                }}>
-                  Selected Portfolio
-                </span>
+                <SectionLabel onDark={false}>Selected Portfolio</SectionLabel>
               </div>
               <h2 style={{
-                fontFamily: "'Italiana', 'Palatino Linotype', serif",
-                fontSize: 'clamp(60px, 9vw, 120px)',
-                fontWeight: 400, margin: 0,
-                lineHeight: 0.88, letterSpacing: '-0.025em',
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: 'clamp(46px, 6vw, 82px)',
+                fontWeight: 600, margin: 0,
+                lineHeight: 0.94, letterSpacing: 0,
                 color: COLORS.textDark,
               }}>
                 Visual<br />
@@ -152,17 +189,16 @@ export function Gallery() {
 
             <div style={{ paddingBottom: 6, textAlign: 'right' }}>
               <p style={{
-                fontFamily: "'Space Mono', monospace",
-                fontSize: 32, fontWeight: 400,
+                fontSize: 34, fontWeight: 800,
                 color: `${COLORS.textDark}15`,
                 margin: 0, lineHeight: 1,
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.01em',
               }}>
                 {total.toString().padStart(2, '0')}
               </p>
               <p style={{
-                fontFamily: "'Space Mono', monospace",
-                fontSize: 9, letterSpacing: '0.3em',
+                fontSize: 9, letterSpacing: '0.22em',
+                fontWeight: 700,
                 color: `${COLORS.textDark}35`,
                 textTransform: 'uppercase', margin: '4px 0 0',
               }}>
@@ -175,21 +211,15 @@ export function Gallery() {
         </div>
 
         {/* ── Mosaic ── */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(12, 1fr)',
-          gridTemplateRows: 'auto auto',
-          gap: 10,
-          padding: '10px 44px 0',
-        }}>
+        <div className="gal-grid sa-container">
           {layout.map((cell) => {
             const item = galleryData[cell.idx % total];
             const num = cell.idx + 1;
             return (
               <div
                 key={cell.idx}
-                className="gal-item"
-                style={{ gridColumn: cell.cols, height: cell.h }}
+                className="gal-item gal-item-cell"
+                style={{ '--desktop-col': cell.cols, '--cell-height': `${cell.h}px` }}
                 onMouseEnter={() => setCursorVisible(true)}
                 onMouseLeave={() => setCursorVisible(false)}
               >
@@ -214,17 +244,17 @@ export function Gallery() {
                 {/* label */}
                 <div className="gal-label">
                   <p style={{
-                    fontFamily: "'Space Mono', monospace",
-                    fontSize: 8.5, letterSpacing: '0.38em',
+                    fontSize: 9, letterSpacing: '0.22em',
+                    fontWeight: 700,
                     color: 'rgba(255,255,255,0.5)',
                     textTransform: 'uppercase', margin: '0 0 5px',
                   }}>
                     Design — {num.toString().padStart(2, '0')}
                   </p>
                   <p style={{
-                    fontFamily: "'Italiana', serif",
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
                     fontSize: 'clamp(15px, 1.8vw, 22px)',
-                    fontStyle: 'italic', color: '#fff',
+                    fontStyle: 'italic', fontWeight: 600, color: '#fff',
                     margin: 0, lineHeight: 1.2,
                   }}>
                     {item.label}
@@ -248,8 +278,8 @@ export function Gallery() {
               <span key={i} style={{
                 display: 'inline-flex', alignItems: 'center',
                 gap: 44, padding: '0 44px',
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: 13, letterSpacing: '0.28em',
+                fontSize: 12, letterSpacing: '0.18em',
+                fontWeight: 700,
                 color: `${COLORS.textDark}30`,
                 textTransform: 'uppercase', whiteSpace: 'nowrap',
               }}>
@@ -271,8 +301,8 @@ export function Gallery() {
           flexWrap: 'wrap', gap: 12,
         }}>
           <p style={{
-            fontFamily: "'Space Mono', monospace",
-            fontSize: 9, letterSpacing: '0.35em',
+            fontSize: 9, letterSpacing: '0.22em',
+            fontWeight: 700,
             color: `${COLORS.textDark}28`,
             textTransform: 'uppercase', margin: 0,
           }}>

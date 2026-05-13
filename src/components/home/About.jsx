@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useCounter } from '../../hooks/useCounter';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
@@ -18,7 +18,7 @@ export function About() {
           background: COLORS.darkNavy,
           position: "relative",
           overflow: "hidden",
-          padding: "100px 0 0 0", // Bottom padding removed to sit flush with the wave
+          padding: "112px 0 0 0",
           color: '#fff',
           minHeight: '100vh',
           display: 'flex',
@@ -59,7 +59,7 @@ export function About() {
               </h2>
 
               <div className="about-glass-metrics">
-                {developerMetrics.map(({ target, suffix, label, color }, i) => (
+                {developerMetrics.map(({ target, suffix, label, color }) => (
                   <div key={label} className="canvas-metric-item">
                     <div className="canvas-metric-val" style={{ color }}>
                       <span data-counter data-target={target}>0</span>{suffix}
@@ -127,7 +127,7 @@ export function About() {
           /* ── LAYOUT FOUNDATION ── */
           .about-split-canvas {
             display: flex;
-            gap: 80px;
+            gap: 76px;
             align-items: flex-start;
             padding-bottom: 80px;
           }
@@ -184,12 +184,12 @@ export function About() {
 
           /* ── LEFT PANEL TYPOGRAPHY & METRICS ── */
           .about-canvas-title {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-size: clamp(48px, 6vw, 90px);
-            font-weight: 300;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(54px, 6vw, 92px);
+            font-weight: 600;
             line-height: 0.9;
             margin: 0;
-            letter-spacing: -0.02em;
+            letter-spacing: 0;
           }
 
           .text-yellow {
@@ -201,11 +201,11 @@ export function About() {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255,255,255,0.035);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.075);
+            border-radius: 14px;
             padding: 30px;
           }
 
@@ -216,7 +216,7 @@ export function About() {
           }
 
           .canvas-metric-val {
-            font-family: 'Georgia', serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 32px;
             font-weight: 800;
             line-height: 1;
@@ -241,7 +241,7 @@ export function About() {
           }
 
           .about-canvas-quote p {
-            font-size: 18px;
+            font-size: 19px;
             line-height: 1.6;
             color: rgba(255,255,255,0.9);
             font-style: italic;
@@ -277,9 +277,10 @@ export function About() {
           }
 
           .portfolio-header span {
-            font-family: monospace;
             font-size: 10px;
             color: ${COLORS.yellow};
+            font-weight: 700;
+            letter-spacing: 0.12em;
           }
 
           .portfolio-accordion {
@@ -291,7 +292,7 @@ export function About() {
           .accordion-pane {
             position: relative;
             height: 70px;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -327,8 +328,9 @@ export function About() {
           }
 
           .pane-index {
-            font-family: 'Georgia', serif;
+            font-family: 'Outfit', sans-serif;
             font-size: 24px;
+            font-weight: 700;
             color: rgba(255,255,255,0.2);
             transition: color 0.4s ease, transform 0.4s ease;
           }

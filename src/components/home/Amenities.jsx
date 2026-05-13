@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { amenitiesData } from '../../data/amenitiesData';
@@ -24,48 +24,43 @@ const LAYOUTS = [
   { col: "span 1", row: "span 1", featured: false },  // 14
 ];
 
-function AmenityCard({ icon, name, desc, color, layout, index }) {
+function AmenityCard({ name, desc, color, index }) {
   const [hovered, setHovered] = useState(false);
-  const isFeatured = layout?.featured;
-  const isWide = layout?.col === "span 2" && layout?.row === "span 1";
-  const isTall = layout?.col === "span 1" && layout?.row === "span 2";
 
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        gridColumn: layout?.col || "span 1",
-        gridRow: layout?.row || "span 1",
+        minHeight: 218,
         position: "relative",
-        borderRadius: isFeatured ? 20 : 14,
+        borderRadius: 14,
         overflow: "hidden",
         cursor: "pointer",
         background: hovered
           ? "#fff"
-          : "rgba(26, 28, 20, 0.04)",
+          : "rgba(255, 255, 255, 0.56)",
         border: hovered
           ? `1px solid ${color}45`
           : "1px solid rgba(26, 28, 20, 0.08)",
         transition: "all 0.45s cubic-bezier(0.4,0,0.2,1)",
         transform: hovered ? "translateY(-3px) scale(1.005)" : "translateY(0) scale(1)",
         boxShadow: hovered
-          ? `0 16px 48px rgba(26, 28, 20, 0.08), 0 0 0 1px ${color}25`
-          : "none",
-        padding: isFeatured ? "36px" : isWide ? "26px 28px" : "24px",
+          ? `0 18px 50px rgba(26, 28, 20, 0.10), 0 0 0 1px ${color}22`
+          : "0 1px 0 rgba(26,28,20,0.04)",
+        padding: "26px",
         display: "flex",
-        flexDirection: isFeatured ? "column" : isWide ? "row" : "column",
-        alignItems: isFeatured ? "flex-start" : isWide ? "center" : "flex-start",
-        gap: isWide ? 20 : 0,
+        flexDirection: "column",
+        alignItems: "flex-start",
       }}
     >
       {/* Ambient glow blob */}
       <div style={{
         position: "absolute",
-        top: isFeatured ? -60 : -40,
-        right: isFeatured ? -60 : -40,
-        width: isFeatured ? 200 : 120,
-        height: isFeatured ? 200 : 120,
+        top: -40,
+        right: -40,
+        width: 120,
+        height: 120,
         borderRadius: "50%",
         background: `radial-gradient(circle, ${color}${hovered ? "22" : "0d"} 0%, transparent 70%)`,
         transition: "all 0.5s ease",
@@ -77,10 +72,9 @@ function AmenityCard({ icon, name, desc, color, layout, index }) {
         position: "absolute",
         top: 14,
         right: 18,
-        fontFamily: "monospace",
         fontSize: 10,
         color: hovered ? `${color}90` : "rgba(255,255,255,0.12)",
-        letterSpacing: "0.08em",
+        letterSpacing: "0.12em",
         fontWeight: 700,
         transition: "color 0.4s ease",
       }}>
@@ -89,53 +83,49 @@ function AmenityCard({ icon, name, desc, color, layout, index }) {
 
       {/* Icon container */}
       <div style={{
-        width: isFeatured ? 56 : 42,
-        height: isFeatured ? 56 : 42,
-        borderRadius: isFeatured ? 16 : 12,
+        width: 46,
+        height: 46,
+        borderRadius: 12,
         background: hovered ? `${color}28` : `${color}14`,
         border: `1px solid ${color}${hovered ? "40" : "20"}`,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: isFeatured ? 26 : 20,
+        fontSize: 14,
+        fontWeight: 800,
+        letterSpacing: "0.08em",
+        color: COLORS.textDark,
         flexShrink: 0,
         transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
         transform: hovered ? "scale(1.08) rotate(-3deg)" : "scale(1) rotate(0deg)",
-        marginBottom: isWide ? 0 : isFeatured ? 28 : 18,
+        marginBottom: 22,
       }}>
-        {icon}
+        {String(index + 1).padStart(2, '0')}
       </div>
 
       {/* Text block */}
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{
-          fontSize: isFeatured ? 20 : isWide ? 16 : 15,
+          fontSize: 17,
           fontWeight: 700,
           color: COLORS.textDark,
-          marginBottom: isFeatured ? 10 : 6,
+          marginBottom: 8,
           letterSpacing: "-0.01em",
           lineHeight: 1.25,
-          whiteSpace: isWide ? "nowrap" : "normal",
-          overflow: isWide ? "hidden" : "visible",
-          textOverflow: isWide ? "ellipsis" : "unset",
+          whiteSpace: "normal",
         }}>
           {name}
         </div>
 
-        {/* Show desc only for featured + tall + non-wide */}
-        {(isFeatured || isTall || !isWide) && (
-          <div style={{
-            fontSize: isFeatured ? 14 : 12,
-            color: COLORS.mutedLight,
-            lineHeight: 1.65,
-            maxWidth: isFeatured ? 280 : "none",
-            opacity: hovered ? 1 : 0.85,
-            transition: "opacity 0.3s ease",
-            display: isWide ? "none" : "block",
-          }}>
-            {desc}
-          </div>
-        )}
+        <div style={{
+          fontSize: 13,
+          color: COLORS.mutedLight,
+          lineHeight: 1.65,
+          opacity: hovered ? 1 : 0.88,
+          transition: "opacity 0.3s ease",
+        }}>
+          {desc}
+        </div>
       </div>
 
       {/* Animated accent line */}
@@ -150,45 +140,29 @@ function AmenityCard({ icon, name, desc, color, layout, index }) {
         transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)",
       }} />
 
-      {/* Featured: extra decorative pill tag */}
-      {isFeatured && (
-        <div style={{
-          marginTop: "auto",
-          paddingTop: 20,
-          display: "flex",
-          alignItems: "center",
-          gap: 8,
-        }}>
-          <div style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            padding: "5px 12px",
-            borderRadius: 99,
-            background: `${color}18`,
-            border: `1px solid ${color}30`,
-            fontSize: 10,
-            color: color,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            fontWeight: 700,
-          }}>
-            <div style={{ width: 5, height: 5, borderRadius: "50%", background: color }} />
-            Premium Amenity
-          </div>
-        </div>
-      )}
     </div>
   );
 }
 
 export function Amenities() {
+  const landscapeFeatures = [
+    "Stepped planter",
+    "Open gym",
+    "Adda corner",
+    "Senior citizens' area",
+    "Shaded sitting corner",
+    "Forest orchard",
+    "Stepped amphitheatre",
+    "Raised lawn",
+    "Stepping stone walkway",
+  ];
+
   return (
     <>
     <section
       id="amenities"
       className="sa-sans sa-section"
-      style={{ background: COLORS.warmWhite, position: "relative", overflow: "hidden", padding: "80px 0 88px" }}
+      style={{ background: COLORS.warmWhite, position: "relative", overflow: "hidden", padding: "108px 0 112px" }}
     >
       {/* Decorative glows */}
       <div className="absolute -bottom-12 -left-12" style={{ width: 450, height: 450, background: `radial-gradient(circle, ${COLORS.primary}12 0%, transparent 70%)`, pointerEvents: "none" }} />
@@ -210,10 +184,10 @@ export function Amenities() {
               <h2
                 className="sa-serif"
                 style={{
-                  fontSize: "clamp(34px,4.5vw,58px)",
-                  fontWeight: 900,
-                  lineHeight: 1.1,
-                  letterSpacing: -1.5,
+                  fontSize: "clamp(46px,6vw,82px)",
+                  fontWeight: 600,
+                  lineHeight: 0.94,
+                  letterSpacing: 0,
                   color: COLORS.textDark,
                   margin: 0,
                 }}
@@ -227,7 +201,7 @@ export function Amenities() {
             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12, paddingTop: 4 }}>
               {/* Big stat */}
               <div style={{ textAlign: "right" }}>
-                <div style={{ fontFamily: "monospace", fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800, color: COLORS.textDark, lineHeight: 1, letterSpacing: "-2px" }}>
+                <div style={{ fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800, color: COLORS.textDark, lineHeight: 1, letterSpacing: "-0.03em" }}>
                   30<span style={{ color: COLORS.primary }}>+</span>
                 </div>
                 <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.mutedLight, marginTop: 4 }}>Curated Amenities</div>
@@ -238,13 +212,13 @@ export function Amenities() {
                 style={{
                   fontSize: 14,
                   color: COLORS.mutedLight,
-                  maxWidth: 280,
+                  maxWidth: 320,
                   lineHeight: 1.7,
                   textAlign: "right",
                   margin: 0,
                 }}
               >
-                Designed for your every mood and moment — from serene to social.
+                Landscaped greens, club amenities, play zones, and community spaces planned as one connected everyday experience.
               </p>
             </div>
           </div>
@@ -255,11 +229,12 @@ export function Amenities() {
 
         {/* ── Bento Grid ── */}
         <div
+          className="amenity-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
-            gridAutoRows: "130px",
-            gap: 10,
+            gap: 12,
+            marginBottom: 34,
           }}
         >
           {amenitiesData.map((amenity, i) => (
@@ -270,6 +245,20 @@ export function Amenities() {
               index={i}
             />
           ))}
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 0.35fr) minmax(0, 0.65fr)", gap: 18, alignItems: "stretch" }} className="amenity-feature-strip">
+          <div style={{ background: COLORS.darkBlue, color: "#fff", borderRadius: 16, padding: "26px 28px", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase", color: COLORS.primary, marginBottom: 14 }}>Landscape Features</div>
+            <p className="sa-serif" style={{ fontSize: 29, lineHeight: 1.05, margin: 0 }}>Outdoor spaces made for slow walks, play, and gathering.</p>
+          </div>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignContent: "center", background: "rgba(255,255,255,0.62)", border: "1px solid rgba(26,28,20,0.07)", borderRadius: 16, padding: 22 }}>
+            {landscapeFeatures.map((item) => (
+              <span key={item} style={{ border: "1px solid rgba(26,28,20,0.09)", borderRadius: 999, padding: "9px 13px", fontSize: 12, fontWeight: 700, color: COLORS.textMid, background: "rgba(255,255,255,0.7)" }}>
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* ── Footer tag line ── */}
@@ -284,12 +273,15 @@ export function Amenities() {
 
       <style>{`
         @media (max-width: 768px) {
-          #amenities .sa-container > div:nth-child(3) {
+          .amenity-grid {
             grid-template-columns: repeat(2, 1fr) !important;
+          }
+          .amenity-feature-strip {
+            grid-template-columns: 1fr !important;
           }
         }
         @media (max-width: 480px) {
-          #amenities .sa-container > div:nth-child(3) {
+          .amenity-grid {
             grid-template-columns: 1fr 1fr !important;
             grid-auto-rows: 110px !important;
           }

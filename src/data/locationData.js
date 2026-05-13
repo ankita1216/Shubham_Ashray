@@ -1,10 +1,10 @@
 import { COLORS } from '../constants/colors';
 
 export const locationData = [
-  { title: "✈ Connectivity",  color: COLORS.cyan,   items: [["NH 17","2 km","near"],["Dharapur Bus Stop","2 km","near"],["Airport (LGB International)","5.7 km","mid"],["Jalukbari Flyover","10 km","far"],["Kamakhya Railway Stn","12 km","far"]] },
-  { title: "🎓 Education",     color: "#4CAF50",items: [["Kidzee Dharapur","0.8 km","near"],["Girijananda Chowdhury Univ","2.9 km","near"],["Assam Don Bosco Univ","3.3 km","near"],["Gauhati University","5.4 km","mid"]] },
-  { title: "🏥 Healthcare",    color: COLORS.pink,   items: [["I Care Diagnostic","2.1 km","near"],["City Health Centre","3.7 km","near"],["Apollo Excelcare Hospital","12 km","far"]] },
-  { title: "🛍️ Lifestyle",     color: COLORS.yellow, items: [["Decathlon Azara","6.7 km","mid"],["NCS Square Mall","8.4 km","mid"],["Westside","9 km","far"]] },
+  { title: "Connectivity",  color: COLORS.cyan,   items: [["NH 17","2 km","near"],["Dharapur Bus Stop","2 km","near"],["Airport","5.7 km","mid"],["Jalukbari Flyover","10 km","far"],["Kamakhya Railway Station","12 km","far"]] },
+  { title: "Education",     color: "#4CAF50",items: [["Kidzee Dharapur","0.8 km","near"],["Girijananda Chowdhury University","2.9 km","near"],["Assam Don Bosco University","3.3 km","near"],["Gauhati University","5.4 km","mid"]] },
+  { title: "Healthcare",    color: COLORS.pink,   items: [["I Care Diagnostic","2.1 km","near"],["City Health Centre","3.7 km","near"],["Apollo Excelcare Hospital","12 km","far"]] },
+  { title: "Daily Needs and Leisure",     color: COLORS.yellow, items: [["Decathlon Azara","6.7 km","mid"],["NCS Square Mall","8.4 km","mid"],["Westside","9 km","far"]] },
 ];
 
 export const distanceTierConfig = {
