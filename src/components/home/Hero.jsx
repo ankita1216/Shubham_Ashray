@@ -127,7 +127,7 @@ function GridLines() {
 }
 
 // ── Main Hero ─────────────────────────────────────────────────────────────────
-export function Hero() {
+export function Hero({ onOpenModal }) {
   const containerRef = useRef(null);
 
   const stats = [
@@ -430,8 +430,8 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 1.35 }}
               style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 28 }}
             >
-              <a
-                href="#contact"
+              <button
+                onClick={onOpenModal}
                 style={{
                   display: 'inline-block',
                   padding: '15px 40px',
@@ -442,6 +442,8 @@ export function Hero() {
                   textTransform: 'uppercase',
                   fontWeight: 700,
                   textDecoration: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   boxShadow: '0 0 0 rgba(201,164,77,0)',
                 }}
@@ -455,7 +457,7 @@ export function Hero() {
                 }}
               >
                 Book a Site Visit
-              </a>
+              </button>
 
               <a
                 href="#overview"

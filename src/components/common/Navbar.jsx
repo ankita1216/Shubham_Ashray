@@ -2,7 +2,7 @@ import React from 'react';
 import { COLORS } from '../../constants/colors';
 import { LogoStar } from './LogoStar';
 
-export function Navbar({ scrolled }) {
+export function Navbar({ scrolled, onOpenModal }) {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
@@ -30,9 +30,13 @@ export function Navbar({ scrolled }) {
           </li>
         ))}
       </ul>
-      <a href="#contact" className="sa-btn-primary sa-sans" style={{ padding: "10px 24px", fontSize: 13, textDecoration: "none" }}>
+      <button 
+        onClick={onOpenModal}
+        className="sa-btn-primary sa-sans" 
+        style={{ padding: "10px 24px", fontSize: 13, textDecoration: "none", border: "none" }}
+      >
         Book Site Visit
-      </a>
+      </button>
       </div>
     </nav>
   );

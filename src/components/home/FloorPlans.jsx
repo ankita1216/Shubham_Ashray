@@ -5,7 +5,7 @@ import { WaveDarkToLight } from '../common/Dividers';
 import { floorPlansData } from '../../data/floorPlansData';
 import { DecorativeShape } from '../common/DecorativeShape';
 
-export function FloorPlans() {
+export function FloorPlans({ onOpenModal }) {
   const [tab, setTab] = useState("2bhk");
   return (
     <>
@@ -56,7 +56,7 @@ export function FloorPlans() {
                 <div className="p-7">
                   <div className="sa-serif" style={{ fontSize: 22, fontWeight: 700, marginBottom: 4, color: "#fff" }}>{type}</div>
                   <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: .5, color: COLORS.pink, marginBottom: 20 }}>{block}</div>
-                  <div className="grid grid-cols-4 gap-4">
+                  <div className="grid grid-cols-4 gap-4 mb-8">
                     {[["SBU Area", sbua], ["BU Area", bua], ["Carpet", carpet], ["Balcony", balcony]].map(([l, v]) => (
                       <div key={l}>
                         <div style={{ fontSize: 18, fontWeight: 700, color: "#fff" }}>{v}</div>
@@ -64,6 +64,13 @@ export function FloorPlans() {
                       </div>
                     ))}
                   </div>
+                  <button 
+                    onClick={onOpenModal}
+                    className="w-full sa-btn-primary sa-sans" 
+                    style={{ borderRadius: 12, padding: "14px", fontSize: 13 }}
+                  >
+                    Download Detailed Plan
+                  </button>
                 </div>
               </div>
             ))}

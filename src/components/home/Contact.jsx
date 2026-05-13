@@ -1,9 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { DecorativeShape } from '../common/DecorativeShape';
 
 export function Contact() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // In a real app, you'd send data to an API here
+    navigate('/thank-you');
+  };
+
   return (
     <section id="contact" className="sa-sans sa-noise sa-section" style={{ background: COLORS.luxBeige, position: "relative", overflow: "hidden" }}>
       <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 50% 60% at 80% 50%,rgba(233,30,140,0.05) 0%,transparent 60%)`, pointerEvents: "none" }} />
@@ -65,11 +74,11 @@ export function Contact() {
           <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(90deg,${COLORS.pink},${COLORS.cyan})` }} />
           <h3 className="sa-serif text-white mb-2" style={{ fontSize: 28, fontWeight: 700 }}>Book Your Free Site Visit</h3>
           <p style={{ fontSize: 14, color: COLORS.mutedDark, marginBottom: 36 }}>Our team will reach out within 24 hours</p>
-          <div className="flex flex-col gap-6">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             {[["Full Name", "text", "Your full name"], ["Phone Number", "tel", "+91 00000 00000"], ["Email Address", "email", "your@email.com"]].map(([label, type, ph]) => (
               <div key={label}>
                 <label className="block mb-2" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: COLORS.mutedDark }}>{label}</label>
-                <input type={type} placeholder={ph} className="sa-form-input-dark" />
+                <input required type={type} placeholder={ph} className="sa-form-input-dark" />
               </div>
             ))}
             <div>
@@ -83,13 +92,13 @@ export function Contact() {
             </div>
             <div>
               <label className="block mb-2" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred Visit Date</label>
-              <input type="date" className="sa-form-input-dark" />
+              <input required type="date" className="sa-form-input-dark" />
             </div>
-            <button className="sa-hero-cta sa-sans" onClick={() => alert("Thank you! Our team will contact you shortly.")}>
+            <button type="submit" className="sa-hero-cta sa-sans">
               Book Site Visit →
             </button>
             <p className="text-center" style={{ fontSize: 11, color: COLORS.hintDark }}>Your information is secure. We never share your data.</p>
-          </div>
+          </form>
         </div>
       </div>
     </section>

@@ -10,11 +10,13 @@ import { FloorPlans } from '../components/home/FloorPlans';
 import { Location } from '../components/home/Location';
 import { About } from '../components/home/About';
 import { Contact } from '../components/home/Contact';
+import LeadModal from '../components/common/LeadModal';
 import { useReveal } from '../hooks/useReveal';
 import { useCounter } from '../hooks/useCounter';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Initialize hooks
   useReveal();
@@ -26,21 +28,26 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className="sa-main-wrapper">
-      <Navbar scrolled={scrolled} />
+      <Navbar scrolled={scrolled} onOpenModal={openModal} />
       <main>
-        <Hero />
+        <Hero onOpenModal={openModal} />
         <Overview />
-        <Amenities />
+        <Amenities onOpenModal={openModal} />
         <VideoSection />
         <Gallery />
-        <FloorPlans />
+        <FloorPlans onOpenModal={openModal} />
         <Location />
         <About />
         <Contact />
       </main>
       <Footer />
+      
+      <LeadModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }
