@@ -74,11 +74,11 @@ export default function LeadModal({ isOpen, onClose }) {
                 width: 100%;
                 height: 56px;
                 border-radius: 14px;
-                border: `1.5px solid ${COLORS.darkNavy}17`,
-                background: "#fff",
+                border: 1.5px solid ${COLORS.darkNavy}17;
+                background: #fff;
                 padding: 0 20px;
                 font-size: 14px;
-                color: #07111F;
+                color: ${COLORS.darkNavy};
                 outline: none;
                 transition: border-color 0.2s ease, box-shadow 0.2s ease;
                 box-shadow: 0 1px 4px rgba(0,0,0,0.04);
@@ -126,7 +126,7 @@ export default function LeadModal({ isOpen, onClose }) {
               }
               .lead-submit:active { transform: scale(0.99); }
               .lead-submit:focus-visible {
-                box-shadow: 0 0 0 3px rgba(201,164,77,0.35), 0 8px 24px rgba(7,17,31,0.18);
+                box-shadow: 0 0 0 3px ${COLORS.primary}59, 0 8px 24px rgba(7,17,31,0.18);
               }
             `}</style>
 
