@@ -68,7 +68,7 @@ export function Gallery() {
         id="gallery"
         className="sa-sans sa-noise sa-section"
         style={{
-          background: COLORS.softCream,
+          background: COLORS.luxBeige,
           position: "relative",
           overflow: "hidden",
           // ✅ FIXED: removed large top padding that was eating heading space
@@ -77,7 +77,7 @@ export function Gallery() {
         }}
       >
         {/* Decorative background */}
-        <div className="absolute top-0 right-0" style={{ width: 400, height: 400, background: `radial-gradient(circle,rgba(233,30,140,0.05) 0%,transparent 65%)`, pointerEvents: "none" }} />
+        <div className="absolute top-0 right-0" style={{ width: 400, height: 400, background: `radial-gradient(circle, ${COLORS.primary}0D 0%, transparent 65%)`, pointerEvents: "none" }} />
         <DecorativeShape size={550} opacity={0.16} rotate={140} className="-top-24 -right-24" />
 
         {/* ── Header — VISIBLE, tight, editorial ── */}
@@ -89,13 +89,13 @@ export function Gallery() {
 
             {/* Counter — desktop */}
             <div className="hidden md:flex items-center gap-3">
-              <span style={{ fontFamily: "monospace", fontSize: 13, color: COLORS.pink, fontWeight: 700, letterSpacing: "0.06em" }}>
+              <span style={{ fontFamily: "monospace", fontSize: 13, color: COLORS.primary, fontWeight: 700, letterSpacing: "0.06em" }}>
                 {String(active + 1).padStart(2, '0')}
               </span>
               <div style={{ width: 56, height: 1, background: `${COLORS.textDark}22`, position: "relative" }}>
                 <div style={{
                   position: "absolute", top: 0, left: 0, height: "100%",
-                  background: COLORS.pink,
+                  background: COLORS.primary,
                   width: `${((active + 1) / total) * 100}%`,
                   transition: "width 0.6s cubic-bezier(0.4,0,0.2,1)"
                 }} />
@@ -121,7 +121,7 @@ export function Gallery() {
               }}
             >
               Architecture That{" "}
-              <span style={{ color: COLORS.pink }}>Inspires</span>
+              <span style={{ color: COLORS.primary }}>Inspires</span>
             </h2>
 
             {/* Vertical accent — desktop only */}
@@ -131,7 +131,7 @@ export function Gallery() {
                 width: 1,
                 height: 48,
                 marginBottom: 4,
-                background: `linear-gradient(to bottom, transparent, ${COLORS.pink}50, transparent)`,
+                background: `linear-gradient(to bottom, transparent, ${COLORS.primary}80, transparent)`,
               }}
             />
           </div>
@@ -227,7 +227,7 @@ export function Gallery() {
               <div style={{ position: "absolute", inset: 0, zIndex: 3, background: "linear-gradient(170deg, transparent 40%, rgba(8,6,16,0.82) 100%)" }} />
 
               <div style={{ position: "absolute", inset: 0, zIndex: 4, padding: "28px 32px", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                <div style={{ width: 32, height: 2, background: COLORS.pink, marginBottom: 10, borderRadius: 2 }} />
+                <div style={{ width: 32, height: 2, background: COLORS.primary, marginBottom: 10, borderRadius: 2 }} />
                 <span style={{ color: "rgba(255,255,255,0.55)", fontSize: "9px", letterSpacing: "0.22em", textTransform: "uppercase", fontWeight: 700, marginBottom: 7, display: "block" }}>
                   Artist's Impression
                 </span>
@@ -304,7 +304,7 @@ export function Gallery() {
                     height: 36,
                     borderRadius: 7,
                     overflow: "hidden",
-                    border: i === active ? `2px solid ${COLORS.pink}` : "2px solid transparent",
+                    border: i === active ? `2px solid ${COLORS.primary}` : "2px solid transparent",
                     padding: 0,
                     cursor: "pointer",
                     transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
@@ -335,7 +335,7 @@ export function Gallery() {
                     transition: "all 0.25s ease",
                     fontFamily: "sans-serif",
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = COLORS.pink; e.currentTarget.style.color = "#fff"; e.currentTarget.style.border = `1.5px solid ${COLORS.pink}`; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = COLORS.primary; e.currentTarget.style.color = COLORS.darkNavy; e.currentTarget.style.border = `1.5px solid ${COLORS.primary}`; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.7)"; e.currentTarget.style.color = COLORS.textDark; e.currentTarget.style.border = `1.5px solid ${COLORS.textDark}22`; }}
                 >
                   {label}
@@ -346,16 +346,16 @@ export function Gallery() {
 
           {/* Mobile counter */}
           <div className="flex md:hidden items-center gap-3 mt-4">
-            <span style={{ fontFamily: "monospace", fontSize: 12, color: COLORS.pink, fontWeight: 700 }}>{String(active + 1).padStart(2, '0')}</span>
+            <span style={{ fontFamily: "monospace", fontSize: 12, color: COLORS.primary, fontWeight: 700 }}>{String(active + 1).padStart(2, '0')}</span>
             <div style={{ flex: 1, height: 1, background: `${COLORS.textDark}20`, position: "relative" }}>
-              <div style={{ position: "absolute", top: 0, left: 0, height: "100%", background: COLORS.pink, width: `${((active + 1) / total) * 100}%`, transition: "width 0.6s cubic-bezier(0.4,0,0.2,1)" }} />
+              <div style={{ position: "absolute", top: 0, left: 0, height: "100%", background: COLORS.primary, width: `${((active + 1) / total) * 100}%`, transition: "width 0.6s cubic-bezier(0.4,0,0.2,1)" }} />
             </div>
             <span style={{ fontFamily: "monospace", fontSize: 12, color: `${COLORS.textDark}40` }}>{String(total).padStart(2, '0')}</span>
           </div>
         </div>
       </section>
 
-      <WaveLightToDark fromColor={COLORS.softCream} toColor={COLORS.darkMid} />
+      <WaveLightToDark fromColor={COLORS.luxBeige} toColor={COLORS.darkMid} />
     </>
   );
 }

@@ -6,15 +6,15 @@ export function LogoStar({ size = 36, colorOverride }) {
   return (
     <svg width={size} height={size} viewBox="0 0 60 60" fill="none">
       <polygon points="30,4 33,18 46,11 37,24 54,27 40,32 44,42 31,37 30,52 29,37 16,42 20,32 6,27 23,24 14,11 27,18"
-        fill="none" stroke={colorOverride || COLORS.pink} strokeWidth="1.5" opacity="0.6" />
-      <path d="M30 4 L33 18 L27 18 Z" fill={colorOverride || COLORS.pink} opacity="0.9" />
-      <path d="M46 11 L37 24 L33 18 Z" fill={colorOverride || COLORS.yellow} opacity="0.9" />
-      <path d="M54 27 L40 32 L37 24 Z" fill={colorOverride || COLORS.cyan} opacity="0.9" />
-      <path d="M48 46 L33 39 L40 32 Z" fill={colorOverride || COLORS.lime} opacity="0.9" />
-      <path d="M30 56 L27 39 L33 39 Z" fill={colorOverride || COLORS.pink} opacity="0.9" />
-      <path d="M12 46 L20 32 L27 39 Z" fill={colorOverride || COLORS.orange} opacity="0.9" />
-      <path d="M6 27 L23 24 L20 32 Z" fill={colorOverride || COLORS.cyan} opacity="0.9" />
-      <path d="M14 11 L27 18 L23 24 Z" fill={colorOverride || COLORS.yellow} opacity="0.9" />
+        fill="none" stroke={colorOverride || COLORS.primary} strokeWidth="1.5" opacity="0.6" />
+      <path d="M30 4 L33 18 L27 18 Z" fill={colorOverride || COLORS.primary} opacity="0.9" />
+      <path d="M46 11 L37 24 L33 18 Z" fill={colorOverride || COLORS.goldDark} opacity="0.9" />
+      <path d="M54 27 L40 32 L37 24 Z" fill={colorOverride || COLORS.primary} opacity="0.9" />
+      <path d="M48 46 L33 39 L40 32 Z" fill={colorOverride || COLORS.goldDark} opacity="0.9" />
+      <path d="M30 56 L27 39 L33 39 Z" fill={colorOverride || COLORS.primary} opacity="0.9" />
+      <path d="M12 46 L20 32 L27 39 Z" fill={colorOverride || COLORS.goldDark} opacity="0.9" />
+      <path d="M6 27 L23 24 L20 32 Z" fill={colorOverride || COLORS.primary} opacity="0.9" />
+      <path d="M14 11 L27 18 L23 24 Z" fill={colorOverride || COLORS.goldDark} opacity="0.9" />
     </svg>
   );
 }
@@ -22,7 +22,7 @@ export function LogoStar({ size = 36, colorOverride }) {
 export function DecorativeStar({ 
   size = 180, 
   opacity = 0.15, 
-  glowColor = COLORS.pink, 
+  glowColor = COLORS.primary, 
   blur = 0,
   rotate = 0,
   animate = true,

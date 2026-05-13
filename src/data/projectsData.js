@@ -11,7 +11,6 @@ export const pastProjects = [
 
 export const developerMetrics = [
   { target: 15,   suffix: "+", label: "Projects Done",   color: COLORS.pink },
-  { target: 25,   suffix: "",  label: "Lac Sq.Ft Built",  color: COLORS.cyan },
-  { target: 17,   suffix: "",  label: "Lac Sq.Ft Ongoing",color: COLORS.yellow },
-  { target: 5000, suffix: "+", label: "Happy Residents",  color: COLORS.lime },
+  { target: 25,   suffix: "+", label: "Lac Sq.Ft Built",  color: COLORS.cyan },
+  { target: 17500, suffix: "+", label: "Happy Residents",  color: COLORS.lime },
 ];

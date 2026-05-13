@@ -4,8 +4,8 @@
 }
 
 @keyframes saPulse {
-  0%, 100% { box-shadow: 0 0 24px rgba(233, 30, 140, .4); }
-  50% { box-shadow: 0 0 64px rgba(233, 30, 140, .75), 0 0 120px rgba(233, 30, 140, .18); }
+  0%, 100% { box-shadow: 0 0 24px rgba(198, 186, 66, .4); }
+  50% { box-shadow: 0 0 64px rgba(198, 186, 66, .75), 0 0 120px rgba(198, 186, 66, .18); }
 }
 
 @keyframes saScroll {
@@ -14,8 +14,8 @@
 }
 
 @keyframes saMapPulse {
-  0%, 100% { box-shadow: 0 0 0 6px rgba(233, 30, 140, .2), 0 0 0 12px rgba(233, 30, 140, .08); }
-  50% { box-shadow: 0 0 0 10px rgba(233, 30, 140, .3), 0 0 0 20px rgba(233, 30, 140, .1); }
+  0%, 100% { box-shadow: 0 0 0 6px rgba(198, 186, 66, .2), 0 0 0 12px rgba(198, 186, 66, .08); }
+  50% { box-shadow: 0 0 0 10px rgba(198, 186, 66, .3), 0 0 0 20px rgba(198, 186, 66, .1); }
 }
 
 @keyframes saGradShift {

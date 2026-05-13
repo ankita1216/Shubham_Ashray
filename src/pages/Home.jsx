@@ -12,7 +12,6 @@ import { About } from '../components/home/About';
 import { Contact } from '../components/home/Contact';
 import LeadModal from '../components/common/LeadModal';
 import { useReveal } from '../hooks/useReveal';
-import { useCounter } from '../hooks/useCounter';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,7 +19,6 @@ export default function Home() {
   
   // Initialize hooks
   useReveal();
-  useCounter();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);

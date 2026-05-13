@@ -7,7 +7,7 @@ export function Navbar({ scrolled, onOpenModal }) {
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         padding: scrolled ? "0" : "0", // Padding handled by container
-        background: scrolled ? "rgba(7,17,31,0.9)" : "transparent",
+        background: scrolled ? `${COLORS.darkNavy}E6` : "transparent",
         backdropFilter: scrolled ? "blur(24px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "none",
       }}>
@@ -20,7 +20,7 @@ export function Navbar({ scrolled, onOpenModal }) {
       <div className="flex items-center gap-3">
         <LogoStar />
         <span className="sa-serif text-white" style={{ fontSize: 18, fontWeight: 700, letterSpacing: .5 }}>
-          SUBHAM <span style={{ color: COLORS.pink }}>ASHRAY</span>
+          SUBHAM <span style={{ color: COLORS.primary }}>ASHRAY</span>
         </span>
       </div>
       <ul className="hidden lg:flex items-center gap-9" style={{ listStyle: "none" }}>

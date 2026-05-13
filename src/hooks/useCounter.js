@@ -22,9 +22,17 @@ export function useCounter() {
           animate(e.target);
         }
       }),
-      { threshold: 0.4 }
+      { threshold: 0.1 }
     );
-    document.querySelectorAll("[data-counter]").forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
+    
+    // Small delay to ensure DOM is settled
+    const timeoutId = setTimeout(() => {
+      document.querySelectorAll("[data-counter]").forEach((el) => obs.observe(el));
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      obs.disconnect();
+    };
   }, []);
 }

@@ -1,10 +1,39 @@
+// Plan Images
+import masterPlan from '../assets/images/Master Plan .webp';
+
+// Unit Plans
+import unitPlan1 from '../assets/images/UNIT PLAN .webp';
+import unitPlan2 from '../assets/images/UNIT PLAN (PHASE II).webp';
+import unitPlan3 from '../assets/images/UNIT PLAN 3BHK PREMIUM.webp';
+import unitPlan4 from '../assets/images/UNIT TYPE 2BHK (SMART).webp';
+import unitPlan5 from '../assets/images/Unit Plan-3BHK.webp';
+
+// Block Plans
+import blockA from '../assets/images/Block A phase 1.webp';
+import blockBC from '../assets/images/BLOCK B & C.webp';
+import blockD from '../assets/images/BLOCK D .webp';
+import blockE from '../assets/images/BLOCK E.webp';
+import blockF from '../assets/images/BLOCK F.webp';
+import blockH from '../assets/images/BLOCK H.webp';
+
 export const floorPlansData = {
-  "2bhk": [
-    { type: "2 BHK Smart",   block: "Block A, B & C",                    sbua: 800,  bua: 640,  carpet: 553, balcony: 44 },
-    { type: "2 BHK Premium", block: "Block D, E, F · G, I (Phase II)",   sbua: 875,  bua: 700,  carpet: 603, balcony: 47 },
+  master: {
+    title: "Master Plan",
+    image: masterPlan
+  },
+  units: [
+    { title: "Standard Unit Plan", image: unitPlan1 },
+    { title: "Phase II Unit Plan", image: unitPlan2 },
+    { title: "3BHK Premium Plan", image: unitPlan3 },
+    { title: "2BHK Smart Type", image: unitPlan4 },
+    { title: "3BHK Standard Type", image: unitPlan5 },
   ],
-  "3bhk": [
-    { type: "3 BHK Smart",   block: "Block A, B & C",                    sbua: 992,  bua: 794,  carpet: 676, balcony: 68 },
-    { type: "3 BHK Premium", block: "Block D, E, F · G, I (Phase II)",   sbua: 1255, bua: 1004, carpet: 872, balcony: 69 },
-  ],
+  blocks: [
+    { name: "Block A", image: blockA },
+    { name: "Block B & C", image: blockBC },
+    { name: "Block D", image: blockD },
+    { name: "Block E", image: blockE },
+    { name: "Block F", image: blockF },
+    { name: "Block H", image: blockH },
+  ]
 };

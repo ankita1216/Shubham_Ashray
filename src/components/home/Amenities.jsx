@@ -189,9 +189,8 @@ export function Amenities() {
       style={{ background: COLORS.darkBlue, position: "relative", overflow: "hidden", padding: "80px 0 88px" }}
     >
       {/* Decorative glows */}
-      <div className="absolute -bottom-12 -left-12" style={{ width: 450, height: 450, background: `radial-gradient(circle,rgba(233,30,140,0.09) 0%,transparent 70%)`, pointerEvents: "none" }} />
-      <div className="absolute top-0 right-0" style={{ width: 350, height: 350, background: `radial-gradient(circle,rgba(0,207,255,0.06) 0%,transparent 70%)`, pointerEvents: "none" }} />
-      <div className="absolute top-0 right-0" style={{ width: 350, height: 350, background: `radial-gradient(circle,rgba(0,207,255,0.06) 0%,transparent 70%)`, pointerEvents: "none" }} />
+      <div className="absolute -bottom-12 -left-12" style={{ width: 450, height: 450, background: `radial-gradient(circle, ${COLORS.primary}12 0%, transparent 70%)`, pointerEvents: "none" }} />
+      <div className="absolute top-0 right-0" style={{ width: 350, height: 350, background: `radial-gradient(circle, ${COLORS.primary}0D 0%, transparent 70%)`, pointerEvents: "none" }} />
 
       <DecorativeShape size={550} opacity={0.16} rotate={-30} className="-top-24 -left-24" />
 
@@ -218,7 +217,7 @@ export function Amenities() {
                 }}
               >
                 Every Joy,<br />
-                <span style={{ color: COLORS.cyan }}>Right Here.</span>
+                <span style={{ color: COLORS.primary }}>Right Here.</span>
               </h2>
             </div>
 
@@ -227,7 +226,7 @@ export function Amenities() {
               {/* Big stat */}
               <div style={{ textAlign: "right" }}>
                 <div style={{ fontFamily: "monospace", fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800, color: "#fff", lineHeight: 1, letterSpacing: "-2px" }}>
-                  30<span style={{ color: COLORS.cyan }}>+</span>
+                  30<span style={{ color: COLORS.primary }}>+</span>
                 </div>
                 <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.mutedDark, marginTop: 4 }}>Curated Amenities</div>
               </div>

@@ -7,7 +7,7 @@ import { DecorativeShape } from '../common/DecorativeShape';
 export function Overview() {
   const stats = [
     { target: 70, suffix: "%", label: "Open Space", color: COLORS.pink },
-    { target: 525, suffix: "", label: "Spacious Flats", color: "#1A1A2E" },
+    { target: 525, suffix: "", label: "Spacious Flats", color: COLORS.textDark },
     { target: 9, suffix: "", label: "Towers", color: COLORS.yellow },
     { target: 1255, suffix: "", label: "Max Sq.Ft", color: COLORS.lime },
   ];
@@ -29,7 +29,7 @@ export function Overview() {
         {/* Subtle Background Glow */}
         <div
           className="absolute bottom-0 left-0 pointer-events-none"
-          style={{ width: "60vw", height: "60vh", background: `radial-gradient(circle, rgba(0,207,255,0.03) 0%, transparent 70%)` }}
+          style={{ width: "60vw", height: "60vh", background: `radial-gradient(circle, ${COLORS.primary}08 0%, transparent 70%)` }}
         />
 
         {/* Decorative Shapes */}

@@ -15,7 +15,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="sa-sans sa-noise sa-section" style={{ background: COLORS.luxBeige, position: "relative", overflow: "hidden" }}>
-      <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 50% 60% at 80% 50%,rgba(233,30,140,0.05) 0%,transparent 60%)`, pointerEvents: "none" }} />
+      <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 50% 60% at 80% 50%, ${COLORS.primary}0D 0%, transparent 60%)`, pointerEvents: "none" }} />
       
       {/* Decorative Background Shapes */}
       <DecorativeShape 
@@ -36,21 +36,21 @@ export function Contact() {
         <div className="max-w-xl">
           <div className="sa-reveal"><SectionLabel onDark={false}>Get In Touch</SectionLabel></div>
           <h2 className="sa-reveal sa-d1 sa-serif" style={{ fontSize: "clamp(34px,4.5vw,58px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: -1.5, marginBottom: 24, color: COLORS.textDark }}>
-            Your Dream Home<br /><span style={{ color: COLORS.pink }}>Awaits You.</span>
+            Your Dream Home<br /><span style={{ color: COLORS.primary }}>Awaits You.</span>
           </h2>
           <p className="sa-reveal sa-d2" style={{ fontSize: 16, color: COLORS.mutedLight, lineHeight: 1.85, maxWidth: 440, marginBottom: 48 }}>
             Talk to our team today. We'll walk you through every detail — unit selection, pricing, site visits, and everything in between.
           </p>
           <div className="sa-reveal sa-d3 flex flex-col gap-5 mb-12">
-            <a href="tel:+919854043000" className="sa-channel-btn sa-sans" style={{ background: "rgba(255,184,0,0.1)", border: "1px solid rgba(255,184,0,0.25)", color: COLORS.textDark, padding: "20px 24px" }}>
-              <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(255,184,0,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>📞</div>
+            <a href="tel:+919854043000" className="sa-channel-btn sa-sans" style={{ background: `${COLORS.primary}12`, border: `1px solid ${COLORS.primary}26`, color: COLORS.textDark, padding: "20px 24px" }}>
+              <div style={{ width: 48, height: 48, borderRadius: 12, background: `${COLORS.primary}1A`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>📞</div>
               <div>
                 <span style={{ display: "block", fontSize: 11, fontWeight: 500, letterSpacing: 1, textTransform: "uppercase", color: COLORS.mutedLight, marginBottom: 2 }}>Call Us</span>
                 <span style={{ fontSize: 18, fontWeight: 700, color: COLORS.textDark }}>+91-98540 43000</span>
               </div>
             </a>
-            <a href="https://wa.me/919854043000" target="_blank" className="sa-channel-btn sa-sans" style={{ background: "rgba(76,175,80,0.1)", border: "1px solid rgba(76,175,80,0.2)", color: COLORS.textDark, padding: "20px 24px" }}>
-              <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(76,175,80,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>💬</div>
+            <a href="https://wa.me/919854043000" target="_blank" className="sa-channel-btn sa-sans" style={{ background: `${COLORS.primary}0D`, border: `1px solid ${COLORS.primary}1A`, color: COLORS.textDark, padding: "20px 24px" }}>
+              <div style={{ width: 48, height: 48, borderRadius: 12, background: `${COLORS.primary}14`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, flexShrink: 0 }}>💬</div>
               <div>
                 <span style={{ display: "block", fontSize: 11, fontWeight: 500, letterSpacing: 1, textTransform: "uppercase", color: COLORS.mutedLight, marginBottom: 2 }}>WhatsApp</span>
                 <span style={{ fontSize: 18, fontWeight: 700, color: COLORS.textDark }}>Chat With Us Now</span>
@@ -58,7 +58,7 @@ export function Contact() {
             </a>
           </div>
           <div className="sa-reveal sa-d4 p-8 rounded-2xl" style={{ background: "rgba(255,255,255,0.65)", border: "1px solid rgba(26,26,46,0.1)", backdropFilter: "blur(12px)" }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: COLORS.cyan, marginBottom: 12 }}>Site Address</div>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: COLORS.primary, marginBottom: 12 }}>Site Address</div>
             <div style={{ fontSize: 14, color: COLORS.mutedLight, lineHeight: 1.8 }}>
               Subham Ashray, Aerocity Dharapur<br />
               Palash Bari Road, Guwahati – 781017, Assam<br /><br />
@@ -71,7 +71,7 @@ export function Contact() {
         {/* Right — dark glass form */}
         <div className="sa-reveal sa-d2 rounded-3xl p-8 sm:p-12 relative overflow-hidden"
           style={{ background: COLORS.darkBlue, boxShadow: "0 24px 80px rgba(26,26,46,0.25)" }}>
-          <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(90deg,${COLORS.pink},${COLORS.cyan})` }} />
+          <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(90deg, ${COLORS.primary}, ${COLORS.goldDark})` }} />
           <h3 className="sa-serif text-white mb-2" style={{ fontSize: 28, fontWeight: 700 }}>Book Your Free Site Visit</h3>
           <p style={{ fontSize: 14, color: COLORS.mutedDark, marginBottom: 36 }}>Our team will reach out within 24 hours</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">

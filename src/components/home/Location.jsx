@@ -11,7 +11,7 @@ export function Location() {
   return (
     <>
       <section id="location" className="sa-sans sa-noise sa-section" style={{ background: COLORS.warmWhite, position: "relative", overflow: "hidden" }}>
-        <div className="absolute top-1/2 -right-24 -translate-y-1/2" style={{ width: 400, height: 400, background: `radial-gradient(circle,rgba(0,207,255,0.06) 0%,transparent 70%)`, pointerEvents: "none" }} />
+        <div className="absolute top-1/2 -right-24 -translate-y-1/2" style={{ width: 400, height: 400, background: `radial-gradient(circle, ${COLORS.primary}0D 0%, transparent 70%)`, pointerEvents: "none" }} />
         
         {/* Decorative Background Shapes */}
         <DecorativeShape 
@@ -24,7 +24,7 @@ export function Location() {
         <div className="sa-container">
           <div className="sa-reveal"><SectionLabel onDark={false}>Location</SectionLabel></div>
           <h2 className="sa-reveal sa-d1 sa-serif" style={{ fontSize: "clamp(34px,4.5vw,58px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: -1.5, marginBottom: 20, color: COLORS.textDark }}>
-            Wellborn & <span style={{ color: "#4CAF50" }}>Well-Connected</span>
+            Wellborn & <span style={{ color: COLORS.primary }}>Well-Connected</span>
           </h2>
           <p className="sa-reveal sa-d2" style={{ fontSize: 16, color: COLORS.mutedLight, lineHeight: 1.8, maxWidth: 560, marginBottom: 64 }}>
             Strategically placed in Guwahati's fastest-growing corridor — connected to the airport, universities, hospitals, and everything that matters.
@@ -32,7 +32,7 @@ export function Location() {
           <div className="grid gap-12 lg:gap-20 items-start" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
             {/* Map card — dark inset */}
             <div className="sa-reveal-l rounded-3xl p-10 relative overflow-hidden" style={{ background: COLORS.darkBlue, minHeight: 480, boxShadow: "0 16px 60px rgba(26,26,46,0.2)" }}>
-              <div className="absolute top-5 left-5 rounded-full px-4 py-1.5 text-xs font-bold sa-sans" style={{ background: COLORS.cyan, color: "#000" }}>✈ 5.7 km to Airport</div>
+              <div className="absolute top-5 left-5 rounded-full px-4 py-1.5 text-xs font-bold sa-sans" style={{ background: COLORS.primary, color: COLORS.darkNavy }}>✈ 5.7 km to Airport</div>
               <div className="flex flex-col items-center justify-center h-full gap-4" style={{ minHeight: 380 }}>
                 <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.07 }}>
                   {[40, 80, 120, 160].map(y => <line key={y} x1="0" y1={y * 2} x2="400" y2={y * 2} stroke="white" strokeWidth="0.5" />)}
@@ -40,7 +40,7 @@ export function Location() {
                   <path d="M 0 180 Q 100 160 200 180 Q 300 200 400 180" stroke="white" strokeWidth="2" fill="none" />
                   <path d="M 160 0 Q 180 90 200 180 Q 220 270 200 360" stroke="white" strokeWidth="2" fill="none" />
                 </svg>
-                <div style={{ width: 18, height: 18, background: COLORS.pink, borderRadius: "50%", animation: "saMapPulse 2s ease-in-out infinite", position: "relative", zIndex: 1 }} />
+                <div style={{ width: 18, height: 18, background: COLORS.primary, borderRadius: "50%", animation: "saMapPulse 2s ease-in-out infinite", position: "relative", zIndex: 1 }} />
                 <div className="sa-serif text-white text-center relative z-10" style={{ fontSize: 20, fontWeight: 600 }}>Subham Ashray</div>
                 <div className="text-center relative z-10" style={{ fontSize: 13, color: COLORS.mutedDark, maxWidth: 220 }}>
                   Aerocity Dharapur<br />Palash Bari Road, Guwahati 781017
@@ -50,7 +50,7 @@ export function Location() {
                   Get Directions →
                 </a>
               </div>
-              <div className="absolute bottom-5 right-5 rounded-full px-4 py-1.5 text-xs font-bold sa-sans" style={{ background: "#4CAF50", color: "#fff" }}>🎓 Gauhati Univ 5.4 km</div>
+              <div className="absolute bottom-5 right-5 rounded-full px-4 py-1.5 text-xs font-bold sa-sans" style={{ background: COLORS.primary, color: COLORS.darkNavy }}>🎓 Gauhati Univ 5.4 km</div>
             </div>
 
             {/* Connectivity list — on light */}

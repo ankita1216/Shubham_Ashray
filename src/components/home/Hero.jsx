@@ -7,7 +7,7 @@ import { DecorativeShape } from '../common/DecorativeShape';
 import aerialImage from "../../assets/images/Aerial view .webp";
 
 // ── Architectural Corner Brackets ────────────────────────────────────────────
-function CornerBrackets({ size = 32, thickness = 2, color = "#C9A44D", opacity = 1 }) {
+function CornerBrackets({ size = 32, thickness = 2, color = COLORS.primary, opacity = 1 }) {
   const s = `${size}px`;
   const corners = [
     { top: 0, left: 0, borderTop: thickness, borderLeft: thickness, borderBottom: 0, borderRight: 0 },
@@ -65,7 +65,7 @@ function RotatingBadge() {
           </defs>
           <text
             fontSize="9"
-            fill="#C9A44D"
+            fill={COLORS.primary}
             letterSpacing="3.2"
             fontFamily="'Cormorant Garamond', serif"
             opacity="0.8"
@@ -80,20 +80,20 @@ function RotatingBadge() {
         transform: 'translate(-50%, -50%)',
         width: 10, height: 10,
         borderRadius: '50%',
-        border: '1px solid rgba(201,164,77,0.5)',
-        background: 'rgba(201,164,77,0.15)',
+        border: `1px solid ${COLORS.primary}80`,
+        background: `${COLORS.primary}26`,
       }} />
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%) rotate(45deg)',
         width: 20, height: 1,
-        background: 'rgba(201,164,77,0.3)',
+        background: `${COLORS.primary}4D`,
       }} />
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%) rotate(-45deg)',
         width: 20, height: 1,
-        background: 'rgba(201,164,77,0.3)',
+        background: `${COLORS.primary}4D`,
       }} />
     </div>
   );
@@ -107,7 +107,7 @@ function GridLines() {
       <div style={{
         position: 'absolute', left: 32, top: 0, bottom: 0,
         width: 1,
-        background: 'linear-gradient(to bottom, transparent, rgba(201,164,77,0.18) 20%, rgba(201,164,77,0.18) 80%, transparent)',
+        background: `linear-gradient(to bottom, transparent, ${COLORS.primary}2E 20%, ${COLORS.primary}2E 80%, transparent)`,
       }} className="hidden md:block" />
       {/* Horizontal top rule */}
       <motion.div
@@ -117,7 +117,7 @@ function GridLines() {
         style={{
           position: 'absolute', top: 110, left: '8%', right: '8%',
           height: 1,
-          background: 'linear-gradient(to right, rgba(201,164,77,0.15), rgba(201,164,77,0.06) 60%, transparent)',
+          background: `linear-gradient(to right, ${COLORS.primary}26, ${COLORS.primary}0F 60%, transparent)`,
           transformOrigin: 'left',
         }}
         className="hidden md:block"
@@ -168,7 +168,7 @@ export function Hero({ onOpenModal }) {
             fontSize: 'clamp(16rem, 30vw, 42rem)',
             fontWeight: 700,
             letterSpacing: '-0.04em',
-            color: '#C9A44D',
+            color: COLORS.primary,
             opacity: 0.03,
             display: 'block',
           }}>
@@ -214,7 +214,7 @@ export function Hero({ onOpenModal }) {
             position: 'relative',
             width: '100%',
             height: '100%',
-            border: '1px solid rgba(201,164,77,0.28)',
+            border: `1px solid ${COLORS.primary}47`,
             padding: 6,
           }}>
             {/* Inner image */}
@@ -233,12 +233,12 @@ export function Hero({ onOpenModal }) {
               {/* Left gradient bleed into dark bg */}
               <div style={{
                 position: 'absolute', inset: 0,
-                background: 'linear-gradient(to right, rgba(7,17,31,0.72) 0%, rgba(7,17,31,0.25) 35%, transparent 60%)',
+              background: `linear-gradient(to right, ${COLORS.darkNavy}B8 0%, ${COLORS.darkNavy}40 35%, transparent 60%)`,
               }} />
               {/* Bottom fade */}
               <div style={{
                 position: 'absolute', inset: 0,
-                background: 'linear-gradient(to top, rgba(7,17,31,0.85) 0%, transparent 40%)',
+              background: `linear-gradient(to top, ${COLORS.darkNavy}D9 0%, transparent 40%)`,
               }} />
 
               {/* Phase label inside image */}
@@ -246,13 +246,13 @@ export function Hero({ onOpenModal }) {
                 position: 'absolute', bottom: 20, right: 20,
                 display: 'flex', alignItems: 'center', gap: 8,
               }}>
-                <div style={{ width: 16, height: 1, background: 'rgba(201,164,77,0.5)' }} />
+                <div style={{ width: 16, height: 1, background: `${COLORS.primary}80` }} />
                 <span style={{
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: 10,
                   letterSpacing: '0.35em',
                   textTransform: 'uppercase',
-                  color: 'rgba(201,164,77,0.65)',
+                  color: `${COLORS.primary}A6`,
                   fontWeight: 400,
                 }}>
                   Phase II
@@ -268,7 +268,7 @@ export function Hero({ onOpenModal }) {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: 10,
                   letterSpacing: '0.3em',
-                  color: 'rgba(201,164,77,0.45)',
+                  color: `${COLORS.primary}73`,
                   textTransform: 'uppercase',
                 }}>
                   01 / 09
@@ -277,11 +277,11 @@ export function Hero({ onOpenModal }) {
             </div>
 
             {/* Corner brackets */}
-            <CornerBrackets size={32} thickness={2} color="#C9A44D" opacity={1} />
+            <CornerBrackets size={32} thickness={2} color={COLORS.primary} opacity={1} />
 
             {/* Secondary inner brackets — slightly inset */}
             <div style={{ position: 'absolute', inset: 10 }}>
-              <CornerBrackets size={16} thickness={1} color="#C9A44D" opacity={0.4} />
+              <CornerBrackets size={16} thickness={1} color={COLORS.primary} opacity={0.4} />
             </div>
           </div>
         </motion.div>
@@ -301,7 +301,7 @@ export function Hero({ onOpenModal }) {
           />
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'linear-gradient(to top, rgba(7,17,31,0.95) 0%, rgba(7,17,31,0.4) 60%, rgba(7,17,31,0.2) 100%)',
+            background: `linear-gradient(to top, ${COLORS.darkNavy}F2 0%, ${COLORS.darkNavy}66 60%, ${COLORS.darkNavy}33 100%)`,
           }} />
         </div>
 
@@ -310,7 +310,7 @@ export function Hero({ onOpenModal }) {
           className="hidden md:block"
           style={{
             position: 'absolute', inset: 0, zIndex: 15, pointerEvents: 'none',
-            background: 'linear-gradient(to right, #07111F 0%, #07111F 32%, rgba(7,17,31,0.85) 42%, rgba(7,17,31,0.3) 55%, transparent 65%)',
+            background: `linear-gradient(to right, ${COLORS.darkNavy} 0%, ${COLORS.darkNavy} 32%, ${COLORS.darkNavy}D9 42%, ${COLORS.darkNavy}4D 55%, transparent 65%)`,
           }}
         />
 
@@ -337,10 +337,10 @@ export function Hero({ onOpenModal }) {
               transition={{ duration: 0.8, delay: 0.55 }}
               style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}
             >
-              <div style={{ width: 40, height: 1, background: '#C9A44D' }} />
+              <div style={{ width: 40, height: 1, background: COLORS.primary }} />
               <span style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                color: '#C9A44D',
+                color: COLORS.primary,
                 fontSize: 11,
                 letterSpacing: '0.42em',
                 textTransform: 'uppercase',
@@ -382,7 +382,7 @@ export function Hero({ onOpenModal }) {
                   fontWeight: 300,
                   letterSpacing: '-0.025em',
                   lineHeight: 0.86,
-                  color: '#C9A44D',
+                  color: COLORS.primary,
                   fontStyle: 'italic',
                   margin: 0,
                 }}
@@ -399,7 +399,7 @@ export function Hero({ onOpenModal }) {
               style={{
                 width: 56,
                 height: 1,
-                background: 'rgba(201,164,77,0.55)',
+                background: `${COLORS.primary}8C`,
                 marginBottom: 12,
                 transformOrigin: 'left',
               }}
@@ -435,8 +435,8 @@ export function Hero({ onOpenModal }) {
                 style={{
                   display: 'inline-block',
                   padding: '15px 40px',
-                  background: '#C9A44D',
-                  color: '#07111F',
+                  background: COLORS.primary,
+                  color: COLORS.darkNavy,
                   fontSize: 10,
                   letterSpacing: '0.28em',
                   textTransform: 'uppercase',
@@ -448,12 +448,12 @@ export function Hero({ onOpenModal }) {
                   boxShadow: '0 0 0 rgba(201,164,77,0)',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = '#B38F3D';
-                  e.currentTarget.style.boxShadow = '0 0 28px rgba(201,164,77,0.32)';
+                  e.currentTarget.style.background = COLORS.goldDark;
+                  e.currentTarget.style.boxShadow = `0 0 28px ${COLORS.primary}52`;
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.background = '#C9A44D';
-                  e.currentTarget.style.boxShadow = '0 0 0 rgba(201,164,77,0)';
+                  e.currentTarget.style.background = COLORS.primary;
+                  e.currentTarget.style.boxShadow = '0 0 0 rgba(198,186,66,0)';
                 }}
               >
                 Book a Site Visit
@@ -477,8 +477,8 @@ export function Hero({ onOpenModal }) {
                   transition: 'all 0.3s ease',
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.color = '#C9A44D';
-                  e.currentTarget.style.borderBottomColor = '#C9A44D';
+                  e.currentTarget.style.color = COLORS.primary;
+                  e.currentTarget.style.borderBottomColor = COLORS.primary;
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.color = 'rgba(255,255,255,0.72)';
@@ -525,7 +525,7 @@ export function Hero({ onOpenModal }) {
             style={{
               width: 1,
               height: 52,
-              background: 'linear-gradient(to bottom, rgba(201,164,77,0.45), transparent)',
+              background: `linear-gradient(to bottom, ${COLORS.primary}73, transparent)`,
               transformOrigin: 'top',
             }}
             animate={{ scaleY: [0, 1, 0] }}
@@ -544,8 +544,8 @@ export function Hero({ onOpenModal }) {
             left: 0,
             width: '100%',
             zIndex: 50,
-            borderTop: '1px solid rgba(201,164,77,0.14)',
-            background: 'rgba(7,17,31,0.88)',
+            borderTop: `1px solid ${COLORS.primary}24`,
+            background: `${COLORS.darkNavy}E0`,
             backdropFilter: 'blur(20px)',
           }}
         >
@@ -571,7 +571,7 @@ export function Hero({ onOpenModal }) {
                     fontFamily: "'Cormorant Garamond', serif",
                     fontSize: 'clamp(1.5rem, 3vw, 2.1rem)',
                     fontWeight: 300,
-                    color: '#C9A44D',
+                    color: COLORS.primary,
                     lineHeight: 1,
                     marginBottom: 6,
                     letterSpacing: '-0.01em',
@@ -591,7 +591,7 @@ export function Hero({ onOpenModal }) {
                 {i < stats.length - 1 && (
                   <div style={{
                     width: 1,
-                    background: 'rgba(201,164,77,0.14)',
+                    background: `${COLORS.primary}24`,
                     alignSelf: 'stretch',
                     margin: '4px 0',
                   }} />

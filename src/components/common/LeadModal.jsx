@@ -33,8 +33,8 @@ export default function LeadModal({ isOpen, onClose }) {
     navigate("/thank-you");
   };
 
-  const THEME_DARK = "#07111F";
-  const THEME_GOLD = "#C9A44D";
+  const THEME_DARK = COLORS.darkNavy;
+  const THEME_GOLD = COLORS.primary;
 
   return (
     <AnimatePresence>
@@ -74,8 +74,8 @@ export default function LeadModal({ isOpen, onClose }) {
                 width: 100%;
                 height: 56px;
                 border-radius: 14px;
-                border: 1.5px solid rgba(7,17,31,0.09);
-                background: #fff;
+                border: `1.5px solid ${COLORS.darkNavy}17`,
+                background: "#fff",
                 padding: 0 20px;
                 font-size: 14px;
                 color: #07111F;
@@ -88,8 +88,8 @@ export default function LeadModal({ isOpen, onClose }) {
               }
               .lead-input::placeholder { color: rgba(7,17,31,0.22); }
               .lead-input:focus {
-                border-color: #C9A44D;
-                box-shadow: 0 0 0 3px rgba(201,164,77,0.10), 0 1px 4px rgba(0,0,0,0.04);
+                border-color: ${COLORS.primary};
+                box-shadow: 0 0 0 3px ${COLORS.primary}1A, 0 1px 4px rgba(0,0,0,0.04);
               }
               .lead-label {
                 display: block;
@@ -105,7 +105,7 @@ export default function LeadModal({ isOpen, onClose }) {
                 width: 100%;
                 height: 56px;
                 border-radius: 14px;
-                background: #07111F;
+                background: ${COLORS.darkNavy};
                 color: #fff;
                 font-size: 10.5px;
                 font-weight: 700;
@@ -121,7 +121,7 @@ export default function LeadModal({ isOpen, onClose }) {
                 user-select: none;
               }
               .lead-submit:hover {
-                background: #0d1e30;
+                background: ${COLORS.darkNavy}E6;
                 box-shadow: 0 12px 32px rgba(7,17,31,0.24);
               }
               .lead-submit:active { transform: scale(0.99); }
@@ -152,8 +152,8 @@ export default function LeadModal({ isOpen, onClose }) {
                 outline: "none",
                 WebkitTapHighlightColor: "transparent",
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = "#C9A44D"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#C9A44D"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(7,17,31,0.04)"; e.currentTarget.style.color = "rgba(7,17,31,0.35)"; e.currentTarget.style.borderColor = "rgba(7,17,31,0.1)"; }}
+              onMouseEnter={e => { e.currentTarget.style.background = COLORS.primary; e.currentTarget.style.color = COLORS.darkNavy; e.currentTarget.style.borderColor = COLORS.primary; }}
+              onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.darkNavy}0A`; e.currentTarget.style.color = `${COLORS.darkNavy}59`; e.currentTarget.style.borderColor = `${COLORS.darkNavy}1A`; }}
             >
               <X size={15} />
             </button>
