@@ -205,8 +205,6 @@ export function Overview() {
           </div>
         </div>
       </section>
-
-      <WaveLightToDark fromColor={COLORS.warmWhite} toColor={COLORS.darkBlue} />
     </>
   );
 }

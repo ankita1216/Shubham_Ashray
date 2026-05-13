@@ -7,186 +7,195 @@ import { DecorativeShape } from '../common/DecorativeShape';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function FloorPlans({ onOpenModal }) {
-  const [activeMainTab, setActiveMainTab] = useState("master"); // master, units, blocks
+  const [activeMainTab, setActiveMainTab] = useState("master");
   const [activeBlockIndex, setActiveBlockIndex] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   const mainTabs = [
-    { id: "master", label: "Master Plan" },
-    { id: "units", label: "Unit Plan" },
-    { id: "blocks", label: "Block" }
+    { id: "master", label: "Master Plan", sub: "01" },
+    { id: "units", label: "Unit Plan", sub: "02" },
+    { id: "blocks", label: "Block Plan", sub: "03" }
   ];
+
+  // Helper to get current image
+  const getActiveImage = () => {
+    if (activeMainTab === 'master') return floorPlansData.master.image;
+    if (activeMainTab === 'blocks') return floorPlansData.blocks[activeBlockIndex].image;
+    return null; // Units uses a grid
+  };
 
   return (
     <>
-      <section id="floor-plans" className="sa-sans sa-noise sa-section" style={{ background: COLORS.darkMid, position: "relative", overflow: "hidden", minHeight: '900px' }}>
-        <div className="absolute -top-24 right-0" style={{ width: 450, height: 450, background: `radial-gradient(circle, ${COLORS.primary}0F 0%, transparent 70%)`, pointerEvents: "none" }} />
-        
-        <DecorativeShape 
-          size={500} 
-          opacity={0.14} 
-          rotate={160} 
-          className="-bottom-32 -right-32" 
-        />
+      <section id="floor-plans" className="relative py-24 overflow-hidden" style={{ background: COLORS.darkMid }}>
+        {/* Architectural Grid Overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{ backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`, backgroundSize: '50px 50px' }} />
 
-        <div className="sa-container">
-          <div className="sa-reveal"><SectionLabel onDark={true}>Layouts & Plans</SectionLabel></div>
-          
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
-            <div>
-              <h2 className="sa-reveal sa-d1 sa-serif" style={{ fontSize: "clamp(34px,4.5vw,58px)", fontWeight: 900, lineHeight: 1.1, letterSpacing: -1.5, color: "#fff", marginBottom: 20 }}>
-                Architectural <span style={{ color: COLORS.primary }}>Excellence</span>
+        <div className="sa-container relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+            <div className="max-w-xl">
+              <SectionLabel onDark={true}>Space Anatomy</SectionLabel>
+              <h2 className="sa-serif text-white text-5xl md:text-6xl font-light tracking-tighter mt-4">
+                Precision <span className="italic" style={{ color: COLORS.primary }}>Engineering.</span>
               </h2>
-              <p className="sa-reveal sa-d2" style={{ fontSize: 16, color: COLORS.mutedDark, lineHeight: 1.8, maxWidth: 520 }}>
-                Explore our meticulously designed site layouts, unit configurations, and block-wise detailing.
-              </p>
             </div>
 
-            {/* MAIN TABS */}
-            <div className="sa-reveal sa-d3 flex gap-2 p-1.5 rounded-2xl w-fit"
-              style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            {/* COMPACT TOP TABS */}
+            <div className="flex bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md">
               {mainTabs.map((t) => (
-                <button 
-                  key={t.id} 
-                  style={{ 
-                    background: activeMainTab === t.id ? COLORS.primary : 'transparent',
-                    color: activeMainTab === t.id ? COLORS.darkNavy : 'rgba(255,255,255,0.4)',
-                  }}
-                  className={`px-6 py-3 rounded-xl transition-all duration-300 text-sm font-bold tracking-wide ${activeMainTab === t.id ? "shadow-lg shadow-black/20" : "hover:text-white/70"}`}
+                <button
+                  key={t.id}
                   onClick={() => setActiveMainTab(t.id)}
+                  className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${activeMainTab === t.id ? 'bg-white text-black' : 'text-white/40 hover:text-white'
+                    }`}
                 >
-                  {t.label.toUpperCase()}
+                  {t.label}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* CONTENT AREA */}
-          <div className="relative min-h-[600px]">
-            <AnimatePresence mode="wait">
-              {activeMainTab === 'master' && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* BLUEPRINT DISPLAY STAGE */}
+            <div className="lg:col-span-9 order-2 lg:order-1">
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key="master"
-                  initial={{ opacity: 0, y: 20 }}
+                  key={activeMainTab + (activeMainTab === 'blocks' ? activeBlockIndex : '')}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  className="flex flex-col items-center"
+                  exit={{ opacity: 0, y: -10 }}
+                  className="relative group bg-[#1a1c12] rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl"
+                  style={{ height: '550px' }}
                 >
-                  <div className="w-full max-w-5xl rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-4 lg:p-8 backdrop-blur-sm">
-                    <img 
-                      src={floorPlansData.master.image} 
-                      alt="Master Plan" 
-                      className="w-full h-auto rounded-2xl shadow-2xl"
-                      style={{ filter: 'contrast(1.05) brightness(1.05)' }}
-                    />
-                    <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                      <div className="text-center md:text-left">
-                        <h3 className="text-2xl font-bold text-white mb-2">The Master Plan</h3>
-                        <p className="text-white/50 text-sm">Strategic placement of 9 towers with 70% open landscape.</p>
+                  {activeMainTab === 'units' ? (
+                    /* UNITS GRID VIEW */
+                    <div className="h-full overflow-y-auto p-8 custom-scrollbar">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {floorPlansData.units.map((plan, idx) => (
+                          <div key={idx} className="bg-white/5 border border-white/5 rounded-2xl p-4 flex gap-4 items-center hover:bg-white/10 transition-all cursor-pointer" onClick={() => { setIsZoomed(plan.image) }}>
+                            <div className="w-24 h-24 bg-white rounded-lg flex-shrink-0 p-2">
+                              <img src={plan.image} alt="" className="w-full h-full object-contain" />
+                            </div>
+                            <div>
+                              <h4 className="text-white font-bold text-sm">{plan.title}</h4>
+                              <p className="text-[10px] text-white/40 uppercase tracking-widest mt-1">Tap to Expand</p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                      <button 
-                        onClick={onOpenModal}
-                        className="sa-btn-primary px-8 py-4 rounded-xl text-sm font-bold flex items-center gap-2 transition-transform hover:scale-105 active:scale-95"
-                      >
-                        Enquire for Details
-                      </button>
                     </div>
-                  </div>
-                </motion.div>
-              )}
-
-              {activeMainTab === 'units' && (
-                <motion.div
-                  key="units"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                >
-                  {floorPlansData.units.map((plan, idx) => (
-                    <div key={idx} className="group relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 p-3 transition-all duration-500 hover:bg-white/[0.08] hover:border-white/20">
-                      <div className="aspect-[4/3] rounded-xl overflow-hidden bg-white mb-4">
-                        <img 
-                          src={plan.image} 
-                          alt={plan.title} 
-                          className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
-                        />
+                  ) : (
+                    /* MASTER & BLOCK IMAGE VIEW */
+                    <div className="relative h-full flex items-center justify-center p-12">
+                      {/* Scale / Coordinates Decor */}
+                      <div className="absolute top-6 left-6 text-[9px] font-mono text-white/20 uppercase tracking-widest">
+                        Ref_Axis: 24.089 / N
                       </div>
-                      <div className="p-3">
-                        <h4 className="text-lg font-bold text-white mb-4">{plan.title}</h4>
-                        <button 
-                          onClick={onOpenModal}
-                          className="w-full py-3 rounded-lg border border-white/10 text-white/60 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#15170F] transition-all"
+
+                      <img
+                        src={getActiveImage()}
+                        alt="Blueprint"
+                        className={`max-h-full max-w-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-700 ${activeMainTab === 'blocks' ? 'bg-white p-6 rounded-lg' : ''}`}
+                      />
+
+                      {/* Hover Overlay Controls */}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                        <button
+                          onClick={() => setIsZoomed(getActiveImage())}
+                          className="px-8 py-3 bg-white text-black rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform"
                         >
-                          View Details
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+                          Inspect Details
                         </button>
                       </div>
                     </div>
-                  ))}
+                  )}
                 </motion.div>
-              )}
+              </AnimatePresence>
 
+              {/* BLOCK SELECTOR SUB-MENU */}
               {activeMainTab === 'blocks' && (
-                <motion.div
-                  key="blocks"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  className="flex flex-col gap-10"
-                >
-                  {/* SUB TABS FOR BLOCKS */}
-                  <div className="flex flex-wrap gap-3 justify-center">
-                    {floorPlansData.blocks.map((block, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveBlockIndex(idx)}
-                        style={{
-                          background: activeBlockIndex === idx ? COLORS.primary : 'rgba(255,255,255,0.05)',
-                          color: activeBlockIndex === idx ? COLORS.darkNavy : 'rgba(255,255,255,0.4)',
-                        }}
-                        className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all ${activeBlockIndex === idx ? "" : "hover:bg-white/10"}`}
-                      >
-                        {block.name}
-                      </button>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {floorPlansData.blocks.map((block, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveBlockIndex(idx)}
+                      className={`px-5 py-2 rounded-xl text-[10px] font-bold uppercase tracking-tighter transition-all ${activeBlockIndex === idx ? 'bg-primary text-black' : 'bg-white/5 text-white/40 border border-white/5'
+                        }`}
+                      style={{ backgroundColor: activeBlockIndex === idx ? COLORS.primary : '' }}
+                    >
+                      {block.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* SIDEBAR SPECS */}
+            <div className="lg:col-span-3 order-1 lg:order-2">
+              <div className="sticky top-24 space-y-6">
+                <div className="p-8 rounded-[2rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl">
+                  <h3 className="text-white text-xl font-bold mb-4">Technical Specs</h3>
+                  <div className="space-y-4">
+                    {[
+                      { l: "Efficiency", v: "84%" },
+                      { l: "Green Area", v: "70%" },
+                      { l: "Open Side", v: "3-Side" }
+                    ].map((s, i) => (
+                      <div key={i} className="flex justify-between items-center border-b border-white/5 pb-3">
+                        <span className="text-[10px] text-white/30 uppercase font-bold">{s.l}</span>
+                        <span className="text-sm text-white font-mono">{s.v}</span>
+                      </div>
                     ))}
                   </div>
-
-                  <div className="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-4 lg:p-10">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeBlockIndex}
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <img 
-                          src={floorPlansData.blocks[activeBlockIndex].image} 
-                          alt={floorPlansData.blocks[activeBlockIndex].name} 
-                          className="w-full h-auto rounded-xl shadow-xl bg-white p-4"
-                        />
-                        <div className="mt-8 text-center">
-                          <h3 className="text-xl font-bold text-white mb-2">{floorPlansData.blocks[activeBlockIndex].name} Layout</h3>
-                          <p className="text-white/40 text-sm mb-6">Detailed floor-wise planning for {floorPlansData.blocks[activeBlockIndex].name}.</p>
-                          <button 
-                            onClick={onOpenModal}
-                            className="px-10 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-xl text-sm font-bold transition-all"
-                          >
-                            Download Full Block Plan
-                          </button>
-                        </div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <button onClick={onOpenModal} className="w-full mt-8 py-4 rounded-xl text-[10px] font-bold uppercase tracking-[0.2em]" style={{ background: COLORS.primary, color: '#000' }}>
+                    Request Brochure
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* FULLSCREEN ZOOM MODAL */}
+      <AnimatePresence>
+        {isZoomed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center p-4 md:p-20"
+          >
+            <button
+              onClick={() => setIsZoomed(false)}
+              className="absolute top-10 right-10 text-white/50 hover:text-white transition-colors"
+            >
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              className="relative max-w-7xl w-full h-full flex items-center justify-center overflow-auto custom-scrollbar"
+            >
+              <img src={isZoomed} alt="Zoomed View" className="max-w-none w-auto h-[120vh] md:h-[150vh] object-contain cursor-grab active:cursor-grabbing" />
+            </motion.div>
+
+            <div className="absolute bottom-10 px-8 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-white text-[10px] uppercase tracking-widest font-bold">
+              Scroll to explore every corner
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <WaveDarkToLight fromColor={COLORS.darkMid} toColor={COLORS.warmWhite} />
+
+      <style>{`
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+      `}</style>
     </>
   );
 }

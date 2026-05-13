@@ -3,6 +3,7 @@ import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { amenitiesData } from '../../data/amenitiesData';
 import { DecorativeShape } from '../common/DecorativeShape';
+import { WaveLightToDark } from '../common/Dividers';
 
 // ── Compact card sizes for the bento grid ──────────────────────────────────
 const LAYOUTS = [
@@ -41,16 +42,16 @@ function AmenityCard({ icon, name, desc, color, layout, index }) {
         overflow: "hidden",
         cursor: "pointer",
         background: hovered
-          ? `linear-gradient(135deg, ${COLORS.darkMid} 0%, ${color}14 100%)`
-          : COLORS.darkMid,
+          ? "#fff"
+          : "rgba(26, 28, 20, 0.04)",
         border: hovered
           ? `1px solid ${color}45`
-          : "1px solid rgba(255,255,255,0.06)",
+          : "1px solid rgba(26, 28, 20, 0.08)",
         transition: "all 0.45s cubic-bezier(0.4,0,0.2,1)",
         transform: hovered ? "translateY(-3px) scale(1.005)" : "translateY(0) scale(1)",
         boxShadow: hovered
-          ? `0 16px 48px rgba(0,0,0,0.35), 0 0 0 1px ${color}25, inset 0 1px 0 rgba(255,255,255,0.06)`
-          : "0 2px 12px rgba(0,0,0,0.2)",
+          ? `0 16px 48px rgba(26, 28, 20, 0.08), 0 0 0 1px ${color}25`
+          : "none",
         padding: isFeatured ? "36px" : isWide ? "26px 28px" : "24px",
         display: "flex",
         flexDirection: isFeatured ? "column" : isWide ? "row" : "column",
@@ -110,7 +111,7 @@ function AmenityCard({ icon, name, desc, color, layout, index }) {
         <div style={{
           fontSize: isFeatured ? 20 : isWide ? 16 : 15,
           fontWeight: 700,
-          color: "#fff",
+          color: COLORS.textDark,
           marginBottom: isFeatured ? 10 : 6,
           letterSpacing: "-0.01em",
           lineHeight: 1.25,
@@ -125,10 +126,10 @@ function AmenityCard({ icon, name, desc, color, layout, index }) {
         {(isFeatured || isTall || !isWide) && (
           <div style={{
             fontSize: isFeatured ? 14 : 12,
-            color: COLORS.mutedDark,
+            color: COLORS.mutedLight,
             lineHeight: 1.65,
             maxWidth: isFeatured ? 280 : "none",
-            opacity: hovered ? 1 : 0.75,
+            opacity: hovered ? 1 : 0.85,
             transition: "opacity 0.3s ease",
             display: isWide ? "none" : "block",
           }}>
@@ -183,10 +184,11 @@ function AmenityCard({ icon, name, desc, color, layout, index }) {
 
 export function Amenities() {
   return (
+    <>
     <section
       id="amenities"
       className="sa-sans sa-section"
-      style={{ background: COLORS.darkBlue, position: "relative", overflow: "hidden", padding: "80px 0 88px" }}
+      style={{ background: COLORS.warmWhite, position: "relative", overflow: "hidden", padding: "80px 0 88px" }}
     >
       {/* Decorative glows */}
       <div className="absolute -bottom-12 -left-12" style={{ width: 450, height: 450, background: `radial-gradient(circle, ${COLORS.primary}12 0%, transparent 70%)`, pointerEvents: "none" }} />
@@ -203,7 +205,7 @@ export function Amenities() {
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
             <div>
               <div className="sa-reveal" style={{ marginBottom: 14 }}>
-                <SectionLabel onDark={true}>World-Class Amenities</SectionLabel>
+                <SectionLabel onDark={false}>World-Class Amenities</SectionLabel>
               </div>
               <h2
                 className="sa-serif"
@@ -212,7 +214,7 @@ export function Amenities() {
                   fontWeight: 900,
                   lineHeight: 1.1,
                   letterSpacing: -1.5,
-                  color: "#fff",
+                  color: COLORS.textDark,
                   margin: 0,
                 }}
               >
@@ -225,17 +227,17 @@ export function Amenities() {
             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12, paddingTop: 4 }}>
               {/* Big stat */}
               <div style={{ textAlign: "right" }}>
-                <div style={{ fontFamily: "monospace", fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800, color: "#fff", lineHeight: 1, letterSpacing: "-2px" }}>
+                <div style={{ fontFamily: "monospace", fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800, color: COLORS.textDark, lineHeight: 1, letterSpacing: "-2px" }}>
                   30<span style={{ color: COLORS.primary }}>+</span>
                 </div>
-                <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.mutedDark, marginTop: 4 }}>Curated Amenities</div>
+                <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.mutedLight, marginTop: 4 }}>Curated Amenities</div>
               </div>
               {/* Divider */}
-              <div style={{ width: 40, height: 1, background: `rgba(255,255,255,0.12)` }} />
+              <div style={{ width: 40, height: 1, background: `rgba(26,28,20,0.12)` }} />
               <p
                 style={{
                   fontSize: 14,
-                  color: COLORS.mutedDark,
+                  color: COLORS.mutedLight,
                   maxWidth: 280,
                   lineHeight: 1.7,
                   textAlign: "right",
@@ -248,7 +250,7 @@ export function Amenities() {
           </div>
 
           {/* Thin divider line */}
-          <div style={{ height: 1, background: "rgba(255,255,255,0.06)", marginTop: 32 }} />
+          <div style={{ height: 1, background: "rgba(26,28,20,0.06)", marginTop: 32 }} />
         </div>
 
         {/* ── Bento Grid ── */}
@@ -272,11 +274,11 @@ export function Amenities() {
 
         {/* ── Footer tag line ── */}
         <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 32 }}>
-          <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-          <span style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: COLORS.mutedDark, whiteSpace: "nowrap" }}>
+          <div style={{ flex: 1, height: 1, background: "rgba(26,28,20,0.06)" }} />
+          <span style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: COLORS.mutedLight, whiteSpace: "nowrap" }}>
             Subham Ashray · Premium Living
           </span>
-          <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+          <div style={{ flex: 1, height: 1, background: "rgba(26,28,20,0.06)" }} />
         </div>
       </div>
 
@@ -294,5 +296,8 @@ export function Amenities() {
         }
       `}</style>
     </section>
+
+    <WaveLightToDark fromColor={COLORS.warmWhite} toColor={COLORS.darkBlue} />
+    </>
   );
 }
