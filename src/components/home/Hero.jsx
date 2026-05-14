@@ -350,46 +350,26 @@ export function Hero({ onOpenModal }) {
               </span>
             </motion.div>
 
-            {/* AHA — line 1 */}
-            <div style={{ overflow: 'hidden', marginBottom: 4 }}>
+            {/* AHA LIFE. — Single Line */}
+            <div style={{ overflow: 'hidden', marginBottom: 8 }}>
               <motion.h1
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.05, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 'clamp(3rem, 7vw, 6rem)',
+                  fontSize: 'clamp(2.4rem, 7vw, 6rem)',
                   fontWeight: 300,
-                  letterSpacing: '-0.025em',
-                  lineHeight: 0.86,
+                  letterSpacing: '-0.015em',
+                  lineHeight: 1,
                   color: '#FFFFFF',
                   margin: 0,
                 }}
               >
-                AHA
+                AHA <span style={{ color: COLORS.primary, fontStyle: 'italic' }}>LIFE.</span>
               </motion.h1>
             </div>
 
-            {/* LIFE. — line 2 */}
-            <div style={{ overflow: 'hidden', marginBottom: 8 }}>
-              <motion.h1
-                initial={{ y: '110%' }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.05, delay: 0.78, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 'clamp(3rem, 7vw, 6rem)',
-                  fontWeight: 300,
-                  letterSpacing: '-0.025em',
-                  lineHeight: 0.86,
-                  color: COLORS.primary,
-                  fontStyle: 'italic',
-                  margin: 0,
-                }}
-              >
-                LIFE.
-              </motion.h1>
-            </div>
 
             {/* Thin rule */}
             <motion.div
