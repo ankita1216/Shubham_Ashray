@@ -335,70 +335,31 @@ export function Hero({ onOpenModal }) {
               initial={{ opacity: 0, x: -24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.55 }}
-              style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}
+              className="sa-label"
+              style={{ color: COLORS.primary }}
             >
               <div style={{ width: 40, height: 1, background: COLORS.primary }} />
-              <span style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                color: COLORS.primary,
-                fontSize: 11,
-                letterSpacing: '0.42em',
-                textTransform: 'uppercase',
-                fontWeight: 500,
-              }}>
-                Guwahati, Assam
-              </span>
+              <span>Guwahati, Assam</span>
             </motion.div>
 
             {/* AHA LIFE. — Single Line */}
-            <div style={{ overflow: 'hidden', marginBottom: 8 }}>
+            <div style={{ overflow: 'hidden' }}>
               <motion.h1
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.05, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 'clamp(2.4rem, 7vw, 6rem)',
-                  fontWeight: 300,
-                  letterSpacing: '-0.015em',
-                  lineHeight: 1,
-                  color: '#FFFFFF',
-                  margin: 0,
-                }}
+                style={{ color: '#FFFFFF', margin: 0 }}
               >
                 AHA <span style={{ color: COLORS.primary, fontStyle: 'italic' }}>LIFE.</span>
               </motion.h1>
             </div>
-
-
-            {/* Thin rule */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.9, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                width: 56,
-                height: 1,
-                background: `${COLORS.primary}8C`,
-                marginBottom: 12,
-                transformOrigin: 'left',
-              }}
-            />
 
             {/* Tagline */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 0.62, y: 0 }}
               transition={{ duration: 1, delay: 1.15 }}
-              style={{
-                color: '#ffffff',
-                fontSize: 12,
-                lineHeight: 1.5,
-                letterSpacing: '0.02em',
-                fontWeight: 300,
-                maxWidth: 480,
-                marginBottom: 20,
-              }}
+              style={{ maxWidth: 480 }}
             >
               Experience the pinnacle of luxury residential living. A township designed for those who seek tranquility amidst the vibrant energy of Guwahati.
             </motion.p>

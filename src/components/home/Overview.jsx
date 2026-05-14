@@ -68,21 +68,11 @@ export function Overview() {
 
             {/* LEFT: headline + body + features */}
             <div>
-              <h2
-                className="sa-serif"
-                style={{
-                  fontSize: "clamp(46px, 6vw, 82px)",
-                  fontWeight: 600,
-                  lineHeight: 0.94,
-                  letterSpacing: 0,
-                  color: COLORS.textDark,
-                  margin: "0 0 26px",
-                }}
-              >
+              <h2 style={{ color: COLORS.textDark, margin: "0 0 var(--sa-spacing-heading-to-p)" }}>
                 The <em style={{ fontStyle: "italic", color: COLORS.pink }}>Aha</em> Homes<br />You Deserve.
               </h2>
 
-              <p style={{ fontSize: 17, color: COLORS.mutedLight, lineHeight: 1.85, margin: "0 0 34px", maxWidth: 590 }}>
+              <p style={{ color: COLORS.mutedLight, maxWidth: 590 }}>
                 A luxury abode awaits to make your moments memorable. Everyday starts with the promise of joy, open space, and thoughtfully planned 2 and 3 BHK homes at Guwahati's Aerocity corridor.
               </p>
 

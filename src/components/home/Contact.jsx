@@ -18,27 +18,16 @@ export function Contact() {
       <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 50% 60% at 80% 50%, ${COLORS.primary}0D 0%, transparent 60%)`, pointerEvents: "none" }} />
       
       {/* Decorative Background Shapes */}
-      <DecorativeShape 
-        size={450} 
-        opacity={0.15} 
-        rotate={10} 
-        className="-top-20 -left-20" 
-      />
-      <DecorativeShape 
-        size={350} 
-        opacity={0.12} 
-        rotate={170} 
-        className="bottom-[20%] -right-20 hidden lg:block" 
-      />
+      <DecorativeShape size={600} opacity={0.14} rotate={0} className="-bottom-40 left-1/2 -translate-x-1/2" />
 
       <div className="sa-container grid gap-16 lg:gap-20 items-start relative z-10" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
         {/* Left — on light */}
         <div className="max-w-xl">
           <div className="sa-reveal"><SectionLabel onDark={false}>Get In Touch</SectionLabel></div>
-          <h2 className="sa-reveal sa-d1 sa-serif" style={{ fontSize: "clamp(46px,6vw,82px)", fontWeight: 600, lineHeight: 0.94, letterSpacing: 0, marginBottom: 28, color: COLORS.textDark }}>
+          <h2 className="sa-reveal sa-d1" style={{ marginBottom: 28, color: COLORS.textDark }}>
             Your Dream Home<br /><span style={{ color: COLORS.primary }}>Awaits You.</span>
           </h2>
-          <p className="sa-reveal sa-d2" style={{ fontSize: 17, color: COLORS.mutedLight, lineHeight: 1.85, maxWidth: 500, marginBottom: 48 }}>
+          <p className="sa-reveal sa-d2" style={{ color: COLORS.mutedLight, maxWidth: 500 }}>
             Talk to our team today. We'll walk you through every detail: unit selection, pricing, site visits, and everything in between.
           </p>
           <div className="sa-reveal sa-d3 flex flex-col gap-5 mb-12">

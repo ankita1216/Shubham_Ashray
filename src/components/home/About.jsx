@@ -4,6 +4,7 @@ import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveDarkToLight } from '../common/Dividers';
 import { pastProjects, developerMetrics } from '../../data/projectsData';
+import { DecorativeShape } from '../common/DecorativeShape';
 
 export function About() {
   const [activeProject, setActiveProject] = useState(0); // Default to first project expanded
@@ -25,6 +26,7 @@ export function About() {
           flexDirection: 'column'
         }}
       >
+        <DecorativeShape size={600} opacity={0.12} rotate={15} className="-bottom-40 -right-20" />
         {/* ── ABSTRACT SVG PATH ANIMATION (Background) ── */}
         <div className="about-svg-bg">
           <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
@@ -54,8 +56,8 @@ export function About() {
               <SectionLabel onDark={true}>Developer Profile</SectionLabel>
 
               <h2 className="about-canvas-title">
-                TIMEBOUND<br />
-                <span style={{ color: COLORS.primary, fontWeight: 900 }}>TIMELESS.</span>
+                Timebound<br />
+                <span style={{ color: COLORS.primary, fontWeight: 900 }}>Timeless.</span>
               </h2>
 
               <div className="about-glass-metrics">
@@ -184,12 +186,7 @@ export function About() {
 
           /* ── LEFT PANEL TYPOGRAPHY & METRICS ── */
           .about-canvas-title {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: clamp(54px, 6vw, 92px);
-            font-weight: 600;
-            line-height: 0.9;
             margin: 0;
-            letter-spacing: 0;
           }
 
           .text-yellow {
@@ -241,11 +238,11 @@ export function About() {
           }
 
           .about-canvas-quote p {
-            font-size: 19px;
+            font-size: var(--sa-font-size-p);
             line-height: 1.6;
             color: rgba(255,255,255,0.9);
             font-style: italic;
-            margin: 0 0 16px 0;
+            margin: 0 0 var(--sa-spacing-label-to-heading) 0;
           }
 
           .quote-author {

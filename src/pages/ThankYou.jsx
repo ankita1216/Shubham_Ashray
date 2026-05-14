@@ -14,16 +14,10 @@ export default function ThankYou() {
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none select-none">
         <DecorativeShape
-          size={700}
-          opacity={0.07}
-          rotate={15}
-          className="-top-32 -left-32"
-        />
-        <DecorativeShape
           size={600}
-          opacity={0.05}
-          rotate={165}
-          className="bottom-0 -right-32"
+          opacity={0.12}
+          rotate={15}
+          className="-bottom-40 -right-20"
         />
 
         {/* Cinematic Subtle Glows */}
@@ -53,16 +47,15 @@ export default function ThankYou() {
           </motion.div>
 
           {/* Heading */}
-          <div className="space-y-4 mb-8">
-            <h1 className="sa-serif text-4xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
+          <div className="space-y-4">
+            <h1 className="text-white">
               Thank You for <br className="hidden md:block" />
               <span style={{ color: THEME_GOLD }}>Choosing Us</span>
             </h1>
-            <div className="mx-auto h-[1px] w-20 bg-gradient-to-r from-transparent via-[#C9A44D] to-transparent opacity-60" />
           </div>
 
           {/* Message */}
-          <p className="max-w-xl mx-auto text-white/60 text-lg md:text-xl mb-12 font-light tracking-wide leading-relaxed">
+          <p className="max-w-xl mx-auto text-white/60">
             Your enquiry has been received with priority. Our luxury consultant will reach out to you shortly to begin your journey toward finding your private sanctuary.
           </p>
 

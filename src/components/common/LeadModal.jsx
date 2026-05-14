@@ -163,25 +163,16 @@ export default function LeadModal({ isOpen, onClose }) {
 
               {/* Header */}
               <div style={{ textAlign: "center", marginBottom: 32 }}>
-                <h1
-                  className="sa-serif"
+                <h3
                   style={{
-                    fontSize: "clamp(26px, 5vw, 32px)",
-                    fontWeight: 800,
                     color: THEME_DARK,
                     margin: "0 0 14px",
-                    lineHeight: 1.15,
-                    letterSpacing: "-0.5px",
                   }}
                 >
                   Enquire Now
-                </h1>
+                </h3>
                 <div style={{ width: 40, height: 1.5, background: THEME_GOLD, margin: "0 auto 14px", opacity: 0.5 }} />
                 <p style={{
-                  fontSize: 10,
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.36em",
                   color: THEME_GOLD,
                   opacity: 0.65,
                   margin: 0,

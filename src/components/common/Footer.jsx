@@ -12,12 +12,7 @@ export function Footer() {
   return (
     <footer className="sa-sans" style={{ background: COLORS.darkNavy, borderTop: "1px solid rgba(255,255,255,0.06)", padding: "100px 0 48px", position: "relative", overflow: "hidden" }}>
       {/* Decorative Background Shapes */}
-      <DecorativeShape 
-        size={450} 
-        opacity={0.15} 
-        rotate={15} 
-        className="-bottom-20 -left-20" 
-      />
+      <DecorativeShape size={600} opacity={0.14} rotate={-15} className="-bottom-40 -left-20" />
       <div className="sa-container">
         <div className="grid gap-12 lg:gap-16 mb-20" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
           <div style={{ gridColumn: "span 2" }}>

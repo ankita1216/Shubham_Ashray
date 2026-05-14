@@ -1,42 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,700&family=Outfit:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
-*, *::before, *::after { 
-  box-sizing: border-box; 
-  margin: 0; 
-  padding: 0; 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html { 
-  scroll-behavior: smooth; 
+html {
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
-body { 
-  overflow-x: hidden; 
-  font-family: 'Outfit', sans-serif;
+body {
+  overflow-x: hidden;
+  font-family: var(--sa-font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--sa-text-main);
 }
 
-::-webkit-scrollbar { 
-  width: 5px; 
+:root {
+  --sa-font-heading: 'Cormorant Garamond', serif;
+  --sa-font-body: 'Outfit', sans-serif;
+
+  --sa-font-size-h1: clamp(48px, 8vw, 82px);
+  --sa-font-size-h2: clamp(40px, 6vw, 82px);
+  --sa-font-size-p: 17px;
+  --sa-font-size-label: 12px;
+
+  --sa-spacing-label-to-heading: 16px;
+  --sa-spacing-heading-to-p: 24px;
+  --sa-spacing-p-to-cta: 40px;
 }
 
-::-webkit-scrollbar-track { 
-  background: #15170F; 
+h1,
+h2,
+.sa-h1,
+.sa-h2 {
+  font-family: var(--sa-font-heading) !important;
+  font-size: var(--sa-font-size-h1) !important;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sa-spacing-heading-to-p);
+  text-transform: none;
 }
 
-::-webkit-scrollbar-thumb { 
-  background: #c6ba42; 
-  border-radius: 3px; 
+h2,
+.sa-h2 {
+  font-size: var(--sa-font-size-h2) !important;
 }
 
-.sa-serif { 
-  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif !important; 
+p,
+.sa-p {
+  font-family: var(--sa-font-body) !important;
+  font-size: var(--sa-font-size-p) !important;
+  line-height: 1.6;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--sa-spacing-p-to-cta);
 }
 
-.sa-sans { 
-  font-family: 'Outfit', sans-serif !important; 
+.sa-label {
+  font-family: var(--sa-font-heading) !important;
+  font-size: var(--sa-font-size-label) !important;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: var(--sa-spacing-label-to-heading);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #15170F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c6ba42;
+  border-radius: 3px;
+}
+
+.sa-serif {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif !important;
+}
+
+.sa-sans {
+  font-family: 'Outfit', sans-serif !important;
 }
 
 /* Noise texture overlay for light sections */

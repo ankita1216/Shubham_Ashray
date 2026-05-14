@@ -30,7 +30,7 @@ const categories = [
         <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
       </svg>
     ),
-    accent: '#7EBA3A',
+    accent: COLORS.primary,
     items: [
       { name: 'Kidzee Dharapur', dist: '0.8 km', km: 0.8 },
       { name: 'Girijananda Chowdhury University', dist: '2.9 km', km: 2.9 },
@@ -46,7 +46,7 @@ const categories = [
         <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
       </svg>
     ),
-    accent: '#E05FA0',
+    accent: COLORS.primary,
     items: [
       { name: 'I Care Diagnostic', dist: '2.1 km', km: 2.1 },
       { name: 'City Health Centre', dist: '3.7 km', km: 3.7 },
@@ -61,7 +61,7 @@ const categories = [
         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
       </svg>
     ),
-    accent: '#D4A017',
+    accent: COLORS.primary,
     items: [
       { name: 'Decathlon Azara', dist: '6.7 km', km: 6.7 },
       { name: 'NCS Square Mall', dist: '8.4 km', km: 8.4 },
@@ -80,9 +80,9 @@ function getTier(km) {
 }
 const tierLabel = { near: 'Nearby', mid: 'Close', far: 'Accessible' };
 const tierColor = {
-  near: { text: '#4caf50', bg: 'rgba(76,175,80,0.12)' },
-  mid:  { text: '#D4A017', bg: 'rgba(212,160,23,0.12)' },
-  far:  { text: '#b06090', bg: 'rgba(176,96,144,0.10)' },
+  near: { text: COLORS.primary, bg: `${COLORS.primary}1A` },
+  mid:  { text: COLORS.primary, bg: `${COLORS.primary}12` },
+  far:  { text: COLORS.primary, bg: `${COLORS.primary}0D` },
 };
 
 function DistanceBar({ km, accent }) {
@@ -318,7 +318,7 @@ export function Location() {
           pointerEvents: 'none',
         }} />
 
-        <DecorativeShape size={500} opacity={0.14} rotate={-15} className="-bottom-40 -left-20" />
+        <DecorativeShape size={600} opacity={0.14} rotate={-15} className="-bottom-40 -left-20" />
 
         <div className="sa-container">
           {/* Header */}
@@ -326,14 +326,14 @@ export function Location() {
             <SectionLabel onDark={false}>Location</SectionLabel>
           </div>
           <h2
-            className="sa-reveal sa-d1 sa-serif"
-            style={{ fontSize: 'clamp(42px,5.5vw,78px)', fontWeight: 600, lineHeight: 0.94, marginBottom: 20, color: COLORS.textDark }}
+            className="sa-reveal sa-d1"
+            style={{ marginBottom: 20, color: COLORS.textDark }}
           >
             Wellborn and <span style={{ color: COLORS.primary }}>Well-Connected</span>
           </h2>
           <p
             className="sa-reveal sa-d2"
-            style={{ fontSize: 16.5, color: COLORS.mutedLight, lineHeight: 1.8, maxWidth: 580, marginBottom: 56 }}
+            style={{ color: COLORS.mutedLight, maxWidth: 580 }}
           >
             Strategically placed in Guwahati's fastest-growing corridor, connected to the airport, universities, hospitals, daily needs, and leisure destinations.
           </p>

@@ -3,6 +3,7 @@ import walkthroughVideo from '../../assets/videos/walkthrough.mp4';
 import { COLORS } from '../../constants/colors';
 import { WaveDarkToLight } from '../common/Dividers';
 import { SectionLabel } from '../common/SectionLabel';
+import { DecorativeShape } from '../common/DecorativeShape';
 
 /* ── helpers ── */
 function hexToRgb(hex) {
@@ -56,6 +57,8 @@ export function VideoSection() {
           style={{ background: `linear-gradient(180deg, ${COLORS.darkNavy}66 0%, transparent 100%)` }}
         />
 
+        <DecorativeShape size={600} opacity={0.12} rotate={-15} className="-bottom-40 -left-20" />
+
         <div className="sa-container relative z-10">
 
           {/* ════════════════════════════════════════════
@@ -64,12 +67,12 @@ export function VideoSection() {
           <div className="vs-header">
             <SectionLabel onDark={true}>Aha Life Message</SectionLabel>
 
-            <h2 className="sa-serif vs-h2">
+            <h2 className="vs-h2">
               A Life Made<br />
               <em>Of Aha Moments.</em>
             </h2>
 
-            <p className="vs-lead-top">
+            <p>
               The Aha moment begins when you leave behind your phone<br className="vs-br-hide" />
               and tune in with your child — one walk at a time.
             </p>
@@ -256,14 +259,12 @@ export function VideoSection() {
           }
           .vs-h2 {
             color: #fff;
-            font-size: clamp(52px, 6.4vw, 96px);
-            line-height: 0.9; font-weight: 600; letter-spacing: 0;
-            margin: 18px 0 22px;
+            margin: 18px 0 var(--sa-spacing-heading-to-p);
           }
           .vs-h2 em { color: ${COLORS.primary}; font-style: italic; }
-          .vs-lead-top {
+          .vs-header p {
             color: ${COLORS.mutedDark};
-            font-size: 16px; line-height: 1.78; margin: 0;
+            margin: 0;
           }
 
           /* ── cinema wrapper ── */
@@ -618,7 +619,7 @@ export function VideoSection() {
         `}</style>
       </section>
 
-      <WaveDarkToLight fromColor={COLORS.darkBlue} toColor={COLORS.softCream} />
+      <WaveDarkToLight fromColor={COLORS.darkBlue} toColor={COLORS.luxBeige} />
     </>
   );
 }

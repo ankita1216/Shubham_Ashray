@@ -4,9 +4,9 @@ import { COLORS } from '../../constants/colors';
 export function SectionLabel({ children, onDark = true }) {
   const color = COLORS.primary;
   return (
-    <div className="flex items-center gap-3 mb-5" style={{ color, fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase" }}>
+    <div className="sa-label" style={{ color }}>
       <span style={{ width: 24, height: 1, background: color, flexShrink: 0 }} />
-      <span style={{ color }}>{children}</span>
+      <span>{children}</span>
     </div>
   );
 }

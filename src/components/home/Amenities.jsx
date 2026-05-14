@@ -1,9 +1,30 @@
 import { useState } from 'react';
+import { 
+  Waves, 
+  Dumbbell, 
+  Gamepad2, 
+  Sparkles, 
+  Tent, 
+  Trees, 
+  Theater, 
+  Users 
+} from 'lucide-react';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { amenitiesData } from '../../data/amenitiesData';
 import { DecorativeShape } from '../common/DecorativeShape';
 import { WaveLightToDark } from '../common/Dividers';
+
+const IconMap = {
+  Waves,
+  Dumbbell,
+  Gamepad2,
+  Sparkles,
+  Tent,
+  Trees,
+  Theater,
+  Users
+};
 
 // ── Compact card sizes for the bento grid ──────────────────────────────────
 const LAYOUTS = [
@@ -24,8 +45,9 @@ const LAYOUTS = [
   { col: "span 1", row: "span 1", featured: false },  // 14
 ];
 
-function AmenityCard({ name, desc, color, index }) {
+function AmenityCard({ name, desc, color, icon, index }) {
   const [hovered, setHovered] = useState(false);
+  const IconComponent = IconMap[icon] || Sparkles;
 
   return (
     <div
@@ -70,15 +92,15 @@ function AmenityCard({ name, desc, color, index }) {
       {/* Corner number */}
       <div style={{
         position: "absolute",
-        top: 14,
+        top: 18,
         right: 18,
-        fontSize: 10,
-        color: hovered ? `${color}90` : "rgba(255,255,255,0.12)",
-        letterSpacing: "0.12em",
-        fontWeight: 700,
-        transition: "color 0.4s ease",
+        color: hovered ? `${color}90` : "rgba(255,255,255,0.15)",
+        transition: "all 0.4s ease",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}>
-        {String(index + 1).padStart(2, '0')}
+        <IconComponent size={14} strokeWidth={2.2} />
       </div>
 
       {/* Icon container */}
@@ -91,16 +113,13 @@ function AmenityCard({ name, desc, color, index }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: 14,
-        fontWeight: 800,
-        letterSpacing: "0.08em",
-        color: COLORS.textDark,
+        color: hovered ? color : COLORS.textDark,
         flexShrink: 0,
         transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
         transform: hovered ? "scale(1.08) rotate(-3deg)" : "scale(1) rotate(0deg)",
         marginBottom: 22,
       }}>
-        {String(index + 1).padStart(2, '0')}
+        <IconComponent size={22} strokeWidth={2.2} />
       </div>
 
       {/* Text block */}
@@ -168,7 +187,7 @@ export function Amenities() {
       <div className="absolute -bottom-12 -left-12" style={{ width: 450, height: 450, background: `radial-gradient(circle, ${COLORS.primary}12 0%, transparent 70%)`, pointerEvents: "none" }} />
       <div className="absolute top-0 right-0" style={{ width: 350, height: 350, background: `radial-gradient(circle, ${COLORS.primary}0D 0%, transparent 70%)`, pointerEvents: "none" }} />
 
-      <DecorativeShape size={550} opacity={0.16} rotate={-30} className="-top-24 -left-24" />
+      <DecorativeShape size={600} opacity={0.14} rotate={0} className="-bottom-40 left-1/2 -translate-x-1/2" />
 
       <div className="sa-container">
 
@@ -181,17 +200,7 @@ export function Amenities() {
               <div className="sa-reveal" style={{ marginBottom: 14 }}>
                 <SectionLabel onDark={false}>World-Class Amenities</SectionLabel>
               </div>
-              <h2
-                className="sa-serif"
-                style={{
-                  fontSize: "clamp(46px,6vw,82px)",
-                  fontWeight: 600,
-                  lineHeight: 0.94,
-                  letterSpacing: 0,
-                  color: COLORS.textDark,
-                  margin: 0,
-                }}
-              >
+              <h2 style={{ color: COLORS.textDark, margin: 0 }}>
                 Every Joy,<br />
                 <span style={{ color: COLORS.primary }}>Right Here.</span>
               </h2>

@@ -3,6 +3,7 @@ import { COLORS } from '../../constants/colors';
 import { WaveLightToDark } from '../common/Dividers';
 import { SectionLabel } from '../common/SectionLabel';
 import { galleryData } from '../../data/galleryData';
+import { DecorativeShape } from '../common/DecorativeShape';
 
 /* ─── injected styles ─── */
 const CSS = `
@@ -487,7 +488,8 @@ export function Gallery() {
         </div>
       )}
 
-      <section id="gallery" className="sa-sans" style={{ background: COLORS.luxBeige, overflow: 'hidden' }}>
+      <section id="gallery" className="sa-sans" style={{ background: COLORS.luxBeige, overflow: 'hidden', position: 'relative' }}>
+        <DecorativeShape size={600} opacity={0.14} rotate={15} className="-bottom-40 -right-20" />
 
         {/* ── Header ── */}
         <div className="sa-container" style={{ paddingTop: 92, position: 'relative' }}>
@@ -508,15 +510,8 @@ export function Gallery() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
                 <SectionLabel onDark={false}>Selected Portfolio</SectionLabel>
               </div>
-              <h2 style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: 'clamp(46px, 6vw, 82px)',
-                fontWeight: 600, margin: 0,
-                lineHeight: 0.94, letterSpacing: 0,
-                color: COLORS.textDark,
-              }}>
-                Visual<br />
-                <em style={{ color: COLORS.primary, fontStyle: 'italic' }}>Excellence.</em>
+              <h2 style={{ color: COLORS.textDark, margin: 0 }}>
+                Visual <em style={{ color: COLORS.primary, fontStyle: 'italic' }}>Excellence.</em>
               </h2>
             </div>
 

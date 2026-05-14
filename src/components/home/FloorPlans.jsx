@@ -4,6 +4,7 @@ import { SectionLabel } from '../common/SectionLabel';
 import { WaveDarkToLight } from '../common/Dividers';
 import { floorPlansData } from '../../data/floorPlansData';
 import { motion, AnimatePresence } from 'framer-motion';
+import { DecorativeShape } from '../common/DecorativeShape';
 
 /* ─── Premium Image Lightbox Modal ─────────────────────────────────────────── */
 function PremiumLightbox({ image, title, onClose }) {
@@ -512,6 +513,7 @@ export function FloorPlans({ onOpenModal }) {
         className="relative overflow-hidden"
         style={{ background: COLORS.darkMid, padding: '112px 0 118px' }}
       >
+        <DecorativeShape size={600} opacity={0.12} rotate={0} className="-bottom-40 left-1/2 -translate-x-1/2" />
         {/* Architectural Grid Overlay */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -526,7 +528,7 @@ export function FloorPlans({ onOpenModal }) {
           <div className="floor-head">
             <div>
               <SectionLabel onDark={true}>Space Anatomy</SectionLabel>
-              <h2 className="sa-serif floor-title">
+              <h2 className="floor-title">
                 Plans Crafted<br />
                 <span>For Daily Ease.</span>
               </h2>
@@ -685,8 +687,7 @@ export function FloorPlans({ onOpenModal }) {
         }
         #floor-plans .floor-title {
           color: #fff;
-          font-size: clamp(44px, 5.4vw, 74px);
-          line-height: 0.96; font-weight: 600; letter-spacing: 0; margin: 14px 0 0;
+          margin: 14px 0 0;
         }
         #floor-plans .floor-title span { color: ${COLORS.primary}; font-style: italic; }
         #floor-plans .floor-head-copy { border-left: 1px solid rgba(255,255,255,0.12); padding-left: 28px; }
