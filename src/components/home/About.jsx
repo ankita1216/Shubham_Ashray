@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useCounter } from '../../hooks/useCounter';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
-import { WaveDarkToLight } from '../common/Dividers';
+import { WaveLightToDark } from '../common/Dividers';
 import { pastProjects, developerMetrics } from '../../data/projectsData';
 import { DecorativeShape } from '../common/DecorativeShape';
 
@@ -16,11 +16,11 @@ export function About() {
         id="about"
         className="sa-sans sa-section"
         style={{
-          background: COLORS.darkNavy,
+          background: COLORS.luxBeige,
           position: "relative",
           overflow: "hidden",
           padding: "112px 0 112px 0",
-          color: '#fff',
+          color: COLORS.textDark,
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column'
@@ -34,14 +34,14 @@ export function About() {
               className="animated-stroke"
               d="M-100,500 C200,200 400,800 600,400 C800,0 1000,600 1200,300"
               fill="none"
-              stroke={`${COLORS.primary}1A`}
+              stroke={`${COLORS.primary}25`}
               strokeWidth="2"
             />
             <path
               className="animated-stroke-delayed"
               d="M-100,600 C250,900 350,100 700,500 C900,800 1100,200 1200,600"
               fill="none"
-              stroke={`${COLORS.warmWhite}0D`}
+              stroke={`${COLORS.textDark}08`}
               strokeWidth="1"
             />
           </svg>
@@ -53,9 +53,9 @@ export function About() {
           {/* LEFT PANEL: Sticky Typography & Metrics */}
           <div className="about-left-panel">
             <div className="about-sticky-content">
-              <SectionLabel onDark={true}>Developer Profile</SectionLabel>
+              <SectionLabel onDark={false}>Developer Profile</SectionLabel>
 
-              <h2 className="about-canvas-title">
+              <h2 className="about-canvas-title" style={{ color: COLORS.textDark }}>
                 Timebound<br />
                 <span style={{ color: COLORS.primary, fontWeight: 900 }}>Timeless.</span>
               </h2>
@@ -85,9 +85,9 @@ export function About() {
           {/* RIGHT PANEL: Interactive Interactive Accordion */}
           <div className="about-right-panel">
             <div className="portfolio-header">
-              <h3>Heritage Portfolio</h3>
-              <div className="portfolio-divider" />
-              <span>{pastProjects.length} UNITS DELIVERED</span>
+              <h3 style={{ color: COLORS.textDark }}>Heritage Portfolio</h3>
+              <div className="portfolio-divider" style={{ background: "rgba(26,28,20,0.08)" }} />
+              <span style={{ color: COLORS.primary }}>{pastProjects.length} UNITS DELIVERED</span>
             </div>
 
             <div className="portfolio-accordion">
@@ -198,10 +198,10 @@ export function About() {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            background: rgba(255,255,255,0.035);
+            background: rgba(255,255,255,0.4);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.075);
+            border: 1px solid rgba(26,28,20,0.08);
             border-radius: 14px;
             padding: 30px;
           }
@@ -221,7 +221,7 @@ export function About() {
 
           .canvas-metric-lbl {
             font-size: 10px;
-            color: rgba(255,255,255,0.5);
+            color: ${COLORS.mutedLight};
             text-transform: uppercase;
             letter-spacing: 0.1em;
           }
@@ -240,14 +240,14 @@ export function About() {
           .about-canvas-quote p {
             font-size: var(--sa-font-size-p);
             line-height: 1.6;
-            color: rgba(255,255,255,0.9);
+            color: ${COLORS.textMid};
             font-style: italic;
             margin: 0 0 var(--sa-spacing-label-to-heading) 0;
           }
 
           .quote-author {
             font-size: 11px;
-            color: rgba(255,255,255,0.4);
+            color: ${COLORS.mutedLight};
             text-transform: uppercase;
             letter-spacing: 0.1em;
           }
@@ -304,14 +304,14 @@ export function About() {
           .pane-glass-bg {
             position: absolute;
             inset: 0;
-            background: rgba(255,255,255,0.01);
+            background: rgba(255,255,255,0.3);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             transition: background 0.4s ease;
           }
 
           .accordion-pane.is-active .pane-glass-bg {
-            background: linear-gradient(to right, rgba(255,255,255,0.04), transparent);
+            background: linear-gradient(to right, rgba(255,255,255,0.7), transparent);
           }
 
           .pane-content-wrapper {
@@ -356,12 +356,12 @@ export function About() {
             font-size: 22px;
             font-weight: 600;
             margin: 0 0 8px 0;
-            color: #fff;
+            color: ${COLORS.textDark};
           }
 
           .pane-sub {
             font-size: 12px;
-            color: rgba(255,255,255,0.5);
+            color: ${COLORS.mutedLight};
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin: 0;
@@ -399,7 +399,7 @@ export function About() {
           .about-canvas-footer p {
             font-size: 12px;
             line-height: 1.8;
-            color: rgba(255,255,255,0.4);
+            color: ${COLORS.mutedLight};
           }
 
           /* ── RESPONSIVE ── */
@@ -439,6 +439,7 @@ export function About() {
 
       </section>
 
+      <WaveLightToDark fromColor={COLORS.luxBeige} toColor={COLORS.darkNavy} />
     </>
   );
 }

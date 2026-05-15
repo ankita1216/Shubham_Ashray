@@ -4,73 +4,121 @@ import { DecorativeShape } from './DecorativeShape';
 import logoImg from '../../assets/images/logo.png';
 
 export function Footer() {
-  const cols = [
-    { title: "Project",  links: ["Overview","Amenities","Gallery","Floor Plans","Location"] },
-    { title: "Company",  links: ["About Us","Our Projects","Careers","Media","CSR"] },
-  ];
+  const projectLinks = ["Overview", "Amenities", "Gallery", "Floor Plans", "Location"];
+
   return (
-    <footer className="sa-sans" style={{ background: COLORS.darkNavy, borderTop: "1px solid rgba(255,255,255,0.06)", padding: "80px 0 40px", position: "relative", overflow: "hidden" }}>
+    <footer className="sa-sans" style={{ background: COLORS.darkNavy, borderTop: "1px solid rgba(255,255,255,0.06)", padding: "100px 0 40px", position: "relative", overflow: "hidden" }}>
       {/* Decorative Background Shapes */}
       <DecorativeShape size={600} opacity={0.14} rotate={-15} className="-bottom-40 -left-20" />
+      <DecorativeShape size={400} opacity={0.06} rotate={45} className="-top-20 right-10" />
+
       <div className="sa-container">
-        <div className="grid gap-12 lg:gap-8 mb-12" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))" }}>
-          <div style={{ gridColumn: "span 2" }}>
-            <div className="flex items-center mb-5">
-              <img 
-                src={logoImg} 
-                alt="Subham Ashray" 
-                style={{ height: "70px", width: "auto" }} 
-              />
+        {/* ── Tier 1: Brand & Slogan ── */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "40px 60px", marginBottom: 72 }}>
+          <div style={{ flex: "1 1 320px" }}>
+            <img 
+              src={logoImg} 
+              alt="Subham Ashray" 
+              style={{ height: "82px", width: "auto", marginBottom: 26, filter: "brightness(1.05)" }} 
+            />
+            <p style={{ fontSize: 15, color: COLORS.mutedDark, lineHeight: 1.75, maxWidth: 420, margin: 0 }}>
+              A landmark residential township in Guwahati's Aerocity corridor. Crafting an extraordinary life through thoughtful design and curated amenities.
+            </p>
+          </div>
+          <div style={{ flex: "1 1 320px", textAlign: "right" }}>
+            <div className="sa-serif" style={{ fontSize: "clamp(34px, 5vw, 52px)", fontStyle: "italic", color: COLORS.primary, lineHeight: 1, marginBottom: 14 }}>
+              Live the Aha Life.
             </div>
-            <p style={{ fontSize: 14, color: COLORS.mutedDark, lineHeight: 1.7, marginBottom: 14, maxWidth: 320 }}>A luxury residential township in Guwahati's Aerocity corridor. Where everyday life becomes an extraordinary experience.</p>
-            <p style={{ fontSize: 12, color: COLORS.hintDark, marginBottom: 20 }}>A Unit of <strong style={{ color: COLORS.mutedDark }}>Subham Group</strong></p>
-            <div className="flex gap-3">
-              {["f","▶","◉"].map((s,i) => (
-                <div key={i} className="sa-social-btn" style={{ width: 34, height: 34, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", color: COLORS.mutedDark }}>{s}</div>
+            <p style={{ fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: COLORS.hintDark, margin: 0, fontWeight: 700 }}>
+              A Unit of Subham Group
+            </p>
+          </div>
+        </div>
+
+        {/* ── Tier 2: Information Grid ── */}
+        <div className="grid gap-12 lg:gap-8 mb-16" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
+          
+          {/* Column 1: Explore */}
+          <div>
+            <h4 style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase", color: "#fff", marginBottom: 24, display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ width: 14, height: 1, background: COLORS.primary }} />
+              Explore
+            </h4>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px 20px" }}>
+              {projectLinks.map((l) => (
+                <li key={l}>
+                  <a href={`#${l.toLowerCase().replace(' ', '-')}`} className="sa-footer-link" style={{ fontSize: 13.5 }}>
+                    {l}
+                  </a>
+                </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Column 2: Corporate Office */}
+          <div>
+            <h4 style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase", color: "#fff", marginBottom: 24, display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ width: 14, height: 1, background: COLORS.primary }} />
+              Corporate Office
+            </h4>
+            <div style={{ fontSize: 14, color: COLORS.mutedDark, lineHeight: 1.65 }}>
+              Subham Velocity, 5th Floor<br />
+              Honuram Boro Path, Opp. Wallford<br />
+              Guwahati, Pin – 781005, Assam
             </div>
           </div>
-          {cols.map(({ title, links }) => (
-            <div key={title} style={{ gridColumn: "span 1" }}>
-              <h4 style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "#fff", marginBottom: 16 }}>{title}</h4>
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-                {links.map((l) => <li key={l}><a href="#" className="sa-footer-link" style={{ fontSize: 13 }}>{l}</a></li>)}
-              </ul>
+
+          {/* Column 3: Site Location */}
+          <div>
+            <h4 style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase", color: "#fff", marginBottom: 24, display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ width: 14, height: 1, background: COLORS.primary }} />
+              Site Location
+            </h4>
+            <div style={{ fontSize: 14, color: COLORS.mutedDark, lineHeight: 1.65 }}>
+              Subham Ashray, Aerocity<br />
+              Dharapur-Palash Bari Road<br />
+              Guwahati-781017, Assam
             </div>
-          ))}
-          <div style={{ gridColumn: "span 2" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
-              <div>
-                <h4 style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "#fff", marginBottom: 14 }}>Corporate Address</h4>
-                <div style={{ fontSize: 13, color: COLORS.mutedDark, lineHeight: 1.6 }}>
-                  Subham Velocity, 5th Floor<br />
-                  Honuram Boro Path, Opp. Wallford<br />
-                  Guwahati, Pin – 781005, Assam
-                </div>
-              </div>
-              <div>
-                <h4 style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: "#fff", marginBottom: 14 }}>Site Address</h4>
-                <div style={{ fontSize: 13, color: COLORS.mutedDark, lineHeight: 1.6 }}>
-                  Subham Ashray, Aerocity<br />
-                  Dharapur-Palash Bari Road<br />
-                  Guwahati-781017, Assam
-                </div>
-              </div>
+          </div>
+
+          {/* Column 4: Social Connect */}
+          <div>
+            <h4 style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase", color: "#fff", marginBottom: 24, display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ width: 14, height: 1, background: COLORS.primary }} />
+              Connect
+            </h4>
+            <div className="flex gap-4 mb-6">
+              {["f","▶","◉"].map((s,i) => (
+                <div key={i} className="sa-social-btn" style={{ 
+                  width: 36, height: 36, borderRadius: "50%", 
+                  background: "rgba(255,255,255,0.04)", 
+                  border: "1px solid rgba(255,255,255,0.08)", 
+                  color: COLORS.mutedDark,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  cursor: "pointer", transition: "all 0.3s"
+                }}>{s}</div>
+              ))}
+            </div>
+            <div style={{ fontSize: 11, color: COLORS.hintDark, fontWeight: 500, marginTop: 14, letterSpacing: "0.05em" }}>
+              ESTD. 2007
             </div>
           </div>
         </div>
-        {/* Bottom bar */}
-        <div className="flex flex-wrap gap-8 lg:gap-12 pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.06)", alignItems: "flex-start" }}>
-          <div style={{ fontSize: 12, color: COLORS.hintDark, lineHeight: 1.6, flexShrink: 0, minWidth: 200 }}>
-            <strong style={{ color: COLORS.primary, textTransform: "uppercase", fontSize: 10, letterSpacing: 1, display: "block", marginBottom: 4 }}>Rera Registration No</strong>
-            RERAA KM 113 of 2022-2023
-          </div>
-          <p style={{ fontSize: 11, color: COLORS.hintDark, lineHeight: 1.7, flex: 1, minWidth: 280 }}>
-            This is not a legal document. Plans and photographs are conceptual and subject to change. The actual product may vary at the developer's sole discretion.
-          </p>
-          <div className="w-full lg:w-auto" style={{ fontSize: 11, color: COLORS.hintDark, textAlign: "right", whiteSpace: "nowrap", flexShrink: 0 }}>
-            <span style={{ opacity: 0.6 }}>© 2024 Subham Group</span><br />
-            <span style={{ fontWeight: 600 }}>All rights reserved.</span>
+
+        {/* ── Tier 3: Compliance & Copyright ── */}
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 36 }}>
+          <div className="flex flex-wrap items-center justify-between gap-10">
+            <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
+              <div style={{ fontSize: 12.5, color: COLORS.hintDark }}>
+                <span style={{ color: COLORS.primary, fontWeight: 800, textTransform: "uppercase", fontSize: 10, letterSpacing: "0.12em", display: "block", marginBottom: 5 }}>Rera Reg. No.</span>
+                RERAA KM 113 of 2022-2023
+              </div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <p style={{ fontSize: 12, color: COLORS.hintDark, margin: 0, fontWeight: 500 }}>
+                © 2024 Subham Group. <span style={{ color: "rgba(255,255,255,0.35)" }}>All rights reserved.</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>

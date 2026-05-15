@@ -230,16 +230,6 @@ export function Hero({ onOpenModal }) {
                   display: 'block',
                 }}
               />
-              {/* Left gradient bleed into dark bg */}
-              <div style={{
-                position: 'absolute', inset: 0,
-              background: `linear-gradient(to right, ${COLORS.darkNavy}B8 0%, ${COLORS.darkNavy}40 35%, transparent 60%)`,
-              }} />
-              {/* Bottom fade */}
-              <div style={{
-                position: 'absolute', inset: 0,
-              background: `linear-gradient(to top, ${COLORS.darkNavy}D9 0%, transparent 40%)`,
-              }} />
 
               {/* Phase label inside image */}
               <div style={{
@@ -299,10 +289,6 @@ export function Hero({ onOpenModal }) {
               filter: 'brightness(0.55) saturate(0.8)',
             }}
           />
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: `linear-gradient(to top, ${COLORS.darkNavy}F2 0%, ${COLORS.darkNavy}66 60%, ${COLORS.darkNavy}33 100%)`,
-          }} />
         </div>
 
         {/* ── Dark bleed from left — desktop ──────────────────────── */}
