@@ -502,7 +502,7 @@ export function Gallery() {
             color: `${COLORS.textDark}05`,
             pointerEvents: 'none', userSelect: 'none',
           }}>
-            WORKS
+            GALLERY
           </div>
 
           <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap' }}>
@@ -637,12 +637,12 @@ export function Gallery() {
           padding: '28px 44px 60px',
           flexWrap: 'wrap', gap: 12,
         }}>
-          <p style={{
+          {/* <p style={{
             fontSize: 9, letterSpacing: '0.22em', fontWeight: 700,
             color: `${COLORS.textDark}28`, textTransform: 'uppercase', margin: 0,
           }}>
             Click to Explore · Crafted with Precision
-          </p>
+          </p> */}
           <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
             {galleryData.slice(0, 6).map((_, i) => (
               <div key={i} style={{

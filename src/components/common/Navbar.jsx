@@ -28,20 +28,22 @@ export function Navbar({ scrolled, onOpenModal }) {
           }} 
         />
       </div>
-      <ul className="hidden lg:flex items-center gap-9" style={{ listStyle: "none" }}>
-        {["Overview", "Amenities", "Walkthrough Video", "Gallery", "Floor Plans", "Location", "Contact", "About"].map((item) => (
-          <li key={item}>
-            <a href={`#${item.toLowerCase().replace(" ", "-")}`} className="sa-nav-link sa-sans">{item}</a>
-          </li>
-        ))}
-      </ul>
-      <button 
-        onClick={onOpenModal}
-        className="sa-btn-primary sa-sans" 
-        style={{ padding: "10px 24px", fontSize: 13, textDecoration: "none", border: "none" }}
-      >
-        Book Site Visit
-      </button>
+      <div className="hidden lg:flex items-center gap-12">
+        <ul className="flex items-center gap-9" style={{ listStyle: "none" }}>
+          {["Overview", "Amenities", "Walkthrough Video", "Gallery", "Floor Plans", "Location", "Contact", "About"].map((item) => (
+            <li key={item}>
+              <a href={`#${item.toLowerCase().replace(" ", "-")}`} className="sa-nav-link sa-sans">{item}</a>
+            </li>
+          ))}
+        </ul>
+        <button 
+          onClick={onOpenModal}
+          className="sa-btn-primary sa-sans" 
+          style={{ padding: "10px 24px", fontSize: 13, textDecoration: "none", border: "none" }}
+        >
+          Book Site Visit
+        </button>
+      </div>
       </div>
     </nav>
   );

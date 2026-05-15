@@ -63,8 +63,8 @@ export default function LeadModal({ isOpen, onClose }) {
               maxHeight: "92vh",
               overflowY: "auto",
               borderRadius: 32,
-              background: "#f8f3e7",
-              boxShadow: "0 32px 80px rgba(0,0,0,0.28), 0 0 0 1px rgba(201,164,77,0.15)",
+              background: COLORS.darkNavy,
+              boxShadow: "0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)",
               scrollbarWidth: "none",
             }}
           >
@@ -74,11 +74,11 @@ export default function LeadModal({ isOpen, onClose }) {
                 width: 100%;
                 height: 56px;
                 border-radius: 14px;
-                border: 1.5px solid ${COLORS.darkNavy}17;
-                background: #fff;
+                border: 1.5px solid rgba(255,255,255,0.08);
+                background: rgba(255,255,255,0.03);
                 padding: 0 20px;
                 font-size: 14px;
-                color: ${COLORS.darkNavy};
+                color: #fff;
                 outline: none;
                 transition: border-color 0.2s ease, box-shadow 0.2s ease;
                 box-shadow: 0 1px 4px rgba(0,0,0,0.04);
@@ -86,10 +86,11 @@ export default function LeadModal({ isOpen, onClose }) {
                 appearance: none;
                 -webkit-appearance: none;
               }
-              .lead-input::placeholder { color: rgba(7,17,31,0.22); }
+              .lead-input::placeholder { color: rgba(255,255,255,0.22); }
               .lead-input:focus {
                 border-color: ${COLORS.primary};
                 box-shadow: 0 0 0 3px ${COLORS.primary}1A, 0 1px 4px rgba(0,0,0,0.04);
+                background: rgba(255,255,255,0.05);
               }
               .lead-label {
                 display: block;
@@ -97,7 +98,7 @@ export default function LeadModal({ isOpen, onClose }) {
                 font-weight: 700;
                 text-transform: uppercase;
                 letter-spacing: 0.22em;
-                color: rgba(7,17,31,0.38);
+                color: rgba(255,255,255,0.4);
                 margin-bottom: 9px;
                 padding-left: 2px;
               }
@@ -105,10 +106,10 @@ export default function LeadModal({ isOpen, onClose }) {
                 width: 100%;
                 height: 56px;
                 border-radius: 14px;
-                background: ${COLORS.darkNavy};
-                color: #fff;
+                background: ${COLORS.primary};
+                color: ${COLORS.darkNavy};
                 font-size: 10.5px;
-                font-weight: 700;
+                font-weight: 800;
                 letter-spacing: 0.45em;
                 text-transform: uppercase;
                 border: none;
@@ -117,16 +118,16 @@ export default function LeadModal({ isOpen, onClose }) {
                 -webkit-tap-highlight-color: transparent;
                 -webkit-appearance: none;
                 transition: background 0.22s ease, box-shadow 0.22s ease, transform 0.15s ease;
-                box-shadow: 0 8px 24px rgba(7,17,31,0.18);
+                box-shadow: 0 8px 24px rgba(201,164,77,0.18);
                 user-select: none;
               }
               .lead-submit:hover {
-                background: ${COLORS.darkNavy}E6;
-                box-shadow: 0 12px 32px rgba(7,17,31,0.24);
+                background: ${COLORS.goldDark};
+                box-shadow: 0 12px 32px rgba(201,164,77,0.24);
               }
               .lead-submit:active { transform: scale(0.99); }
               .lead-submit:focus-visible {
-                box-shadow: 0 0 0 3px ${COLORS.primary}59, 0 8px 24px rgba(7,17,31,0.18);
+                box-shadow: 0 0 0 3px ${COLORS.primary}59, 0 8px 24px rgba(201,164,77,0.18);
               }
             `}</style>
 
@@ -141,19 +142,19 @@ export default function LeadModal({ isOpen, onClose }) {
                 width: 36,
                 height: 36,
                 borderRadius: "50%",
-                border: "1.5px solid rgba(7,17,31,0.1)",
-                background: "rgba(7,17,31,0.04)",
+                border: "1.5px solid rgba(255,255,255,0.1)",
+                background: "rgba(255,255,255,0.04)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
-                color: "rgba(7,17,31,0.35)",
+                color: "rgba(255,255,255,0.35)",
                 transition: "all 0.22s ease",
                 outline: "none",
                 WebkitTapHighlightColor: "transparent",
               }}
               onMouseEnter={e => { e.currentTarget.style.background = COLORS.primary; e.currentTarget.style.color = COLORS.darkNavy; e.currentTarget.style.borderColor = COLORS.primary; }}
-              onMouseLeave={e => { e.currentTarget.style.background = `${COLORS.darkNavy}0A`; e.currentTarget.style.color = `${COLORS.darkNavy}59`; e.currentTarget.style.borderColor = `${COLORS.darkNavy}1A`; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.color = "rgba(255,255,255,0.35)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
             >
               <X size={15} />
             </button>
@@ -165,7 +166,7 @@ export default function LeadModal({ isOpen, onClose }) {
               <div style={{ textAlign: "center", marginBottom: 32 }}>
                 <h3
                   style={{
-                    color: THEME_DARK,
+                    color: "#fff",
                     margin: "0 0 14px",
                   }}
                 >
@@ -174,8 +175,10 @@ export default function LeadModal({ isOpen, onClose }) {
                 <div style={{ width: 40, height: 1.5, background: THEME_GOLD, margin: "0 auto 14px", opacity: 0.5 }} />
                 <p style={{
                   color: THEME_GOLD,
-                  opacity: 0.65,
+                  opacity: 0.8,
                   margin: 0,
+                  fontSize: 13,
+                  fontWeight: 500,
                 }}>
                   Your private sanctuary awaits
                 </p>
@@ -234,12 +237,12 @@ export default function LeadModal({ isOpen, onClose }) {
                       value={formData.requirement}
                       onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
                     >
-                      <option value="" disabled>Select BHK</option>
-                      <option value="2bhk">2 BHK</option>
-                      <option value="3bhk">3 BHK</option>
+                      <option value="" disabled style={{ background: COLORS.darkNavy, color: "#fff" }}>Select BHK</option>
+                      <option value="2bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>2 BHK</option>
+                      <option value="3bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>3 BHK</option>
                     </select>
-                    <div style={{ position: "absolute", right: 16, bottom: 20, pointerEvents: "none", opacity: 0.3 }}>
-                      <svg width="11" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#07111F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <div style={{ position: "absolute", right: 16, bottom: 20, pointerEvents: "none", opacity: 0.4 }}>
+                      <svg width="11" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                     </div>
                   </div>
                   <div style={{ position: "relative" }}>
@@ -251,12 +254,12 @@ export default function LeadModal({ isOpen, onClose }) {
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     >
-                      <option value="" disabled>Select City</option>
-                      <option value="dharapur">Dharapur</option>
-                      <option value="guwahati">Guwahati</option>
+                      <option value="" disabled style={{ background: COLORS.darkNavy, color: "#fff" }}>Select City</option>
+                      <option value="dharapur" style={{ background: COLORS.darkNavy, color: "#fff" }}>Dharapur</option>
+                      <option value="guwahati" style={{ background: COLORS.darkNavy, color: "#fff" }}>Guwahati</option>
                     </select>
-                    <div style={{ position: "absolute", right: 16, bottom: 20, pointerEvents: "none", opacity: 0.3 }}>
-                      <svg width="11" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#07111F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <div style={{ position: "absolute", right: 16, bottom: 20, pointerEvents: "none", opacity: 0.4 }}>
+                      <svg width="11" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                     </div>
                   </div>
                 </div>
@@ -266,7 +269,7 @@ export default function LeadModal({ isOpen, onClose }) {
                   <button type="submit" className="lead-submit">
                     Confirm Interest
                   </button>
-                  <p style={{ textAlign: "center", fontSize: 10, color: "rgba(7,17,31,0.3)", marginTop: 14, letterSpacing: "0.04em" }}>
+                  <p style={{ textAlign: "center", fontSize: 10, color: "rgba(255,255,255,0.3)", marginTop: 14, letterSpacing: "0.04em" }}>
                     Your information is kept strictly private
                   </p>
                 </div>

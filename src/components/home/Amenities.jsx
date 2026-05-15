@@ -187,7 +187,7 @@ export function Amenities() {
       <section
         id="amenities"
         className="sa-sans sa-section"
-        style={{ background: COLORS.warmWhite, position: "relative", overflow: "hidden", padding: "108px 0 112px" }}
+        style={{ background: COLORS.luxBeige, position: "relative", overflow: "hidden", padding: "108px 0 112px" }}
       >
         {/* Decorative glows */}
         <div className="absolute -bottom-12 -left-12" style={{ width: 450, height: 450, background: `radial-gradient(circle, ${COLORS.primary}12 0%, transparent 70%)`, pointerEvents: "none" }} />
@@ -304,7 +304,7 @@ export function Amenities() {
       `}</style>
       </section>
 
-      <WaveLightToDark fromColor={COLORS.warmWhite} toColor={COLORS.darkBlue} />
+      <WaveLightToDark fromColor={COLORS.luxBeige} toColor={COLORS.darkBlue} />
     </>
   );
 }

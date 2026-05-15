@@ -19,7 +19,7 @@ export function Overview() {
   return (
     <>
       <section
-        id="overview-section"
+        id="overview"
         className="sa-sans sa-noise sa-section"
         style={{ background: COLORS.warmWhite, position: "relative", overflow: "hidden", padding: "104px 0 108px" }}
       >

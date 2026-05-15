@@ -10,16 +10,13 @@ const categories = [
     label: 'Connectivity',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
       </svg>
     ),
     accent: COLORS.primary,
     items: [
-      { name: 'NH 17', dist: '2 km', km: 2 },
-      { name: 'Dharapur Bus Stop', dist: '2 km', km: 2 },
-      { name: 'Airport', dist: '5.7 km', km: 5.7 },
-      { name: 'Jalukbari Flyover', dist: '10 km', km: 10 },
-      { name: 'Kamakhya Railway Station', dist: '12 km', km: 12 },
+      { name: 'Lokpriya Gopinath Bordoloi Int. Airport', dist: '5.7 km', km: 5.7 },
+      { name: 'Jalukbari Flyover', dist: '10.0 km', km: 10.0 },
     ],
   },
   {
@@ -32,15 +29,16 @@ const categories = [
     ),
     accent: COLORS.primary,
     items: [
-      { name: 'Kidzee Dharapur', dist: '0.8 km', km: 0.8 },
+      { name: 'Dharapur Higher Secondary School', dist: '2.2 km', km: 2.2 },
       { name: 'Girijananda Chowdhury University', dist: '2.9 km', km: 2.9 },
-      { name: 'Assam Don Bosco University', dist: '3.3 km', km: 3.3 },
+      { name: 'Assam Don Bosco University', dist: '3.2 km', km: 3.2 },
       { name: 'Gauhati University', dist: '5.4 km', km: 5.4 },
+      { name: 'Assamese School', dist: '5.6 km', km: 5.6 },
     ],
   },
   {
     id: 'healthcare',
-    label: 'Healthcare',
+    label: 'Hospitals',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
@@ -48,14 +46,15 @@ const categories = [
     ),
     accent: COLORS.primary,
     items: [
-      { name: 'I Care Diagnostic', dist: '2.1 km', km: 2.1 },
-      { name: 'City Health Centre', dist: '3.7 km', km: 3.7 },
-      { name: 'Apollo Excelcare Hospital', dist: '12 km', km: 12 },
+      { name: 'Garal PHC', dist: '0.95 km', km: 0.95 },
+      { name: 'Azara PHC', dist: '3.8 km', km: 3.8 },
+      { name: 'Gauhati University Hospital', dist: '10.7 km', km: 10.7 },
+      { name: 'Apollo Excelcare Hospital', dist: '13.2 km', km: 13.2 },
     ],
   },
   {
     id: 'leisure',
-    label: 'Daily & Leisure',
+    label: 'Malls',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
@@ -63,9 +62,27 @@ const categories = [
     ),
     accent: COLORS.primary,
     items: [
+      { name: 'University Shopping Complex', dist: '6.6 km', km: 6.6 },
       { name: 'Decathlon Azara', dist: '6.7 km', km: 6.7 },
-      { name: 'NCS Square Mall', dist: '8.4 km', km: 8.4 },
+      { name: 'NCS Square Mall', dist: '9 km', km: 9 },
       { name: 'Westside', dist: '9 km', km: 9 },
+    ],
+  },
+  {
+    id: 'others',
+    label: 'Others',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+    ),
+    accent: COLORS.primary,
+    items: [
+      { name: 'BCPL Petrol Pump Station', dist: '650 m', km: 0.65 },
+      { name: 'Dharapur Chariali', dist: '2.2 km', km: 2.2 },
+      { name: 'IOCL Ramani Service Station', dist: '3.7 km', km: 3.7 },
+      { name: 'Kiranshree Grand Hotel', dist: '3.7 km', km: 3.7 },
+      { name: 'Azara Police Station', dist: '4.8 km', km: 4.8 },
     ],
   },
 ];
@@ -329,7 +346,7 @@ export function Location() {
             className="sa-reveal sa-d1"
             style={{ marginBottom: 20, color: COLORS.textDark }}
           >
-            Wellborn and <span style={{ color: COLORS.primary }}>Well-Connected</span>
+            Wellborn and <span style={{ color: COLORS.primary }}>Well–Connected</span>
           </h2>
           <p
             className="sa-reveal sa-d2"
@@ -342,10 +359,15 @@ export function Location() {
             className="grid gap-10 lg:gap-16 items-start"
             style={{ gridTemplateColumns: 'minmax(320px, 0.82fr) minmax(0, 1.18fr)' }}
           >
-            <MapCard />
+            <div className="sa-reveal-l" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <MapCard />
+              {categories.filter(c => c.id === 'connectivity').map(cat => (
+                <CategoryCard key={cat.id} cat={cat} />
+              ))}
+            </div>
 
             <div className="sa-reveal-r loc-category-grid">
-                {categories.map(cat => (
+                {categories.filter(c => c.id !== 'connectivity').map(cat => (
                   <CategoryCard key={cat.id} cat={cat} />
                 ))}
             </div>

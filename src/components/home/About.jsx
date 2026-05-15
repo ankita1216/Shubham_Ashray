@@ -19,9 +19,8 @@ export function About() {
           background: COLORS.luxBeige,
           position: "relative",
           overflow: "hidden",
-          padding: "112px 0 112px 0",
+          padding: "80px 0",
           color: COLORS.textDark,
-          minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column'
         }}
@@ -129,9 +128,9 @@ export function About() {
           /* ── LAYOUT FOUNDATION ── */
           .about-split-canvas {
             display: flex;
-            gap: 76px;
+            gap: 48px;
             align-items: flex-start;
-            padding-bottom: 80px;
+            padding-bottom: 40px;
           }
 
           .about-left-panel {
@@ -143,15 +142,15 @@ export function About() {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 24px;
           }
 
           .about-sticky-content {
             position: sticky;
-            top: 120px; /* Adjust based on your nav height */
+            top: 100px; /* Adjust based on your nav height */
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 24px;
           }
 
           /* ── BACKGROUND ANIMATIONS ── */
@@ -197,13 +196,13 @@ export function About() {
           .about-glass-metrics {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 16px;
             background: rgba(255,255,255,0.4);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(26,28,20,0.08);
             border-radius: 14px;
-            padding: 30px;
+            padding: 20px 24px;
           }
 
           .canvas-metric-item {
@@ -214,7 +213,7 @@ export function About() {
 
           .canvas-metric-val {
             font-family: 'Outfit', sans-serif;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             line-height: 1;
           }
@@ -288,7 +287,7 @@ export function About() {
 
           .accordion-pane {
             position: relative;
-            height: 70px;
+            height: 60px;
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
@@ -297,7 +296,7 @@ export function About() {
           }
 
           .accordion-pane.is-active {
-            height: 200px;
+            height: 180px;
             border-color: ${COLORS.primary}33;
           }
 
@@ -391,9 +390,9 @@ export function About() {
           }
 
           .about-canvas-footer {
-            margin-top: 20px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 8px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(26,28,20,0.05);
           }
 
           .about-canvas-footer p {

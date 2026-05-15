@@ -201,7 +201,7 @@ export function Hero({ onOpenModal }) {
           style={{
             position: 'absolute',
             top: '120px',
-            right: '2%', // Bring it more into the screen
+            right: '5%', // Shifted slightly left to connect with content
             width: 'clamp(300px, 50%, 700px)',
             height: 'calc(85% - 120px)',
             zIndex: 10,
@@ -431,7 +431,7 @@ export function Hero({ onOpenModal }) {
           style={{
             position: 'absolute',
             bottom: 112,
-            right: 32,
+            right: '5%',
             zIndex: 40,
             flexDirection: 'column',
             alignItems: 'center',

@@ -11,6 +11,7 @@ import { Location } from '../components/home/Location';
 import { About } from '../components/home/About';
 import { Contact } from '../components/home/Contact';
 import LeadModal from '../components/common/LeadModal';
+import BottomEnquiryForm from '../components/common/BottomEnquiryForm';
 import { useReveal } from '../hooks/useReveal';
 
 export default function Home() {
@@ -46,6 +47,7 @@ export default function Home() {
       <Footer />
       
       <LeadModal isOpen={isModalOpen} onClose={closeModal} />
+      <BottomEnquiryForm />
     </div>
   );
 }
