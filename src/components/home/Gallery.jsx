@@ -511,7 +511,7 @@ export function Gallery() {
                 <SectionLabel onDark={false}>Selected Portfolio</SectionLabel>
               </div>
               <h2 style={{ color: COLORS.textDark, margin: 0 }}>
-                Visual <em style={{ color: COLORS.primary, fontStyle: 'italic' }}>Excellence.</em>
+                Visual <em style={{ color: COLORS.primary, fontStyle: 'italic' }}>Excellence</em>
               </h2>
             </div>
 

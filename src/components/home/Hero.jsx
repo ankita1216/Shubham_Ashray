@@ -180,17 +180,17 @@ export function Hero({ onOpenModal }) {
         <GridLines />
 
         {/* ── Decorative Background Shapes ──────────────────────────── */}
-        <DecorativeShape 
-          size={500} 
-          opacity={0.15} 
-          rotate={-15} 
-          className="-top-20 -left-20" 
+        <DecorativeShape
+          size={500}
+          opacity={0.15}
+          rotate={-15}
+          className="-top-20 -left-20"
         />
-        <DecorativeShape 
-          size={400} 
-          opacity={0.12} 
-          rotate={165} 
-          className="top-[40%] -right-40" 
+        <DecorativeShape
+          size={400}
+          opacity={0.12}
+          rotate={165}
+          className="top-[40%] -right-40"
         />
 
         {/* ── The Architectural Image Frame ────────────────────────── */}
@@ -200,7 +200,7 @@ export function Hero({ onOpenModal }) {
           transition={{ duration: 1.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           style={{
             position: 'absolute',
-            top: '120px', 
+            top: '120px',
             right: '2%', // Bring it more into the screen
             width: 'clamp(300px, 50%, 700px)',
             height: 'calc(85% - 120px)',
@@ -311,7 +311,7 @@ export function Hero({ onOpenModal }) {
             flexDirection: 'column',
             justifyContent: 'center',
             paddingTop: '40px', // Minimal clearance
-            paddingBottom: '0px', 
+            paddingBottom: '0px',
           }}
         >
           <div style={{ maxWidth: 640 }}>
@@ -336,7 +336,7 @@ export function Hero({ onOpenModal }) {
                 transition={{ duration: 1.05, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
                 style={{ color: '#FFFFFF', margin: 0 }}
               >
-                AHA <span style={{ color: COLORS.primary, fontStyle: 'italic' }}>LIFE.</span>
+                AHA <span style={{ color: COLORS.primary, fontStyle: 'italic' }}>LIFE</span>
               </motion.h1>
             </div>
 

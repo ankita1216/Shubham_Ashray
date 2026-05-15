@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { 
-  Waves, 
-  Dumbbell, 
-  Gamepad2, 
-  Sparkles, 
-  Tent, 
-  Trees, 
-  Theater, 
+import {
+  Waves,
+  Dumbbell,
+  Gamepad2,
+  Sparkles,
+  Tent,
+  Trees,
+  Theater,
   Users,
   Baby,
   Building2,
@@ -184,109 +184,109 @@ export function Amenities() {
 
   return (
     <>
-    <section
-      id="amenities"
-      className="sa-sans sa-section"
-      style={{ background: COLORS.warmWhite, position: "relative", overflow: "hidden", padding: "108px 0 112px" }}
-    >
-      {/* Decorative glows */}
-      <div className="absolute -bottom-12 -left-12" style={{ width: 450, height: 450, background: `radial-gradient(circle, ${COLORS.primary}12 0%, transparent 70%)`, pointerEvents: "none" }} />
-      <div className="absolute top-0 right-0" style={{ width: 350, height: 350, background: `radial-gradient(circle, ${COLORS.primary}0D 0%, transparent 70%)`, pointerEvents: "none" }} />
+      <section
+        id="amenities"
+        className="sa-sans sa-section"
+        style={{ background: COLORS.warmWhite, position: "relative", overflow: "hidden", padding: "108px 0 112px" }}
+      >
+        {/* Decorative glows */}
+        <div className="absolute -bottom-12 -left-12" style={{ width: 450, height: 450, background: `radial-gradient(circle, ${COLORS.primary}12 0%, transparent 70%)`, pointerEvents: "none" }} />
+        <div className="absolute top-0 right-0" style={{ width: 350, height: 350, background: `radial-gradient(circle, ${COLORS.primary}0D 0%, transparent 70%)`, pointerEvents: "none" }} />
 
-      <DecorativeShape size={600} opacity={0.14} rotate={0} className="-bottom-40 left-1/2 -translate-x-1/2" />
+        <DecorativeShape size={600} opacity={0.14} rotate={0} className="-bottom-40 left-1/2 -translate-x-1/2" />
 
-      <div className="sa-container">
+        <div className="sa-container">
 
-        {/* ── Header ── */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 0, marginBottom: 48 }}>
+          {/* ── Header ── */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 0, marginBottom: 48 }}>
 
-          {/* Top row */}
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
-            <div>
-              <div className="sa-reveal" style={{ marginBottom: 14 }}>
-                <SectionLabel onDark={false}>World-Class Amenities</SectionLabel>
-              </div>
-              <h2 style={{ color: COLORS.textDark, margin: 0 }}>
-                Every Joy,<br />
-                <span style={{ color: COLORS.primary }}>Right Here.</span>
-              </h2>
-            </div>
-
-            {/* Right: stats + desc */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12, paddingTop: 4 }}>
-              {/* Big stat */}
-              <div style={{ textAlign: "right" }}>
-                <div style={{ fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800, color: COLORS.textDark, lineHeight: 1, letterSpacing: "-0.03em" }}>
-                  30<span style={{ color: COLORS.primary }}>+</span>
+            {/* Top row */}
+            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
+              <div>
+                <div className="sa-reveal" style={{ marginBottom: 14 }}>
+                  <SectionLabel onDark={false}>World-Class Amenities</SectionLabel>
                 </div>
-                <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.mutedLight, marginTop: 4 }}>Curated Amenities</div>
+                <h2 style={{ color: COLORS.textDark, margin: 0 }}>
+                  Every Joy,<br />
+                  <span style={{ color: COLORS.primary }}>Right Here</span>
+                </h2>
               </div>
-              {/* Divider */}
-              <div style={{ width: 40, height: 1, background: `rgba(26,28,20,0.12)` }} />
-              <p
-                style={{
-                  fontSize: 14,
-                  color: COLORS.mutedLight,
-                  maxWidth: 320,
-                  lineHeight: 1.7,
-                  textAlign: "right",
-                  margin: 0,
-                }}
-              >
-                Landscaped greens, club amenities, play zones, and community spaces planned as one connected everyday experience.
-              </p>
+
+              {/* Right: stats + desc */}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12, paddingTop: 4 }}>
+                {/* Big stat */}
+                <div style={{ textAlign: "right" }}>
+                  <div style={{ fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800, color: COLORS.textDark, lineHeight: 1, letterSpacing: "-0.03em" }}>
+                    30<span style={{ color: COLORS.primary }}>+</span>
+                  </div>
+                  <div style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: COLORS.mutedLight, marginTop: 4 }}>Curated Amenities</div>
+                </div>
+                {/* Divider */}
+                <div style={{ width: 40, height: 1, background: `rgba(26,28,20,0.12)` }} />
+                <p
+                  style={{
+                    fontSize: 14,
+                    color: COLORS.mutedLight,
+                    maxWidth: 320,
+                    lineHeight: 1.7,
+                    textAlign: "right",
+                    margin: 0,
+                  }}
+                >
+                  Landscaped greens, club amenities, play zones, and community spaces planned as one connected everyday experience.
+                </p>
+              </div>
             </div>
+
+            {/* Thin divider line */}
+            <div style={{ height: 1, background: "rgba(26,28,20,0.06)", marginTop: 32 }} />
           </div>
 
-          {/* Thin divider line */}
-          <div style={{ height: 1, background: "rgba(26,28,20,0.06)", marginTop: 32 }} />
-        </div>
-
-        {/* ── Bento Grid ── */}
-        <div
-          className="amenity-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 12,
-            marginBottom: 34,
-          }}
-        >
-          {amenitiesData.map((amenity, i) => (
-            <AmenityCard
-              key={amenity.name}
-              {...amenity}
-              layout={LAYOUTS[i] || { col: "span 1", row: "span 1", featured: false }}
-              index={i}
-            />
-          ))}
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 0.35fr) minmax(0, 0.65fr)", gap: 18, alignItems: "stretch" }} className="amenity-feature-strip">
-          <div style={{ background: COLORS.darkBlue, color: "#fff", borderRadius: 16, padding: "26px 28px", border: "1px solid rgba(255,255,255,0.08)" }}>
-            <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase", color: COLORS.primary, marginBottom: 14 }}>Landscape Features</div>
-            <p className="sa-serif" style={{ fontSize: 29, lineHeight: 1.05, margin: 0 }}>Outdoor spaces made for slow walks, play, and gathering.</p>
-          </div>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignContent: "center", background: "rgba(255,255,255,0.62)", border: "1px solid rgba(26,28,20,0.07)", borderRadius: 16, padding: 22 }}>
-            {landscapeFeatures.map((item) => (
-              <span key={item} style={{ border: "1px solid rgba(26,28,20,0.09)", borderRadius: 999, padding: "9px 13px", fontSize: 12, fontWeight: 700, color: COLORS.textMid, background: "rgba(255,255,255,0.7)" }}>
-                {item}
-              </span>
+          {/* ── Bento Grid ── */}
+          <div
+            className="amenity-grid"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: 12,
+              marginBottom: 34,
+            }}
+          >
+            {amenitiesData.map((amenity, i) => (
+              <AmenityCard
+                key={amenity.name}
+                {...amenity}
+                layout={LAYOUTS[i] || { col: "span 1", row: "span 1", featured: false }}
+                index={i}
+              />
             ))}
           </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 0.35fr) minmax(0, 0.65fr)", gap: 18, alignItems: "stretch" }} className="amenity-feature-strip">
+            <div style={{ background: COLORS.darkBlue, color: "#fff", borderRadius: 16, padding: "26px 28px", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase", color: COLORS.primary, marginBottom: 14 }}>Landscape Features</div>
+              <p className="sa-serif" style={{ fontSize: 29, lineHeight: 1.05, margin: 0 }}>Outdoor spaces made for slow walks, play, and gathering.</p>
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignContent: "center", background: "rgba(255,255,255,0.62)", border: "1px solid rgba(26,28,20,0.07)", borderRadius: 16, padding: 22 }}>
+              {landscapeFeatures.map((item) => (
+                <span key={item} style={{ border: "1px solid rgba(26,28,20,0.09)", borderRadius: 999, padding: "9px 13px", fontSize: 12, fontWeight: 700, color: COLORS.textMid, background: "rgba(255,255,255,0.7)" }}>
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Footer tag line ── */}
+          <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 32 }}>
+            <div style={{ flex: 1, height: 1, background: "rgba(26,28,20,0.06)" }} />
+            <span style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: COLORS.mutedLight, whiteSpace: "nowrap" }}>
+              Subham Ashray · Premium Living
+            </span>
+            <div style={{ flex: 1, height: 1, background: "rgba(26,28,20,0.06)" }} />
+          </div>
         </div>
 
-        {/* ── Footer tag line ── */}
-        <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 32 }}>
-          <div style={{ flex: 1, height: 1, background: "rgba(26,28,20,0.06)" }} />
-          <span style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: COLORS.mutedLight, whiteSpace: "nowrap" }}>
-            Subham Ashray · Premium Living
-          </span>
-          <div style={{ flex: 1, height: 1, background: "rgba(26,28,20,0.06)" }} />
-        </div>
-      </div>
-
-      <style>{`
+        <style>{`
         @media (max-width: 768px) {
           .amenity-grid {
             grid-template-columns: repeat(2, 1fr) !important;
@@ -302,9 +302,9 @@ export function Amenities() {
           }
         }
       `}</style>
-    </section>
+      </section>
 
-    <WaveLightToDark fromColor={COLORS.warmWhite} toColor={COLORS.darkBlue} />
+      <WaveLightToDark fromColor={COLORS.warmWhite} toColor={COLORS.darkBlue} />
     </>
   );
 }

@@ -530,7 +530,7 @@ export function FloorPlans({ onOpenModal }) {
               <SectionLabel onDark={true}>Space Anatomy</SectionLabel>
               <h2 className="floor-title">
                 Plans Crafted<br />
-                <span>For Daily Ease.</span>
+                <span>For Daily Ease</span>
               </h2>
             </div>
             <div className="floor-head-copy">

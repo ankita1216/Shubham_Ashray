@@ -70,7 +70,7 @@ export function VideoSection() {
 
             <h2 className="vs-h2">
               A Life Made<br />
-              <em>Of Aha Moments.</em>
+              <em>Of Aha Moments</em>
             </h2>
 
             <p>

@@ -57,7 +57,7 @@ export function About() {
 
               <h2 className="about-canvas-title" style={{ color: COLORS.textDark }}>
                 Timebound<br />
-                <span style={{ color: COLORS.primary, fontWeight: 900 }}>Timeless.</span>
+                <span style={{ color: COLORS.primary, fontWeight: 900 }}>Timeless</span>
               </h2>
 
               <div className="about-glass-metrics">

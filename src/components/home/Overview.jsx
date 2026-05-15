@@ -62,7 +62,7 @@ export function Overview() {
             {/* LEFT: headline + body + features */}
             <div>
               <h2 style={{ color: COLORS.textDark, margin: "0 0 var(--sa-spacing-heading-to-p)" }}>
-                The <em style={{ fontStyle: "italic", color: COLORS.pink }}>Aha</em> Homes<br />You Deserve.
+                The <em style={{ fontStyle: "italic", color: COLORS.pink }}>Aha</em> Homes<br />You Deserve
               </h2>
 
               <p style={{ color: COLORS.mutedLight, maxWidth: 590 }}>
