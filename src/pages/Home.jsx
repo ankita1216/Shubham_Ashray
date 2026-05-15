@@ -40,8 +40,8 @@ export default function Home() {
         <Gallery />
         <FloorPlans onOpenModal={openModal} />
         <Location />
-        <About />
         <Contact />
+        <About />
       </main>
       <Footer />
       

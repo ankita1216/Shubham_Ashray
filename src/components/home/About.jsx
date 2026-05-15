@@ -19,14 +19,14 @@ export function About() {
           background: COLORS.darkNavy,
           position: "relative",
           overflow: "hidden",
-          padding: "112px 0 0 0",
+          padding: "112px 0 112px 0",
           color: '#fff',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column'
         }}
       >
-        <DecorativeShape size={600} opacity={0.12} rotate={15} className="-bottom-40 -right-20" />
+        <DecorativeShape size={600} opacity={0.12} rotate={15} className="-top-40 -right-20" />
         {/* ── ABSTRACT SVG PATH ANIMATION (Background) ── */}
         <div className="about-svg-bg">
           <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
@@ -439,8 +439,6 @@ export function About() {
 
       </section>
 
-      {/* Kept divider exactly as requested */}
-      <WaveDarkToLight fromColor={COLORS.darkNavy} toColor={COLORS.luxBeige} />
     </>
   );
 }

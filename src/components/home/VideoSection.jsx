@@ -214,18 +214,6 @@ export function VideoSection() {
                 home that makes everyday life feel more present. It starts
                 with community. It stays with memory.
               </p>
-              <div className="vs-stats">
-                {[
-                  { v: '70%', l: 'Green Area' },
-                  { v: '9', l: 'Towers' },
-                  { v: '3km', l: 'Walk Paths' },
-                ].map((s, i) => (
-                  <div key={i} className="vs-stat">
-                    <strong className="sa-serif vs-stat-val">{s.v}</strong>
-                    <span className="vs-stat-lbl">{s.l}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* moment cards */}

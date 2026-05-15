@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { MessageCircle, Phone } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
+import { WaveLightToDark } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
 
 export function Contact() {
@@ -14,6 +15,7 @@ export function Contact() {
   };
 
   return (
+    <>
     <section id="contact" className="sa-sans sa-noise" style={{ background: COLORS.luxBeige, position: "relative", overflow: "hidden", padding: "112px 0" }}>
       <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 50% 60% at 80% 50%, ${COLORS.primary}0D 0%, transparent 60%)`, pointerEvents: "none" }} />
       
@@ -31,15 +33,6 @@ export function Contact() {
             Talk to our team today. We'll walk you through every detail: unit selection, pricing, site visits, and everything in between.
           </p>
           <div className="sa-reveal sa-d3 flex flex-col gap-5 mb-12">
-            <a href="tel:+919854043000" className="sa-channel-btn sa-sans" style={{ background: `${COLORS.primary}12`, border: `1px solid ${COLORS.primary}26`, color: COLORS.textDark, padding: "20px 24px" }}>
-              <div style={{ width: 48, height: 48, borderRadius: 12, background: `${COLORS.primary}1A`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <Phone size={21} strokeWidth={2.2} />
-              </div>
-              <div>
-                <span style={{ display: "block", fontSize: 11, fontWeight: 500, letterSpacing: 1, textTransform: "uppercase", color: COLORS.mutedLight, marginBottom: 2 }}>Call Us</span>
-                <span style={{ fontSize: 18, fontWeight: 700, color: COLORS.textDark }}>+91-98540 43000</span>
-              </div>
-            </a>
             <a href="https://wa.me/919854043000" target="_blank" className="sa-channel-btn sa-sans" style={{ background: `${COLORS.primary}0D`, border: `1px solid ${COLORS.primary}1A`, color: COLORS.textDark, padding: "20px 24px" }}>
               <div style={{ width: 48, height: 48, borderRadius: 12, background: `${COLORS.primary}14`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 <MessageCircle size={21} strokeWidth={2.2} />
@@ -50,30 +43,29 @@ export function Contact() {
               </div>
             </a>
           </div>
-          <div className="sa-reveal sa-d4 rounded-2xl" style={{ background: "rgba(255,255,255,0.86)", border: "1px solid rgba(26,26,46,0.1)", backdropFilter: "blur(12px)", padding: "30px 32px", borderRadius: 18 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: COLORS.primary, marginBottom: 12 }}>Site Address</div>
-            <div style={{ fontSize: 14, color: COLORS.textMid, lineHeight: 1.8 }}>
-              Subham Ashray, Aerocity Dharapur<br />
-              Palash Bari Road, Guwahati – 781017, Assam<br /><br />
-              <strong style={{ color: COLORS.textDark }}>RERA:</strong> RERAA KM 113 of 2022-2023<br />
-              RERA KM 162 of 2023-2024
-            </div>
-          </div>
         </div>
 
         {/* Right — dark glass form */}
         <div className="sa-reveal sa-d2 relative overflow-hidden"
-          style={{ background: COLORS.darkBlue, boxShadow: "0 24px 80px rgba(26,26,46,0.25)", padding: "42px 46px", borderRadius: 22, border: "1px solid rgba(255,255,255,0.08)" }}>
+          style={{ background: COLORS.darkBlue, boxShadow: "0 24px 80px rgba(26,26,46,0.25)", padding: "32px 36px", borderRadius: 20, border: "1px solid rgba(255,255,255,0.08)" }}>
           <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(90deg, ${COLORS.primary}, ${COLORS.goldDark})` }} />
-          <h3 className="sa-serif text-white mb-2" style={{ fontSize: 28, fontWeight: 700 }}>Book Your Free Site Visit</h3>
-          <p style={{ fontSize: 14, color: COLORS.mutedDark, marginBottom: 36 }}>Our team will reach out within 24 hours</p>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            {[["Full Name", "text", "Your full name"], ["Phone Number", "tel", "+91 00000 00000"], ["Email Address", "email", "your@email.com"]].map(([label, type, ph]) => (
-              <div key={label}>
-                <label className="block mb-2" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: COLORS.mutedDark }}>{label}</label>
-                <input required type={type} placeholder={ph} className="sa-form-input-dark" />
+          <h3 className="sa-serif text-white mb-1" style={{ fontSize: 24, fontWeight: 700 }}>Book Site Visit</h3>
+          <p style={{ fontSize: 13, color: COLORS.mutedDark, marginBottom: 28 }}>Our team will reach out within 24 hours</p>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <div>
+                <label className="block mb-1.5" style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.2, textTransform: "uppercase", color: COLORS.mutedDark }}>Full Name</label>
+                <input required type="text" placeholder="Your name" className="sa-form-input-dark" />
               </div>
-            ))}
+              <div>
+                <label className="block mb-1.5" style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.2, textTransform: "uppercase", color: COLORS.mutedDark }}>Phone Number</label>
+                <input required type="tel" placeholder="+91..." className="sa-form-input-dark" />
+              </div>
+            </div>
+            <div>
+              <label className="block mb-1.5" style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.2, textTransform: "uppercase", color: COLORS.mutedDark }}>Email Address</label>
+              <input required type="email" placeholder="your@email.com" className="sa-form-input-dark" />
+            </div>
             <div>
               <label className="block mb-2" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred Unit Type</label>
               <select className="sa-form-input-dark">
@@ -83,10 +75,6 @@ export function Contact() {
                 <option>3 BHK Premium — 1197–1255 sq.ft</option>
               </select>
             </div>
-            <div>
-              <label className="block mb-2" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred Visit Date</label>
-              <input required type="date" className="sa-form-input-dark" />
-            </div>
             <button type="submit" className="sa-hero-cta sa-sans">
               Book Site Visit
             </button>
@@ -94,6 +82,8 @@ export function Contact() {
           </form>
         </div>
       </div>
-    </section>
+      </section>
+      <WaveLightToDark fromColor={COLORS.luxBeige} toColor={COLORS.darkNavy} />
+    </>
   );
 }

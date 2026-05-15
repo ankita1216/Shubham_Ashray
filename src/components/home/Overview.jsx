@@ -15,12 +15,6 @@ export function Overview() {
     { icon: <Leaf size={18} />, name: "Rainwater Harvesting", sub: "Eco-conscious design", accent: COLORS.textDark },
   ];
 
-  const highlights = [
-    ["9", "Towers"],
-    ["525", "Spacious Flats"],
-    ["70%", "Open Space"],
-    ["800-1255", "Sq. Ft Homes"],
-  ];
 
   return (
     <>
@@ -42,7 +36,6 @@ export function Overview() {
           }
           @media (max-width: 500px) {
             .ov-features { grid-template-columns: 1fr 1fr !important; }
-            .ov-highlights { grid-template-columns: 1fr 1fr !important; }
           }
         `}</style>
 
@@ -76,14 +69,6 @@ export function Overview() {
                 A luxury abode awaits to make your moments memorable. Everyday starts with the promise of joy, open space, and thoughtfully planned 2 and 3 BHK homes at Guwahati's Aerocity corridor.
               </p>
 
-              <div className="ov-highlights" style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 10, marginBottom: 34 }}>
-                {highlights.map(([value, label]) => (
-                  <div key={label} style={{ background: "rgba(255,255,255,0.78)", border: "1px solid rgba(26,28,20,0.08)", borderRadius: 12, padding: "18px 16px" }}>
-                    <div style={{ color: COLORS.textDark, fontSize: 26, fontWeight: 800, lineHeight: 1 }}>{value}</div>
-                    <div style={{ color: COLORS.mutedLight, fontSize: 10, fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", marginTop: 8 }}>{label}</div>
-                  </div>
-                ))}
-              </div>
 
               {/* Features — horizontal list style */}
               <div

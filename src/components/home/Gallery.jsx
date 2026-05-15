@@ -505,7 +505,7 @@ export function Gallery() {
             WORKS
           </div>
 
-          <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'flex-end', gap: 32, flexWrap: 'wrap' }}>
+          <div style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 32, flexWrap: 'wrap' }}>
             <div style={{ flex: 1, minWidth: 240 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
                 <SectionLabel onDark={false}>Selected Portfolio</SectionLabel>
@@ -515,19 +515,35 @@ export function Gallery() {
               </h2>
             </div>
 
-            <div style={{ paddingBottom: 6, textAlign: 'right' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12, paddingTop: 4 }}>
+              <div style={{ textAlign: 'right' }}>
+                <p style={{
+                  fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800,
+                  color: COLORS.textDark,
+                  margin: 0, lineHeight: 1, letterSpacing: '-0.03em',
+                }}>
+                  {total.toString().padStart(2, '0')}<span style={{ color: COLORS.primary }}>+</span>
+                </p>
+                <p style={{
+                  fontSize: 11, letterSpacing: '0.16em', fontWeight: 700,
+                  color: COLORS.mutedLight, textTransform: 'uppercase', margin: '4px 0 0',
+                }}>
+                  Showcase Projects
+                </p>
+              </div>
+
+              {/* Divider */}
+              <div style={{ width: 40, height: 1, background: `rgba(26,28,20,0.12)` }} />
+
               <p style={{
-                fontSize: 34, fontWeight: 800,
-                color: `${COLORS.textDark}15`,
-                margin: 0, lineHeight: 1, letterSpacing: '-0.01em',
+                fontSize: 14,
+                color: COLORS.mutedLight,
+                maxWidth: 320,
+                lineHeight: 1.7,
+                textAlign: "right",
+                margin: 0,
               }}>
-                {total.toString().padStart(2, '0')}
-              </p>
-              <p style={{
-                fontSize: 9, letterSpacing: '0.22em', fontWeight: 700,
-                color: `${COLORS.textDark}35`, textTransform: 'uppercase', margin: '4px 0 0',
-              }}>
-                Projects
+                An immersive visual journey through our meticulously designed spaces, where modern architecture meets timeless luxury in every detail.
               </p>
             </div>
           </div>

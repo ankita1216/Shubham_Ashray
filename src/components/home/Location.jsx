@@ -483,7 +483,6 @@ export function Location() {
         `}</style>
       </section>
 
-      <WaveLightToDark fromColor={COLORS.warmWhite} toColor={COLORS.darkNavy} />
     </>
   );
 }
