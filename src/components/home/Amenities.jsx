@@ -7,7 +7,10 @@ import {
   Tent, 
   Trees, 
   Theater, 
-  Users 
+  Users,
+  Baby,
+  Building2,
+  Flower2
 } from 'lucide-react';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
@@ -23,7 +26,10 @@ const IconMap = {
   Tent,
   Trees,
   Theater,
-  Users
+  Users,
+  Baby,
+  Building2,
+  Flower2
 };
 
 // ── Compact card sizes for the bento grid ──────────────────────────────────

@@ -38,6 +38,7 @@ export function VideoSection() {
   return (
     <>
       <section
+        id="walkthrough-video"
         className="sa-sans vs-section"
         style={{ background: COLORS.darkBlue, position: 'relative', padding: '112px 0 128px' }}
       >

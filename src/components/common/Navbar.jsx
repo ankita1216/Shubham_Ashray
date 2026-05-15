@@ -29,7 +29,7 @@ export function Navbar({ scrolled, onOpenModal }) {
         />
       </div>
       <ul className="hidden lg:flex items-center gap-9" style={{ listStyle: "none" }}>
-        {["Overview", "Amenities", "Floor Plans", "Location", "About", "Contact"].map((item) => (
+        {["Overview", "Amenities", "Walkthrough Video", "Gallery", "Floor Plans", "Location", "Contact", "About"].map((item) => (
           <li key={item}>
             <a href={`#${item.toLowerCase().replace(" ", "-")}`} className="sa-nav-link sa-sans">{item}</a>
           </li>
