@@ -7,7 +7,7 @@ import { DecorativeShape } from '../common/DecorativeShape';
 
 /* ─── injected styles ─── */
 const CSS = `
-.gal-item { cursor: none; position: relative; overflow: hidden; }
+.gal-item { cursor: none; position: relative; overflow: hidden; border-radius: 8px; }
 .gal-item img {
   width: 100%; height: 100%; object-fit: cover; display: block;
   transition: transform 0.85s cubic-bezier(0.16,1,0.3,1), filter 0.5s ease;
@@ -576,11 +576,13 @@ export function Gallery() {
                   top: 0, left: 0,
                   borderTop: `1.5px solid ${COLORS.primary}`,
                   borderLeft: `1.5px solid ${COLORS.primary}`,
+                  borderTopLeftRadius: '8px',
                 }} />
                 <div className="gal-corner" style={{
                   bottom: 0, right: 0,
                   borderBottom: `1.5px solid ${COLORS.primary}`,
                   borderRight: `1.5px solid ${COLORS.primary}`,
+                  borderBottomRightRadius: '8px',
                 }} />
 
                 <div className="gal-label">

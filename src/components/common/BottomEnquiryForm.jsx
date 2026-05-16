@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Send, X, Home } from "lucide-react";
+import { Send, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
 
@@ -15,15 +15,21 @@ const initialFormData = {
 export default function BottomEnquiryForm() {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
-  const [isDismissed, setIsDismissed] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling past Hero (roughly 80vh)
-      const threshold = window.innerHeight * 0.8;
-      if (window.scrollY > threshold) {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      const heroThreshold = windowHeight * 0.8;
+      // Hide form slightly before or as the footer comes into view
+      // Footer height is roughly 400px-500px, so hiding around 250px from bottom is good
+      const footerThreshold = documentHeight - windowHeight - 250; 
+      
+      if (scrollY > heroThreshold && scrollY < footerThreshold) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -31,10 +37,12 @@ export default function BottomEnquiryForm() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    // Trigger on mount to set initial state
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const shouldShow = isVisible && !isDismissed;
+  const shouldShow = isVisible;
 
   const update = (field, value) =>
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -221,27 +229,6 @@ export default function BottomEnquiryForm() {
                   </motion.button>
                 </form>
 
-                {/* Close */}
-                <button
-                  onClick={() => setIsDismissed(true)}
-                  style={{
-                    background: "none",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    borderRadius: "8px",
-                    width: "32px",
-                    height: "32px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "rgba(255,255,255,0.3)",
-                    cursor: "pointer",
-                    transition: "all 0.2s"
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.color = COLORS.primary; e.currentTarget.style.borderColor = COLORS.primary; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.3)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
-                >
-                  <X size={14} />
-                </button>
               </div>
             </div>
           </div>
