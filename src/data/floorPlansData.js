@@ -1,5 +1,5 @@
 // Plan Images
-import masterPlan from '../assets/images/Master Plan.jpg';
+import masterPlan from '../assets/images/Mater plan.jpeg';
 
 // Unit Plans
 import unitPlan1 from '../assets/images/UNIT PLAN .webp';

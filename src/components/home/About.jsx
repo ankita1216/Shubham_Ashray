@@ -3,12 +3,16 @@ import { useCounter } from '../../hooks/useCounter';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveLightToDark } from '../common/Dividers';
-import { pastProjects, developerMetrics } from '../../data/projectsData';
+import { projectCategories, developerMetrics } from '../../data/projectsData';
 import { DecorativeShape } from '../common/DecorativeShape';
 
 export function About() {
-  const [activeProject, setActiveProject] = useState(0); // Default to first project expanded
+  const [activeCategory, setActiveCategory] = useState(0);
   useCounter();
+
+  const completedProjectsCount = projectCategories
+    .filter(({ title }) => title !== "Ongoing Projects")
+    .reduce((total, { projects }) => total + projects.length, 0);
 
   return (
     <>
@@ -81,36 +85,60 @@ export function About() {
             </div>
           </div>
 
-          {/* RIGHT PANEL: Interactive Interactive Accordion */}
+          {/* RIGHT PANEL: Enhanced Interactive Accordion */}
           <div className="about-right-panel">
             <div className="portfolio-header">
               <h3 style={{ color: COLORS.textDark }}>Heritage Portfolio</h3>
               <div className="portfolio-divider" style={{ background: "rgba(26,28,20,0.08)" }} />
-              <span style={{ color: COLORS.primary }}>{pastProjects.length} UNITS DELIVERED</span>
+              <span className="portfolio-count-badge">
+                <span className="portfolio-count-dot" />
+                {completedProjectsCount} DELIVERED
+              </span>
             </div>
 
-            <div className="portfolio-accordion">
-              {pastProjects.map(([name, sub], i) => {
-                const isActive = activeProject === i;
+            <div className="portfolio-category-grid">
+              {projectCategories.map(({ title, eyebrow, projects }, i) => {
+                const isActive = activeCategory === i;
                 return (
                   <div
-                    key={name}
-                    className={`accordion-pane ${isActive ? 'is-active' : ''}`}
-                    onMouseEnter={() => setActiveProject(i)}
+                    key={title}
+                    className={`portfolio-category-card ${isActive ? 'is-active' : ''}`}
+                    onMouseEnter={() => setActiveCategory(i)}
                   >
-                    <div className="pane-glass-bg" />
+                    {/* Subtle inner glow on active */}
+                    <div className="category-glass-bg" />
+                    <div className="category-accent-bar" />
 
-                    <div className="pane-content-wrapper">
-                      <div className="pane-index">0{i + 1}</div>
-
-                      <div className="pane-details">
-                        <h4 className="pane-name">{name}</h4>
-                        <p className="pane-sub">{sub}</p>
+                    <div className="category-head">
+                      <div className="category-index-pill">
+                        <span>0{i + 1}</span>
                       </div>
 
-                      <div className="pane-indicator">
-                        <div className="indicator-dot" />
+                      <div className="category-title-wrap">
+                        {eyebrow && <span className="category-eyebrow">{eyebrow}</span>}
+                        <h4 className="category-name">{title}</h4>
                       </div>
+
+                      <div className="category-count-wrap">
+                        <div className="category-count">{projects.length}</div>
+                        <div className="category-count-sub">projects</div>
+                      </div>
+                    </div>
+
+                    {/* Project list — refined rows instead of chips */}
+                    <div className="project-list-wrap">
+                      {projects.map(([name, location], pi) => (
+                        <div
+                          key={`${name}-${location}`}
+                          className="project-row"
+                          style={{ animationDelay: `${pi * 35}ms` }}
+                        >
+                          <span className="project-row-dot" />
+                          <span className="project-row-name">{name}</span>
+                          <span className="project-row-divider" />
+                          <span className="project-row-loc">{location}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 );
@@ -142,12 +170,12 @@ export function About() {
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
           }
 
           .about-sticky-content {
             position: sticky;
-            top: 100px; /* Adjust based on your nav height */
+            top: 100px;
             display: flex;
             flex-direction: column;
             gap: 24px;
@@ -188,41 +216,49 @@ export function About() {
             margin: 0;
           }
 
-          .text-yellow {
-            color: ${COLORS.primary};
-            font-weight: 900;
-          }
-
           .about-glass-metrics {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            background: rgba(255,255,255,0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(26,28,20,0.08);
+            gap: 0;
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(26,28,20,0.07);
             border-radius: 14px;
-            padding: 20px 24px;
+            overflow: hidden;
           }
 
           .canvas-metric-item {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
+            padding: 18px 20px;
+            position: relative;
+          }
+
+          .canvas-metric-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: rgba(26,28,20,0.07);
           }
 
           .canvas-metric-val {
             font-family: 'Outfit', sans-serif;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
             line-height: 1;
+            letter-spacing: -0.02em;
           }
 
           .canvas-metric-lbl {
-            font-size: 10px;
+            font-size: 9.5px;
             color: ${COLORS.mutedLight};
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
           }
 
           .about-canvas-quote {
@@ -251,152 +287,307 @@ export function About() {
             letter-spacing: 0.1em;
           }
 
-          /* ── RIGHT PANEL INTERACTIVE ACCORDION ── */
+          /* ── PORTFOLIO HEADER ── */
           .portfolio-header {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 16px;
           }
 
           .portfolio-header h3 {
-            font-size: 12px;
-            color: #fff;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.22em;
             margin: 0;
+            white-space: nowrap;
+            font-weight: 600;
           }
 
           .portfolio-divider {
             flex: 1;
             height: 1px;
-            background: rgba(255,255,255,0.1);
           }
 
-          .portfolio-header span {
-            font-size: 10px;
-            color: ${COLORS.yellow};
+          .portfolio-count-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 9.5px;
+            color: ${COLORS.primary};
             font-weight: 700;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.14em;
+            background: ${COLORS.primary}12;
+            border: 1px solid ${COLORS.primary}28;
+            border-radius: 999px;
+            padding: 4px 10px 4px 8px;
+            white-space: nowrap;
           }
 
-          .portfolio-accordion {
+          .portfolio-count-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: ${COLORS.primary};
+            animation: pulse-dot 2s ease-in-out infinite;
+            flex-shrink: 0;
+          }
+
+          @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+          }
+
+          /* ── CATEGORY CARDS — REFINED ── */
+          .portfolio-category-grid {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
           }
 
-          .accordion-pane {
+          .portfolio-category-card {
             position: relative;
-            height: 60px;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
-            transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid rgba(255,255,255,0.03);
+            padding: 16px 18px 14px;
+            border: 1px solid rgba(26,28,20,0.06);
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+                        border-color 0.3s ease,
+                        box-shadow 0.3s ease;
+            will-change: transform;
           }
 
-          .accordion-pane.is-active {
-            height: 180px;
-            border-color: ${COLORS.primary}33;
+          .portfolio-category-card:hover,
+          .portfolio-category-card.is-active {
+            border-color: ${COLORS.primary}2A;
+            transform: translateY(-2px);
+            box-shadow:
+              0 8px 32px rgba(26,28,20,0.07),
+              0 1px 0 rgba(255,255,255,0.9) inset;
           }
 
-          .pane-glass-bg {
+          /* Glassmorphism base layer */
+          .category-glass-bg {
             position: absolute;
             inset: 0;
-            background: rgba(255,255,255,0.3);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: background 0.4s ease;
+            background: rgba(255,255,255,0.28);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background 0.35s ease;
+            z-index: 0;
           }
 
-          .accordion-pane.is-active .pane-glass-bg {
-            background: linear-gradient(to right, rgba(255,255,255,0.7), transparent);
+          .portfolio-category-card.is-active .category-glass-bg {
+            background: linear-gradient(
+              108deg,
+              rgba(255,255,255,0.72) 0%,
+              rgba(255,255,255,0.22) 100%
+            );
           }
 
-          .pane-content-wrapper {
+          /* Left accent bar — the signature detail */
+          .category-accent-bar {
+            position: absolute;
+            left: 0;
+            top: 16%;
+            height: 68%;
+            width: 2px;
+            border-radius: 0 2px 2px 0;
+            background: ${COLORS.primary};
+            opacity: 0;
+            transform: scaleY(0.4);
+            transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34,1.2,0.64,1);
+            z-index: 3;
+          }
+
+          .portfolio-category-card.is-active .category-accent-bar {
+            opacity: 1;
+            transform: scaleY(1);
+          }
+
+          /* ── CATEGORY HEAD ROW ── */
+          .category-head {
             position: relative;
             z-index: 2;
             display: flex;
             align-items: center;
-            height: 100%;
-            padding: 0 30px;
-            gap: 30px;
+            gap: 14px;
+            margin-bottom: 12px;
           }
 
-          .pane-index {
+          /* Index pill */
+          .category-index-pill {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(26,28,20,0.05);
+            border: 1px solid rgba(26,28,20,0.07);
+            flex-shrink: 0;
+            transition: background 0.35s ease, border-color 0.35s ease;
+          }
+
+          .category-index-pill span {
             font-family: 'Outfit', sans-serif;
-            font-size: 24px;
+            font-size: 12px;
             font-weight: 700;
-            color: rgba(255,255,255,0.2);
-            transition: color 0.4s ease, transform 0.4s ease;
+            color: ${COLORS.mutedLight};
+            transition: color 0.35s ease;
+            letter-spacing: 0.02em;
           }
 
-          .accordion-pane.is-active .pane-index {
+          .portfolio-category-card.is-active .category-index-pill {
+            background: ${COLORS.primary}18;
+            border-color: ${COLORS.primary}30;
+          }
+
+          .portfolio-category-card.is-active .category-index-pill span {
             color: ${COLORS.primary};
-            transform: scale(1.2);
           }
 
-          .pane-details {
+          /* Title wrap */
+          .category-title-wrap {
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            opacity: 0.5;
-            transform: translateY(10px);
-            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            gap: 2px;
           }
 
-          .accordion-pane.is-active .pane-details {
+          .category-eyebrow {
+            font-size: 9px;
+            color: ${COLORS.primary};
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-weight: 700;
+            opacity: 0.75;
+          }
+
+          .category-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            color: ${COLORS.textDark};
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+          }
+
+          /* Count badge */
+          .category-count-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1px;
+            flex-shrink: 0;
+          }
+
+          .category-count {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1;
+            color: ${COLORS.primary};
+            letter-spacing: -0.02em;
+          }
+
+          .category-count-sub {
+            font-size: 8px;
+            color: ${COLORS.mutedLight};
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+          }
+
+          /* ── PROJECT LIST ROWS ── */
+          .project-list-wrap {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            /* Collapsed by default, revealed on active */
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-4px);
+            transition:
+              max-height 0.4s cubic-bezier(0.4,0,0.2,1),
+              opacity 0.3s ease,
+              transform 0.3s ease;
+          }
+
+          .portfolio-category-card.is-active .project-list-wrap {
+            max-height: 600px;
             opacity: 1;
             transform: translateY(0);
           }
 
-          .pane-name {
-            font-size: 22px;
-            font-weight: 600;
-            margin: 0 0 8px 0;
-            color: ${COLORS.textDark};
+          .project-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 10px;
+            border-radius: 6px;
+            background: transparent;
+            transition: background 0.2s ease;
+            animation: rowReveal 0.3s ease both;
           }
 
-          .pane-sub {
+          @keyframes rowReveal {
+            from { opacity: 0; transform: translateX(-6px); }
+            to   { opacity: 1; transform: translateX(0); }
+          }
+
+          .project-row:hover {
+            background: rgba(255,255,255,0.55);
+          }
+
+          .project-row-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: ${COLORS.primary};
+            opacity: 0.5;
+            flex-shrink: 0;
+          }
+
+          .project-row-name {
             font-size: 12px;
+            font-weight: 600;
+            color: ${COLORS.textDark};
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .project-row-divider {
+            flex: 1;
+            height: 1px;
+            background: rgba(26,28,20,0.07);
+            min-width: 12px;
+          }
+
+          .project-row-loc {
+            font-size: 9.5px;
             color: ${COLORS.mutedLight};
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin: 0;
+            white-space: nowrap;
+            flex-shrink: 0;
           }
 
-          .pane-indicator {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-
-          .indicator-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            transition: background 0.4s ease, transform 0.4s ease;
-          }
-
-          .accordion-pane.is-active .indicator-dot {
-            background: ${COLORS.primary};
-            transform: scale(1.5);
-          }
-
+          /* ── FOOTER ── */
           .about-canvas-footer {
-            margin-top: 8px;
-            padding-top: 24px;
+            margin-top: 4px;
+            padding-top: 20px;
             border-top: 1px solid rgba(26,28,20,0.05);
           }
 
           .about-canvas-footer p {
-            font-size: 12px;
+            font-size: 11.5px;
             line-height: 1.8;
             color: ${COLORS.mutedLight};
           }
@@ -421,17 +612,35 @@ export function About() {
 
           @media (max-width: 640px) {
             .about-glass-metrics {
-              grid-template-columns: 1fr;
+              grid-template-columns: repeat(3, 1fr);
             }
-            .pane-content-wrapper {
-              padding: 0 20px;
-              gap: 16px;
+
+            .canvas-metric-item {
+              padding: 14px 12px;
             }
-            .pane-name {
-              font-size: 18px;
+
+            .canvas-metric-val {
+              font-size: 22px;
             }
-            .accordion-pane.is-active {
-              height: 160px;
+
+            .portfolio-category-card {
+              padding: 14px 14px 12px;
+            }
+
+            .category-head {
+              gap: 12px;
+            }
+
+            .category-name {
+              font-size: 14px;
+            }
+
+            .project-row-name {
+              font-size: 11px;
+            }
+
+            .project-row-loc {
+              font-size: 9px;
             }
           }
         `}</style>
