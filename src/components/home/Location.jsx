@@ -152,8 +152,15 @@ function LocationItem({ item, accent, index }) {
       </div>
 
       {/* Name + bar */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 7, minWidth: 0 }}>
-        <span style={{ fontSize: 13.5, fontWeight: 700, color: COLORS.textDark, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0 }}>
+        <span style={{ 
+          fontSize: 13, 
+          fontWeight: 700, 
+          color: COLORS.textDark, 
+          whiteSpace: 'normal', 
+          lineHeight: 1.35,
+          wordBreak: 'break-word',
+        }}>
           {item.name}
         </span>
         <DistanceBar km={item.km} accent={accent} />
@@ -346,7 +353,7 @@ export function Location() {
             className="sa-reveal sa-d1"
             style={{ marginBottom: 20, color: COLORS.textDark }}
           >
-            Wellborn and <span style={{ color: COLORS.primary }}>Well–Connected</span>
+            Well-connected and <span style={{ color: COLORS.primary }}>Well-developed</span>
           </h2>
           <p
             className="sa-reveal sa-d2"
@@ -508,3 +515,4 @@ export function Location() {
     </>
   );
 }
+

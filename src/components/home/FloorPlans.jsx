@@ -490,12 +490,6 @@ export function FloorPlans({ onOpenModal }) {
     { id: "blocks", label: "Block Plan", sub: "03" },
   ];
 
-  const masterFeatures = [
-    "Entry and exit", "Jogging track", "Drop off feature wall",
-    "Open gym", "Swimming pool", "Kids' play area",
-    "Raised lawn", "Multipurpose court",
-  ];
-
   const openLightbox = (plan) =>
     setLightbox({ image: plan.image, title: plan.title || plan.name });
   const closeLightbox = () => setLightbox(null);
@@ -633,7 +627,7 @@ export function FloorPlans({ onOpenModal }) {
                 <h3 className="sa-serif">Project Specs</h3>
                 <div className="floor-spec-list">
                   {[
-                    { l: 'Efficiency', v: '84%' },
+                    { l: 'Saleable Area', v: '800 - 1255 Sq.Ft' },
                     { l: 'Green Area', v: '70%' },
                     { l: 'Open Side', v: '3-Side' },
                   ].map((s) => (
@@ -646,14 +640,6 @@ export function FloorPlans({ onOpenModal }) {
                 <button onClick={onOpenModal} className="floor-brochure-btn">
                   Request Brochure
                 </button>
-              </div>
-              <div className="floor-feature-card">
-                <div className="floor-kicker">Master Plan Features</div>
-                <div>
-                  {masterFeatures.map((feature) => (
-                    <span key={feature}>{feature}</span>
-                  ))}
-                </div>
               </div>
             </aside>
           </div>
@@ -1030,3 +1016,4 @@ export function FloorPlans({ onOpenModal }) {
     </>
   );
 }
+

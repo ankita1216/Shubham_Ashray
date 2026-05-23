@@ -70,7 +70,7 @@ function RotatingBadge() {
             fontFamily="'Cormorant Garamond', serif"
             opacity="0.8"
           >
-            <textPath href="#badgeCircle">LUXURY RESIDENTIAL • GUWAHATI • PHASE II •</textPath>
+            <textPath href="#badgeCircle">LUXURY RESIDENTIAL • GUWAHATI• </textPath>
           </text>
         </svg>
       </motion.div>
@@ -221,7 +221,7 @@ export function Hero({ onOpenModal }) {
             <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
               <img
                 src={aerialImage}
-                alt="Aerial view of AHA Life township"
+                alt="Aerial view of AHA Life residential community"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -283,7 +283,7 @@ export function Hero({ onOpenModal }) {
         >
           <img
             src={aerialImage}
-            alt="Aerial view of AHA Life township"
+            alt="Aerial view of AHA Life residential community"
             style={{
               width: '100%', height: '100%', objectFit: 'cover',
               filter: 'brightness(0.55) saturate(0.8)',
@@ -347,7 +347,7 @@ export function Hero({ onOpenModal }) {
               transition={{ duration: 1, delay: 1.15 }}
               style={{ maxWidth: 480 }}
             >
-              Experience the pinnacle of luxury residential living. A township designed for those who seek tranquility amidst the vibrant energy of Guwahati.
+              Experience the pinnacle of refined residential living. A thoughtfully designed community for those who seek tranquility amidst the vibrant energy of Guwahati.
             </motion.p>
 
             {/* CTAs */}

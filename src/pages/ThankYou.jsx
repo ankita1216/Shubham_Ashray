@@ -56,7 +56,7 @@ export default function ThankYou() {
 
           {/* Message */}
           <p className="max-w-xl mx-auto text-white/60">
-            Your enquiry has been received with priority. Our luxury consultant will reach out to you shortly to begin your journey toward finding your private sanctuary.
+            Your enquiry has been received with priority. Our property consultant will reach out to you shortly to begin your journey toward finding your private sanctuary.
           </p>
 
           {/* Buttons Section - Fixed thickness and gaps */}

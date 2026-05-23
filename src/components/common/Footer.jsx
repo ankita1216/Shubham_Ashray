@@ -22,7 +22,7 @@ export function Footer() {
               style={{ height: "82px", width: "auto", marginBottom: 26, filter: "brightness(1.05)" }} 
             />
             <p style={{ fontSize: 15, color: COLORS.mutedDark, lineHeight: 1.75, maxWidth: 420, margin: 0 }}>
-              A landmark residential township in Guwahati's Aerocity corridor. Crafting an extraordinary life through thoughtful design and curated amenities.
+              A landmark residential community in Guwahati's Aerocity corridor. Crafting an extraordinary life through thoughtful design and curated amenities.
             </p>
           </div>
           <div style={{ flex: "1 1 320px", textAlign: "right" }}>
@@ -125,3 +125,4 @@ export function Footer() {
     </footer>
   );
 }
+

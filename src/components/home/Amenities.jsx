@@ -177,7 +177,7 @@ export function Amenities() {
     "Senior citizens' area",
     "Shaded sitting corner",
     "Forest orchard",
-    "Stepped amphitheatre",
+    "Community performance space",
     "Raised lawn",
     "Stepping stone walkway",
   ];
@@ -308,3 +308,4 @@ export function Amenities() {
     </>
   );
 }
+

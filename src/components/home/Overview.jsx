@@ -3,6 +3,7 @@ import { COLORS } from '../../constants/colors';
 import { ShieldCheck, Zap, Lock, Leaf } from 'lucide-react';
 import { SectionLabel } from '../common/SectionLabel';
 import { DecorativeShape } from '../common/DecorativeShape';
+import chairmanImg from '../../assets/images/Chairman.jpg';
 
 export function Overview() {
   const [hoveredFeature, setHoveredFeature] = useState(null);
@@ -123,43 +124,36 @@ export function Overview() {
                 background: "#fff",
                 border: "1px solid rgba(26,26,46,0.06)",
                 boxShadow: "0 18px 60px rgba(26,26,46,0.08)",
-                padding: "38px 34px 34px",
+                padding: "28px 24px 24px",
                 position: "relative",
                 overflow: "hidden",
               }}>
                 {/* Yellow top accent */}
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${COLORS.yellow}, transparent)` }} />
 
-                {/* Big quote mark */}
-                <div className="sa-serif" style={{ fontSize: 72, lineHeight: 0.65, color: COLORS.yellow, opacity: 0.18, marginBottom: 18, userSelect: "none" }}>
-                  "
+                {/* Chairman's Portrait Image (rendered fully without cropping and compact) */}
+                <div style={{
+                  width: "100%",
+                  height: "180px",
+                  borderRadius: 12,
+                  overflow: "hidden",
+                  marginBottom: 16,
+                  border: "1px solid rgba(26,26,46,0.06)",
+                  background: "rgba(26,26,46,0.02)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}>
+                  <img 
+                    src={chairmanImg} 
+                    alt="Kailash Chandra Lohia" 
+                    style={{ width: "100%", height: "100%", objectFit: "contain" }} 
+                  />
                 </div>
 
-                <p className="sa-serif" style={{
-                  fontSize: "clamp(22px, 2vw, 30px)",
-                  fontStyle: "italic",
-                  fontWeight: 400,
-                  lineHeight: 1.35,
-                  color: COLORS.textDark,
-                  margin: "0 0 24px",
-                }}>
-                  Come, live the Aha Life, where children grow, parents rejoice, and every moment becomes a cherished memory.
-                </p>
-
-                <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <div style={{
-                    width: 34, height: 34, borderRadius: "50%",
-                    background: `${COLORS.yellow}20`,
-                    border: `1.5px solid ${COLORS.yellow}45`,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 13, fontWeight: 800, color: COLORS.yellow, flexShrink: 0,
-                  }}>
-                    K
-                  </div>
-                  <div>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.textDark, letterSpacing: "0.01em" }}>Kailash Chandra Lohia</div>
-                    <div style={{ fontSize: 10.5, color: COLORS.mutedLight, marginTop: 1 }}>Chairman, Subham Group</div>
-                  </div>
+                <div style={{ textAlign: "center" }}>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: COLORS.textDark, letterSpacing: "0.01em" }}>Kailash Chandra Lohia</div>
+                  <div style={{ fontSize: 11, color: COLORS.mutedLight, marginTop: 3 }}>Chairman, Subham Group</div>
                 </div>
               </div>
 
@@ -199,3 +193,4 @@ export function Overview() {
     </>
   );
 }
+
