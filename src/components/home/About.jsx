@@ -78,6 +78,28 @@ export function About() {
                 ))}
               </div>
 
+              {/* Developer description card */}
+              <div style={{
+                background: "rgba(255, 255, 255, 0.42)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                border: "1px solid rgba(26, 28, 20, 0.06)",
+                borderRadius: "14px",
+                padding: "20px 22px",
+                boxShadow: "0 10px 30px rgba(26, 28, 20, 0.03)",
+              }}>
+                <p style={{
+                  fontSize: "13px",
+                  lineHeight: "1.7",
+                  color: COLORS.textMid,
+                  margin: 0,
+                  fontWeight: 500,
+                  fontFamily: "var(--sa-font-body), sans-serif",
+                }}>
+                  Since 2007, Subham Group has been Guwahati's premier real estate developer — known for innovations and exceptional service. Every project is a testament to quality living across Northeast India.
+                </p>
+              </div>
+
 
             </div>
           </div>
@@ -142,9 +164,7 @@ export function About() {
               })}
             </div>
 
-            <div className="about-canvas-footer">
-              <p>Since 2007, Subham Group has been Guwahati's premier real estate developer — known for innovations and exceptional service. Every project is a testament to quality living across Northeast India.</p>
-            </div>
+
           </div>
         </div>
 

@@ -22,7 +22,8 @@ const completedProjects = [
 const ongoingProjects = [
   { name: "Subham Garden", location: "Jorhat" },
   { name: "Subham Solitaire", location: "Agartala" },
-  { name: "Subham Kishori Heights & The Peak", location: "Dibrugarh" },
+  { name: "Subham Kishori Heights", location: "Dibrugarh" },
+  { name: "The Peak", location: "GS Road" },
   { name: "Subham Park", location: "Bongaigaon" },
   { name: "Subham Park", location: "Jorhat" }
 ];

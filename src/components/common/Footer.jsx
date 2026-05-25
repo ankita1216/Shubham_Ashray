@@ -108,7 +108,7 @@ export function Footer() {
             <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
               <div style={{ fontSize: 12.5, color: COLORS.hintDark }}>
                 <span style={{ color: COLORS.primary, fontWeight: 800, textTransform: "uppercase", fontSize: 10, letterSpacing: "0.12em", display: "block", marginBottom: 5 }}>Rera Reg. No.</span>
-                RERAA KM 113 of 2022-2023
+                RERAA KM 113 of 2022-2023 {" & "} RERA KM 162 OF 2023-2024
               </div>
             </div>
             <div style={{ textAlign: "right" }}>
