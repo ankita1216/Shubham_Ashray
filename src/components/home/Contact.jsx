@@ -67,12 +67,13 @@ export function Contact() {
                 <input required type="email" placeholder="your@email.com" className="sa-form-input-dark" />
               </div>
               <div>
-                <label className="block mb-2" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred Unit Type</label>
+                <label className="block mb-2" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred BHK </label>
+
                 <select className="sa-form-input-dark">
-                  <option>2 BHK Smart — 800 sq.ft</option>
-                  <option>3 BHK Smart — 992 sq.ft</option>
-                  <option>2 BHK Premium — 875 sq.ft</option>
-                  <option>3 BHK Premium — 1197–1255 sq.ft</option>
+                  <option value="" disabled style={{ background: COLORS.darkMid, color: "#fff" }}>BHK</option>
+                  <option>2 BHK </option>
+                  <option>3 BHK </option>
+
                 </select>
               </div>
               <button type="submit" className="sa-hero-cta sa-sans">

@@ -259,6 +259,8 @@ export function About() {
           .canvas-metric-item {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
             gap: 5px;
             padding: 18px 12px;
             position: relative;
@@ -285,6 +287,7 @@ export function About() {
 
           .canvas-metric-lbl {
             font-size: 9.5px;
+            font-weight: 500;
             color: ${COLORS.mutedLight};
             text-transform: uppercase;
             letter-spacing: 0.12em;
