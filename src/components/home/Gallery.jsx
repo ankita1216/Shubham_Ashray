@@ -468,10 +468,11 @@ export function Gallery() {
     { idx: 3, cols: '1 / span 3', h: 300 },
     { idx: 4, cols: '4 / span 6', h: 300 },
     { idx: 5, cols: '10 / span 3', h: 300 },
-    { idx: 6, cols: '1 / span 3', h: 380 },
-    { idx: 7, cols: '4 / span 3', h: 380 },
-    { idx: 8, cols: '7 / span 3', h: 380 },
-    { idx: 9, cols: '10 / span 3', h: 380 },
+    { idx: 6, cols: '1 / span 4', h: 380 },
+    { idx: 7, cols: '5 / span 4', h: 380 },
+    { idx: 8, cols: '9 / span 4', h: 380 },
+    { idx: 9, cols: '1 / span 6', h: 380 },
+    { idx: 10, cols: '7 / span 6', h: 380 },
   ];
 
   const openLightbox = (item, label) => setLightbox({ item, label });
