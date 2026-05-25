@@ -58,9 +58,13 @@ export function About() {
             <div className="about-sticky-content">
               <SectionLabel onDark={false}>Developer Profile</SectionLabel>
 
-              <h2 className="about-canvas-title" style={{ color: COLORS.textDark }}>
-                Timebound<br />
-                <span style={{ color: COLORS.primary, fontWeight: 900 }}>Timeless</span>
+              <h2 className="about-canvas-title" style={{ color: COLORS.textDark, lineHeight: '1.25' }}>
+                <span className="line-block">
+                  Time<span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 300, display: 'inline-block', verticalAlign: 'middle', transform: 'translateY(-0.06em)', margin: '0 0.05em' }}>-</span>Bound <span style={{ color: COLORS.primary, fontWeight: 900 }}>Projects</span>
+                </span>
+                <span className="line-block">
+                  and Timeless <span style={{ color: COLORS.primary, fontWeight: 900 }}>Relationships</span>
+                </span>
               </h2>
 
               <div className="about-glass-metrics">
@@ -74,14 +78,7 @@ export function About() {
                 ))}
               </div>
 
-              <div className="about-canvas-quote">
-                <svg className="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={COLORS.primary} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 21z"></path>
-                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.5c0 1.5-.5 3-3 5"></path>
-                </svg>
-                <p>Growing up, we all had the opportunity to enjoy nature at its best. We wanted to gift families a present enjoyed for years to come.</p>
-                <span className="quote-author">— Founding Chairman, Subham Group</span>
-              </div>
+
             </div>
           </div>
 
@@ -156,13 +153,13 @@ export function About() {
           /* ── LAYOUT FOUNDATION ── */
           .about-split-canvas {
             display: flex;
-            gap: 48px;
+            gap: 32px;
             align-items: flex-start;
             padding-bottom: 40px;
           }
 
           .about-left-panel {
-            flex: 0 0 45%;
+            flex: 0 0 52%;
             position: relative;
           }
 
@@ -214,6 +211,17 @@ export function About() {
           /* ── LEFT PANEL TYPOGRAPHY & METRICS ── */
           .about-canvas-title {
             margin: 0;
+            line-height: 1.25;
+          }
+
+          .line-block {
+            display: block;
+          }
+
+          @media (min-width: 1025px) {
+            .line-block {
+              white-space: nowrap;
+            }
           }
 
           .about-glass-metrics {
@@ -232,7 +240,7 @@ export function About() {
             display: flex;
             flex-direction: column;
             gap: 5px;
-            padding: 18px 20px;
+            padding: 18px 12px;
             position: relative;
           }
 
@@ -248,10 +256,11 @@ export function About() {
 
           .canvas-metric-val {
             font-family: 'Outfit', sans-serif;
-            font-size: 26px;
+            font-size: 23px;
             font-weight: 800;
             line-height: 1;
             letter-spacing: -0.02em;
+            white-space: nowrap;
           }
 
           .canvas-metric-lbl {
@@ -616,11 +625,11 @@ export function About() {
             }
 
             .canvas-metric-item {
-              padding: 14px 12px;
+              padding: 14px 6px;
             }
 
             .canvas-metric-val {
-              font-size: 22px;
+              font-size: 17px;
             }
 
             .portfolio-category-card {

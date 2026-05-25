@@ -629,7 +629,7 @@ export function FloorPlans({ onOpenModal }) {
                   {[
                     { l: 'Saleable Area', v: '800 - 1255 Sq.Ft' },
                     { l: 'Green Area', v: '70%' },
-                    { l: 'Open Side', v: '3-Side' },
+                    { l: 'Configuration', v: '525 Spacious Flats' },
                   ].map((s) => (
                     <div key={s.l}>
                       <span>{s.l}</span>

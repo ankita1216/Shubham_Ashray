@@ -592,12 +592,6 @@ export function Gallery() {
 
                 <div className="gal-label">
                   <p style={{
-                    fontSize: 9, letterSpacing: '0.22em', fontWeight: 700,
-                    color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', margin: '0 0 5px',
-                  }}>
-                    Design — {num.toString().padStart(2, '0')}
-                  </p>
-                  <p style={{
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                     fontSize: 'clamp(15px, 1.8vw, 22px)',
                     fontStyle: 'italic', fontWeight: 600,

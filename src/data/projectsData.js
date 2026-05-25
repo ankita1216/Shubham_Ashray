@@ -22,7 +22,7 @@ const completedProjects = [
 const ongoingProjects = [
   { name: "Subham Garden", location: "Jorhat" },
   { name: "Subham Solitaire", location: "Agartala" },
-  { name: "Subham Ashray", location: "Near Airport, Guwahati" },
+  { name: "Subham Kishori Heights & The Peak", location: "Dibrugarh" },
   { name: "Subham Park", location: "Bongaigaon" },
   { name: "Subham Park", location: "Jorhat" }
 ];
@@ -41,8 +41,8 @@ export const projectCategories = [
 ];
 
 export const developerMetrics = [
-  { target: 16,   suffix: "+", label: "Projects Done",   color: COLORS.pink },
-  { target: 25,   suffix: "+", label: "Lac Sq.Ft Built",  color: COLORS.cyan },
-  { target: 17500, suffix: "+", label: "Happy Residents",  color: COLORS.lime },
+  { target: 16,   suffix: "+", label: "Completed Projects",   color: COLORS.pink },
+  { target: 28,   suffix: "Lac Sq.Ft.", label: "Constructed",  color: COLORS.cyan },
+  { target: 6000, suffix: "+", label: "Happy Residents",  color: COLORS.lime },
 ];
 

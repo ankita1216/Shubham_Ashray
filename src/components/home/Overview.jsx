@@ -38,6 +38,29 @@ export function Overview() {
           @media (max-width: 500px) {
             .ov-features { grid-template-columns: 1fr 1fr !important; }
           }
+          .about-canvas-quote {
+            position: relative;
+            padding-left: 20px;
+            border-left: 1px solid ${COLORS.primary}4D;
+            text-align: left;
+          }
+          .quote-icon {
+            margin-bottom: 16px;
+            opacity: 0.5;
+          }
+          .about-canvas-quote p {
+            font-size: var(--sa-font-size-p);
+            line-height: 1.6;
+            color: ${COLORS.textMid};
+            font-style: italic;
+            margin: 0 0 var(--sa-spacing-label-to-heading) 0;
+          }
+          .quote-author {
+            font-size: 11px;
+            color: ${COLORS.mutedLight};
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+          }
         `}</style>
 
         <div className="sa-container relative z-10">
@@ -130,6 +153,15 @@ export function Overview() {
               }}>
                 {/* Yellow top accent */}
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${COLORS.yellow}, transparent)` }} />
+
+                {/* Chairman's Message Content */}
+                <div className="about-canvas-quote" style={{ marginBottom: 24 }}>
+                  <svg className="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={COLORS.primary} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 21z"></path>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.5c0 1.5-.5 3-3 5"></path>
+                  </svg>
+                  <p style={{ margin: 0 }}>Growing up, we all had the opportunity to enjoy nature at its best. We wanted to gift families a present enjoyed for years to come.</p>
+                </div>
 
                 {/* Chairman's Portrait Image (rendered fully without cropping and compact) */}
                 <div style={{
