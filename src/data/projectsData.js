@@ -43,7 +43,7 @@ export const projectCategories = [
 
 export const developerMetrics = [
   { target: 16,   suffix: "+", label: "Completed Projects",   color: COLORS.pink },
-  { target: 28,   suffix: "Lac Sq.Ft.", label: "Constructed",  color: COLORS.cyan },
+  { target: 28,   suffix: "+", label: "Lac SQ. FT. Constructed",  color: COLORS.cyan },
   { target: 6000, suffix: "+", label: "Happy Residents",  color: COLORS.lime },
 ];
 
