@@ -115,7 +115,6 @@ export function VideoSection() {
               <video
                 ref={videoRef}
                 className="vs-video"
-                poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920"
                 loop
                 muted
                 playsInline
