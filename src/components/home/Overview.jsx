@@ -11,7 +11,7 @@ export function Overview() {
 
   const features = [
     { icon: <ShieldCheck size={18} />, name: "Earthquake Resistant", sub: "RCC frame engineered", accent: COLORS.textDark },
-    { icon: <Zap size={18} />, name: "24×7 Power Backup", sub: "Uninterrupted living", accent: COLORS.textDark },
+    { icon: <Zap size={18} />, name: "24×7 Power Backup", sub: "Common Area", accent: COLORS.textDark },
     { icon: <Lock size={18} />, name: "Smart Security", sub: "CCTV + manned guards", accent: COLORS.textDark },
     { icon: <Leaf size={18} />, name: "Rainwater Harvesting", sub: "Eco-conscious design", accent: COLORS.textDark },
   ];

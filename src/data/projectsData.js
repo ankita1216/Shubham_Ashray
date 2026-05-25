@@ -29,14 +29,14 @@ const ongoingProjects = [
 
 export const projectCategories = [
   {
-    title: "Completed Projects",
-    eyebrow: "Delivered Portfolio",
-    projects: completedProjects.map(project => [project.name, project.location])
-  },
-  {
     title: "Ongoing Projects",
     eyebrow: "Current Developments",
     projects: ongoingProjects.map(project => [project.name, project.location])
+  },
+  {
+    title: "Completed Projects",
+    eyebrow: "Delivered Portfolio",
+    projects: completedProjects.map(project => [project.name, project.location])
   }
 ];
 

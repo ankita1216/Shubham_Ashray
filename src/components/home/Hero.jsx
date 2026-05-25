@@ -412,7 +412,7 @@ export function Hero({ onOpenModal }) {
                   e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.18)';
                 }}
               >
-                Explore Phase II
+                Discover the Ascent
                 <ArrowRight size={13} />
               </a>
             </motion.div>
