@@ -78,26 +78,15 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Social Connect */}
+          {/* Column 4: Rera Reg. No. */}
           <div>
             <h4 style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", textTransform: "uppercase", color: "#fff", marginBottom: 24, display: "flex", alignItems: "center", gap: 10 }}>
               <span style={{ width: 14, height: 1, background: COLORS.primary }} />
-              Connect
+              Rera Reg. No.
             </h4>
-            <div className="flex gap-4 mb-6">
-              {["f","▶","◉"].map((s,i) => (
-                <div key={i} className="sa-social-btn" style={{ 
-                  width: 36, height: 36, borderRadius: "50%", 
-                  background: "rgba(255,255,255,0.04)", 
-                  border: "1px solid rgba(255,255,255,0.08)", 
-                  color: COLORS.mutedDark,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  cursor: "pointer", transition: "all 0.3s"
-                }}>{s}</div>
-              ))}
-            </div>
-            <div style={{ fontSize: 11, color: COLORS.hintDark, fontWeight: 500, marginTop: 14, letterSpacing: "0.05em" }}>
-              ESTD. 2007
+            <div style={{ fontSize: 13.5, color: COLORS.mutedDark, lineHeight: 1.7 }}>
+              <span style={{ display: "block" }}>RERAA KM 113 of 2022-2023</span>
+              <span style={{ display: "block" }}>RERA KM 162 OF 2023-2024</span>
             </div>
           </div>
         </div>
@@ -105,12 +94,8 @@ export function Footer() {
         {/* ── Tier 3: Compliance & Copyright ── */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 36 }}>
           <div className="flex flex-wrap items-center justify-between gap-10">
-            <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
-              <div style={{ fontSize: 12.5, color: COLORS.hintDark, lineHeight: "1.5" }}>
-                <span style={{ color: COLORS.primary, fontWeight: 800, textTransform: "uppercase", fontSize: 10, letterSpacing: "0.12em", display: "block", marginBottom: 5 }}>Rera Reg. No.</span>
-                <span style={{ display: "block" }}>RERAA KM 113 of 2022-2023</span>
-                <span style={{ display: "block" }}>RERA KM 162 OF 2023-2024</span>
-              </div>
+            <div>
+              <span style={{ fontSize: 11, color: COLORS.hintDark, fontWeight: 500, letterSpacing: "0.05em" }}>ESTD. 2007</span>
             </div>
             <div style={{ textAlign: "right" }}>
               <p style={{ fontSize: 12, color: COLORS.hintDark, margin: 0, fontWeight: 500 }}>

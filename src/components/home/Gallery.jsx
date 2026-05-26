@@ -142,7 +142,7 @@ const CSS = `
 }
 .glb-title {
   font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.88);
-  font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+  font-family: var(--sa-font-heading), 'Cormorant Garamond', Georgia, serif; font-style: italic;
 }
 
 .glb-controls { display: flex; align-items: center; gap: 8px; }
@@ -345,7 +345,7 @@ function GalleryLightbox({ item, label, onClose }) {
       <div className="glb-header">
         <div className="glb-title-group">
           <span className="glb-eyebrow">Selected Portfolio</span>
-          <span className="glb-title">{label}</span>
+          <span className="glb-title">{label?.toUpperCase()}</span>
         </div>
 
         <div className="glb-controls">
@@ -471,8 +471,9 @@ export function Gallery() {
     { idx: 6, cols: '1 / span 4', h: 380 },
     { idx: 7, cols: '5 / span 4', h: 380 },
     { idx: 8, cols: '9 / span 4', h: 380 },
-    { idx: 9, cols: '1 / span 6', h: 380 },
-    { idx: 10, cols: '7 / span 6', h: 380 },
+    { idx: 9, cols: '1 / span 4', h: 380 },
+    { idx: 10, cols: '5 / span 4', h: 380 },
+    { idx: 11, cols: '9 / span 4', h: 380 },
   ];
 
   const openLightbox = (item, label) => setLightbox({ item, label });
@@ -523,7 +524,7 @@ export function Gallery() {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12, paddingTop: 4 }}>
               <div style={{ textAlign: 'right' }}>
                 <p style={{
-                  fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800,
+                  fontSize: "clamp(52px, 6vw, 80px)", fontWeight: 800,
                   color: COLORS.textDark,
                   margin: 0, lineHeight: 1, letterSpacing: '-0.03em',
                 }}>
@@ -533,7 +534,7 @@ export function Gallery() {
                   fontSize: 11, letterSpacing: '0.16em', fontWeight: 700,
                   color: COLORS.mutedLight, textTransform: 'uppercase', margin: '4px 0 0',
                 }}>
-                  Showcase Projects
+                  Showcase Visuals
                 </p>
               </div>
 
@@ -592,12 +593,12 @@ export function Gallery() {
 
                 <div className="gal-label">
                   <p style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    fontFamily: "var(--sa-font-heading), 'Cormorant Garamond', Georgia, serif",
                     fontSize: 'clamp(15px, 1.8vw, 22px)',
                     fontStyle: 'italic', fontWeight: 600,
                     color: '#fff', margin: 0, lineHeight: 1.2,
                   }}>
-                    {label}
+                    {label?.toUpperCase()}
                   </p>
                 </div>
               </div>
@@ -621,7 +622,7 @@ export function Gallery() {
                 color: `${COLORS.textDark}30`,
                 textTransform: 'uppercase', whiteSpace: 'nowrap',
               }}>
-                {item.label}
+                {item.label?.toUpperCase()}
                 <span style={{
                   display: 'inline-block', width: 5, height: 5,
                   borderRadius: '50%', background: COLORS.primary, flexShrink: 0,

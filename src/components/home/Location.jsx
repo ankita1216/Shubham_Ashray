@@ -120,6 +120,63 @@ function DistanceBar({ km, accent }) {
 }
 
 function LocationItem({ item, accent, index }) {
+  if (item.name && (item.name.toLowerCase().includes('airport') || item.name.toLowerCase().includes('lokpriya'))) {
+    return (
+      <div
+        className="loc-row"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12,
+          padding: '16px 0',
+          borderBottom: '1px solid rgba(26,28,20,0.07)',
+          borderTop: index === 0 ? '1px solid rgba(26,28,20,0.07)' : 0,
+          background: 'transparent',
+          animationDelay: `${index * 60}ms`,
+        }}
+      >
+        {/* Header containing name and icon */}
+        <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+          <div style={{
+            width: 32, height: 32, borderRadius: 10,
+            background: `${accent}14`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: accent,
+            fontSize: 10,
+            fontWeight: 900,
+            letterSpacing: '.08em',
+            flexShrink: 0,
+            marginTop: 2,
+          }}>
+            {String(index + 1).padStart(2, '0')}
+          </div>
+          <span style={{ 
+            fontFamily: "var(--sa-font-heading), 'Cormorant Garamond', Georgia, serif",
+            fontSize: 17, 
+            fontWeight: 700, 
+            color: COLORS.textDark, 
+            lineHeight: 1.3,
+            letterSpacing: '0.01em'
+          }}>
+            Lokpriya Gopinath Bordoloi International Airport
+          </span>
+        </div>
+
+        {/* Terminals list */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, paddingLeft: 44, paddingRight: 8 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed rgba(26,28,20,0.08)', paddingBottom: 6 }}>
+            <span style={{ fontSize: 13, fontWeight: 500, color: COLORS.mutedLight, letterSpacing: '0.04em', fontFamily: "var(--sa-font-body), 'Outfit', sans-serif" }}>Terminal 1</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: COLORS.textDark, fontFamily: "var(--sa-font-body), 'Outfit', sans-serif" }}>5.7 km</span>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 2 }}>
+            <span style={{ fontSize: 13, fontWeight: 500, color: COLORS.mutedLight, letterSpacing: '0.04em', fontFamily: "var(--sa-font-body), 'Outfit', sans-serif" }}>Terminal 2</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: COLORS.textDark, fontFamily: "var(--sa-font-body), 'Outfit', sans-serif" }}>3.9 km</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   const tier = getTier(item.km);
   return (
     <div

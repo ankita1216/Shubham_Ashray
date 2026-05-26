@@ -51,23 +51,23 @@ export function Contact() {
             <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: `linear-gradient(90deg, ${COLORS.primary}, ${COLORS.goldDark})` }} />
             <h3 className="sa-serif text-white mb-1" style={{ fontSize: 24, fontWeight: 700 }}>Book Site Visit</h3>
             <p style={{ fontSize: 13, color: COLORS.mutedDark, marginBottom: 28 }}>Our team will reach out within 24 hours</p>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                 <div>
-                  <label className="block mb-1.5" style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.2, textTransform: "uppercase", color: COLORS.mutedDark }}>Full Name</label>
+                  <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Full Name</label>
                   <input required type="text" placeholder="Your name" className="sa-form-input-dark" />
                 </div>
                 <div>
-                  <label className="block mb-1.5" style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.2, textTransform: "uppercase", color: COLORS.mutedDark }}>Phone Number</label>
+                  <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Phone Number</label>
                   <input required type="tel" placeholder="+91..." className="sa-form-input-dark" />
                 </div>
               </div>
               <div>
-                <label className="block mb-1.5" style={{ fontSize: 10, fontWeight: 700, letterSpacing: 1.2, textTransform: "uppercase", color: COLORS.mutedDark }}>Email Address</label>
+                <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Email Address</label>
                 <input required type="email" placeholder="your@email.com" className="sa-form-input-dark" />
               </div>
               <div>
-                <label className="block mb-2" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred BHK </label>
+                <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred BHK </label>
 
                 <select className="sa-form-input-dark">
                   <option value="" disabled style={{ background: COLORS.darkMid, color: "#fff" }}>BHK</option>
