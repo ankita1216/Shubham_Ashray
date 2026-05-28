@@ -5,6 +5,7 @@ import { SectionLabel } from '../common/SectionLabel';
 import { WaveLightToDark } from '../common/Dividers';
 import { projectCategories, developerMetrics } from '../../data/projectsData';
 import { DecorativeShape } from '../common/DecorativeShape';
+import developerLogo from '../../assets/images/developer logo.png';
 
 export function About() {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -58,12 +59,12 @@ export function About() {
             <div className="about-sticky-content">
               <SectionLabel onDark={false}>Developer Profile</SectionLabel>
 
-              <h2 className="about-canvas-title" style={{ color: COLORS.textDark, lineHeight: '1.25' }}>
+              <h2 className="about-canvas-title" style={{ color: COLORS.textDark }}>
                 <span className="line-block">
-                  Time<span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 300, display: 'inline-block', verticalAlign: 'middle', transform: 'translateY(-0.06em)', margin: '0 0.05em' }}>-</span>Bound <span style={{ color: COLORS.primary, fontWeight: 900 }}>Projects</span>
+                  Time<span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 300, display: 'inline-block', verticalAlign: 'middle', transform: 'translateY(-0.06em)', margin: '0 0.05em' }}>-</span>Bound <em style={{ color: COLORS.primary, fontWeight: 300, fontStyle: 'italic' }}>Projects</em>
                 </span>
                 <span className="line-block">
-                  and Timeless <span style={{ color: COLORS.primary, fontWeight: 900 }}>Relationships</span>
+                  and Timeless <em style={{ color: COLORS.primary, fontWeight: 300, fontStyle: 'italic' }}>Relationships</em>
                 </span>
               </h2>
 
@@ -85,9 +86,32 @@ export function About() {
                 WebkitBackdropFilter: "blur(12px)",
                 border: "1px solid rgba(26, 28, 20, 0.06)",
                 borderRadius: "14px",
-                padding: "20px 22px",
+                padding: "28px 24px",
                 boxShadow: "0 10px 30px rgba(26, 28, 20, 0.03)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
               }}>
+                {/* Clean, enlarged Developer Logo Container */}
+                <div style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  background: "rgba(255, 255, 255, 0.75)",
+                  border: "1px solid rgba(26, 28, 20, 0.07)",
+                  borderRadius: "12px",
+                  padding: "16px 24px",
+                  maxWidth: "240px",
+                  boxShadow: "0 6px 20px rgba(26, 28, 20, 0.02)",
+                  alignSelf: "flex-start"
+                }}>
+                  <img 
+                    src={developerLogo} 
+                    alt="Developer Logo" 
+                    style={{ width: "100%", height: "auto", maxHeight: "56px", objectFit: "contain", display: "block" }} 
+                  />
+                </div>
+
                 <p style={{
                   fontSize: "13px",
                   lineHeight: "1.7",
@@ -231,7 +255,8 @@ export function About() {
           /* ── LEFT PANEL TYPOGRAPHY & METRICS ── */
           .about-canvas-title {
             margin: 0;
-            line-height: 1.25;
+            line-height: 1.15 !important;
+            font-size: var(--sa-font-size-h2) !important;
           }
 
           .line-block {

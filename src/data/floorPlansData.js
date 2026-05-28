@@ -22,11 +22,11 @@ export const floorPlansData = {
     image: masterPlan
   },
   units: [
-    { title: "Standard Unit Plan", image: unitPlan1 },
-    { title: "Phase II Unit Plan", image: unitPlan2 },
-    { title: "3BHK Premium Plan", image: unitPlan3 },
-    { title: "2BHK Smart Type", image: unitPlan4 },
-    { title: "3BHK Standard Type", image: unitPlan5 },
+    { title: "3 BHK Premium SBUA(1197)", image: unitPlan1 },
+    { title: "2 BHK Premium SBUA(875)", image: unitPlan2 },
+    { title: "3 BHK Premium SBUA(1255)", image: unitPlan3 },
+    { title: "2 BHK Smart SBUA(800)", image: unitPlan4 },
+    { title: "3 BHK Smart SBUA(992)", image: unitPlan5 },
   ],
   blocks: [
     { name: "Block A", image: blockA },

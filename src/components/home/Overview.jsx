@@ -68,12 +68,6 @@ export function Overview() {
           {/* ── Top eyebrow row ── */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 52 }}>
             <SectionLabel onDark={false}>Project Overview</SectionLabel>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 20, height: 1, background: `${COLORS.pink}60` }} />
-              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: `${COLORS.mutedLight}`, opacity: 0.6 }}>
-                Guwahati · Aerocity Corridor
-              </span>
-            </div>
           </div>
 
 
@@ -154,15 +148,6 @@ export function Overview() {
                 {/* Yellow top accent */}
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg, ${COLORS.yellow}, transparent)` }} />
 
-                {/* Chairman's Message Content */}
-                <div className="about-canvas-quote" style={{ marginBottom: 24 }}>
-                  <svg className="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={COLORS.primary} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 21z"></path>
-                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.5c0 1.5-.5 3-3 5"></path>
-                  </svg>
-                  <p style={{ margin: 0 }}>Growing up, we all had the opportunity to enjoy nature at its best. We wanted to gift families a present enjoyed for years to come.</p>
-                </div>
-
                 {/* Chairman's Portrait Image (rendered fully without cropping and compact) */}
                 <div style={{
                   width: "100%",
@@ -183,39 +168,19 @@ export function Overview() {
                   />
                 </div>
 
-                <div style={{ textAlign: "center" }}>
+                <div style={{ textAlign: "center", marginBottom: 20 }}>
                   <div style={{ fontSize: 13, fontWeight: 700, color: COLORS.textDark, letterSpacing: "0.01em" }}>Kailash Chandra Lohia</div>
                   <div style={{ fontSize: 11, color: COLORS.mutedLight, marginTop: 3 }}>Chairman, Subham Group</div>
                 </div>
-              </div>
 
-              {/* Project details pill strip */}
-              <div style={{
-                borderRadius: 14,
-                background: "rgba(255,255,255,0.5)",
-                border: "1px solid rgba(26,26,46,0.06)",
-                padding: "16px 20px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 8,
-                flexWrap: "wrap",
-              }}>
-                {[
-                  { label: "Type", value: "2 and 3 BHK" },
-                  { label: "Location", value: "Aerocity, Guwahati" },
-                  { label: "Status", value: "Booking Open" },
-                ].map(({ label, value }, i, arr) => (
-                  <Fragment key={label}>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em", color: COLORS.mutedLight, opacity: 0.6, marginBottom: 3 }}>{label}</div>
-                      <div style={{ fontSize: 12, fontWeight: 700, color: COLORS.textDark, letterSpacing: "-0.01em" }}>{value}</div>
-                    </div>
-                    {i < arr.length - 1 && (
-                      <div style={{ width: 1, height: 28, background: "rgba(26,26,46,0.08)", flexShrink: 0 }} />
-                    )}
-                  </Fragment>
-                ))}
+                {/* Chairman's Message Content (Chairman's Voice) */}
+                <div className="about-canvas-quote" style={{ marginTop: 20 }}>
+                  <svg className="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={COLORS.primary} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 21z"></path>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.5c0 1.5-.5 3-3 5"></path>
+                  </svg>
+                  <p style={{ margin: 0 }}>Growing up, we all had the opportunity to enjoy nature at its best. We wanted to gift families a present enjoyed for years to come.</p>
+                </div>
               </div>
 
             </div>

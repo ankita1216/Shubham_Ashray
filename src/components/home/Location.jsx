@@ -2,6 +2,7 @@ import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveLightToDark } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
+import locationImg from '../../assets/images/location.jpg';
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 const categories = [
@@ -10,12 +11,12 @@ const categories = [
     label: 'Connectivity',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.27-2.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
     ),
     accent: COLORS.primary,
     items: [
-      { name: 'Lokpriya Gopinath Bordoloi Int. Airport', dist: '5.7 km', km: 5.7 },
+      { name: 'Lokpriya Gopinath Bordoloi International Airport Terminal 2', dist: '3.9 km', km: 3.9 },
       { name: 'Jalukbari Flyover', dist: '10.0 km', km: 10.0 },
     ],
   },
@@ -24,7 +25,7 @@ const categories = [
     label: 'Education',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" />
       </svg>
     ),
     accent: COLORS.primary,
@@ -41,12 +42,12 @@ const categories = [
     label: 'Hospitals',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
       </svg>
     ),
     accent: COLORS.primary,
     items: [
-      { name: 'Garal PHC', dist: '0.95 km', km: 0.95 },
+      { name: 'Garal PHC', dist: '950 m', m: 950 },
       { name: 'Azara PHC', dist: '3.8 km', km: 3.8 },
       { name: 'Gauhati University Hospital', dist: '10.7 km', km: 10.7 },
       { name: 'Apollo Excelcare Hospital', dist: '13.2 km', km: 13.2 },
@@ -57,15 +58,15 @@ const categories = [
     label: 'Malls',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" />
       </svg>
     ),
     accent: COLORS.primary,
     items: [
       { name: 'University Shopping Complex', dist: '6.6 km', km: 6.6 },
       { name: 'Decathlon Azara', dist: '6.7 km', km: 6.7 },
-      { name: 'NCS Square Mall', dist: '9 km', km: 9 },
-      { name: 'Westside', dist: '9 km', km: 9 },
+      { name: 'NCS Square Mall', dist: '9.0 km', km: 9.0 },
+      { name: 'Westside', dist: '9.0 km', km: 9.0 },
     ],
   },
   {
@@ -73,7 +74,7 @@ const categories = [
     label: 'Others',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+        <circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" />
       </svg>
     ),
     accent: COLORS.primary,
@@ -98,8 +99,8 @@ function getTier(km) {
 const tierLabel = { near: 'Nearby', mid: 'Close', far: 'Accessible' };
 const tierColor = {
   near: { text: COLORS.primary, bg: `${COLORS.primary}1A` },
-  mid:  { text: COLORS.primary, bg: `${COLORS.primary}12` },
-  far:  { text: COLORS.primary, bg: `${COLORS.primary}0D` },
+  mid: { text: COLORS.primary, bg: `${COLORS.primary}12` },
+  far: { text: COLORS.primary, bg: `${COLORS.primary}0D` },
 };
 
 function DistanceBar({ km, accent }) {
@@ -120,63 +121,6 @@ function DistanceBar({ km, accent }) {
 }
 
 function LocationItem({ item, accent, index }) {
-  if (item.name && (item.name.toLowerCase().includes('airport') || item.name.toLowerCase().includes('lokpriya'))) {
-    return (
-      <div
-        className="loc-row"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 12,
-          padding: '16px 0',
-          borderBottom: '1px solid rgba(26,28,20,0.07)',
-          borderTop: index === 0 ? '1px solid rgba(26,28,20,0.07)' : 0,
-          background: 'transparent',
-          animationDelay: `${index * 60}ms`,
-        }}
-      >
-        {/* Header containing name and icon */}
-        <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-          <div style={{
-            width: 32, height: 32, borderRadius: 10,
-            background: `${accent}14`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: accent,
-            fontSize: 10,
-            fontWeight: 900,
-            letterSpacing: '.08em',
-            flexShrink: 0,
-            marginTop: 2,
-          }}>
-            {String(index + 1).padStart(2, '0')}
-          </div>
-          <span style={{ 
-            fontFamily: "var(--sa-font-heading), 'Cormorant Garamond', Georgia, serif",
-            fontSize: 17, 
-            fontWeight: 700, 
-            color: COLORS.textDark, 
-            lineHeight: 1.3,
-            letterSpacing: '0.01em'
-          }}>
-            Lokpriya Gopinath Bordoloi International Airport
-          </span>
-        </div>
-
-        {/* Terminals list */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, paddingLeft: 44, paddingRight: 8 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px dashed rgba(26,28,20,0.08)', paddingBottom: 6 }}>
-            <span style={{ fontSize: 13, fontWeight: 500, color: COLORS.mutedLight, letterSpacing: '0.04em', fontFamily: "var(--sa-font-body), 'Outfit', sans-serif" }}>Terminal 1</span>
-            <span style={{ fontSize: 13, fontWeight: 700, color: COLORS.textDark, fontFamily: "var(--sa-font-body), 'Outfit', sans-serif" }}>5.7 km</span>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 2 }}>
-            <span style={{ fontSize: 13, fontWeight: 500, color: COLORS.mutedLight, letterSpacing: '0.04em', fontFamily: "var(--sa-font-body), 'Outfit', sans-serif" }}>Terminal 2</span>
-            <span style={{ fontSize: 13, fontWeight: 700, color: COLORS.textDark, fontFamily: "var(--sa-font-body), 'Outfit', sans-serif" }}>3.9 km</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   const tier = getTier(item.km);
   return (
     <div
@@ -210,11 +154,11 @@ function LocationItem({ item, accent, index }) {
 
       {/* Name + bar */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0 }}>
-        <span style={{ 
-          fontSize: 13, 
-          fontWeight: 700, 
-          color: COLORS.textDark, 
-          whiteSpace: 'normal', 
+        <span style={{
+          fontSize: 13,
+          fontWeight: 500,
+          color: COLORS.textDark,
+          whiteSpace: 'normal',
           lineHeight: 1.35,
           wordBreak: 'break-word',
         }}>
@@ -262,121 +206,129 @@ function MapCard() {
     <div
       className="sa-reveal-l rounded-[24px] relative overflow-hidden"
       style={{
-        background: COLORS.darkBlue,
+        background: '#0B0C10',
         minHeight: 500,
-        boxShadow: '0 28px 80px rgba(26,26,46,0.28)',
-        border: `1px solid ${COLORS.borderDark}`,
+        height: '100%',
+        boxShadow: '0 28px 80px rgba(26,26,46,0.18)',
+        border: '1px solid rgba(26,28,20,0.06)',
       }}
     >
-      {/* Grid overlay */}
-      <svg width="100%" height="100%" viewBox="0 0 400 500" fill="none"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.055 }}>
-        {[50,100,150,200,250,300,350,400,450].map(y =>
-          <line key={y} x1="0" y1={y} x2="400" y2={y} stroke="white" strokeWidth="0.6" />)}
-        {[40,80,120,160,200,240,280,320,360,400].map(x =>
-          <line key={x} x1={x} y1="0" x2={x} y2="500" stroke="white" strokeWidth="0.6" />)}
-        {/* Roads */}
-        <path d="M 0 260 Q 120 240 200 250 Q 280 258 400 230" stroke="white" strokeWidth="2.5" fill="none" opacity="2"/>
-        <path d="M 195 0 Q 198 120 200 250 Q 202 370 205 500" stroke="white" strokeWidth="2.5" fill="none" opacity="2"/>
-        <path d="M 0 340 L 150 310 L 400 350" stroke="white" strokeWidth="1.2" fill="none"/>
-        <path d="M 60 0 L 100 200 L 80 500" stroke="white" strokeWidth="1.2" fill="none"/>
-      </svg>
+      {/* High-quality map image as background */}
+      <img
+        src={locationImg}
+        alt="Subham Ashray Location Map"
+        style={{
+          width: '100%',
+          height: '100%',
+          minHeight: 500,
+          objectFit: 'cover',
+          display: 'block',
+        }}
+      />
 
-      {/* Glow at center */}
-      <div style={{
-        position: 'absolute', top: '50%', left: '50%',
-        transform: 'translate(-50%,-50%)',
-        width: 200, height: 200,
-        background: `radial-gradient(circle, ${COLORS.primary}25 0%, transparent 70%)`,
-        pointerEvents: 'none',
-      }} />
+      {/* Elegant dark radial overlay to blend image */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, rgba(26,28,20,0.05) 0%, rgba(26,28,20,0.3) 100%)',
+          pointerEvents: 'none'
+        }}
+      />
 
-      {/* Top badge */}
+      {/* Top Airport Distance Badge */}
       <div style={{
-        position: 'absolute', top: 20, left: 20,
+        position: 'absolute', top: 24, left: 24,
         background: COLORS.primary, color: COLORS.darkNavy,
         fontSize: 11, fontWeight: 800, letterSpacing: '.8px', textTransform: 'uppercase',
         borderRadius: 99, padding: '7px 16px', zIndex: 2,
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
       }}>
-        5.7 km to Airport
+        3.9 km to Airport
       </div>
 
-      {/* Center content */}
+      {/* Dynamic luxury compass overlay in top right */}
       <div style={{
-        position: 'absolute', inset: 0,
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        gap: 16, zIndex: 2,
+        position: 'absolute', top: 24, right: 24, zIndex: 2,
+        width: 36, height: 36, opacity: 0.6,
       }}>
-        {/* Pulse ring */}
-        <div style={{ position: 'relative', width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{
-            position: 'absolute', inset: 0, borderRadius: '50%',
-            border: `2px solid ${COLORS.primary}`,
-            animation: 'saMapPulse 2.4s ease-out infinite',
-          }} />
-          <div style={{
-            position: 'absolute', inset: -12, borderRadius: '50%',
-            border: `1.5px solid ${COLORS.primary}50`,
-            animation: 'saMapPulse 2.4s ease-out infinite .6s',
-          }} />
-          <div style={{
-            width: 20, height: 20, borderRadius: '50%',
-            background: COLORS.primary,
-            boxShadow: `0 0 24px ${COLORS.primary}80`,
-          }} />
-        </div>
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M20 4 L22 18 L20 20 L18 18 Z" fill={COLORS.primary} />
+          <path d="M20 36 L22 22 L20 20 L18 22 Z" fill={COLORS.primary} opacity=".5" />
+          <path d="M4 20 L18 18 L20 20 L18 22 Z" fill={COLORS.primary} opacity=".5" />
+          <path d="M36 20 L22 18 L20 20 L22 22 Z" fill={COLORS.primary} />
+          <circle cx="20" cy="20" r="2.5" fill={COLORS.primary} />
+          <text x="19" y="10" fill={COLORS.primary} fontSize="6" fontWeight="bold" textAnchor="middle">N</text>
+        </svg>
+      </div>
 
-        <div className="sa-serif" style={{ color: '#fff', fontSize: 22, fontWeight: 700, textAlign: 'center' }}>
-          Subham Ashray
-        </div>
-        <div style={{ color: COLORS.mutedDark, fontSize: 13, textAlign: 'center', lineHeight: 1.6, maxWidth: 220 }}>
-          Aerocity Dharapur<br />
-          Palash Bari Road, Guwahati 781017
+      {/* Premium Glassmorphic Overlay Panel */}
+      <div
+        className="map-overlay-card"
+        style={{
+          position: 'absolute',
+          bottom: '24px',
+          left: '24px',
+          right: '24px',
+          background: 'rgba(255, 255, 255, 0.88)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid rgba(26, 28, 20, 0.08)',
+          borderRadius: '20px',
+          padding: '20px 24px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '16px',
+          boxShadow: '0 16px 40px rgba(26, 28, 20, 0.08)',
+          zIndex: 10,
+        }}
+      >
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h3 className="sa-serif" style={{ color: COLORS.textDark, fontSize: '20px', fontWeight: 700, margin: '0 0 4px 0', textAlign: 'left' }}>
+            Subham Ashray
+          </h3>
+          <p style={{ color: COLORS.mutedLight, fontSize: '13px', margin: 0, lineHeight: 1.5, textAlign: 'left' }}>
+            Aerocity Dharapur, Palash Bari Road, Guwahati 781017
+          </p>
         </div>
 
         <a
           href="https://www.google.com/maps/search/Subham+Ashray+Guwahati"
           target="_blank"
           rel="noopener noreferrer"
-          className="sa-btn-primary sa-sans"
-          style={{ padding: '11px 28px', fontSize: 13, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 4 }}
+          className="sa-sans"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '12px 20px',
+            background: COLORS.primary,
+            color: COLORS.darkNavy,
+            fontSize: '11px',
+            fontWeight: 700,
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            textDecoration: 'none',
+            borderRadius: '8px',
+            boxShadow: `0 4px 14px ${COLORS.primary}30`,
+            transition: 'all 0.3s ease',
+            whiteSpace: 'nowrap',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = COLORS.darkNavy;
+            e.currentTarget.style.color = '#FFFFFF';
+            e.currentTarget.style.boxShadow = `0 4px 14px rgba(0,0,0,0.15)`;
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = COLORS.primary;
+            e.currentTarget.style.color = COLORS.darkNavy;
+            e.currentTarget.style.boxShadow = `0 4px 14px ${COLORS.primary}30`;
+          }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
           Get Directions
         </a>
-      </div>
-
-      {/* Floating mini tags */}
-      <div style={{
-        position: 'absolute', bottom: 20, left: 20,
-        background: 'rgba(255,255,255,0.07)', border: `1px solid ${COLORS.borderDark}`,
-        color: COLORS.mutedDark, backdropFilter: 'blur(10px)',
-        fontSize: 11, fontWeight: 600, borderRadius: 99, padding: '6px 14px', zIndex: 2,
-      }}>
-        Gauhati Univ · 5.4 km
-      </div>
-      <div style={{
-        position: 'absolute', bottom: 20, right: 20,
-        background: 'rgba(255,255,255,0.07)', border: `1px solid ${COLORS.borderDark}`,
-        color: COLORS.mutedDark, backdropFilter: 'blur(10px)',
-        fontSize: 11, fontWeight: 600, borderRadius: 99, padding: '6px 14px', zIndex: 2,
-      }}>
-        Apollo · 12 km
-      </div>
-
-      {/* Side decorative compass rose */}
-      <div style={{
-        position: 'absolute', top: 20, right: 20, zIndex: 2,
-        width: 36, height: 36, opacity: 0.35,
-      }}>
-        <svg viewBox="0 0 40 40" fill="none">
-          <path d="M20 4 L22 18 L20 20 L18 18 Z" fill="white"/>
-          <path d="M20 36 L22 22 L20 20 L18 22 Z" fill="white" opacity=".5"/>
-          <path d="M4 20 L18 18 L20 20 L18 22 Z" fill="white" opacity=".5"/>
-          <path d="M36 20 L22 18 L20 20 L22 22 Z" fill="white"/>
-          <circle cx="20" cy="20" r="2.5" fill="white"/>
-          <text x="19" y="10" fill="white" fontSize="6" fontWeight="bold" textAnchor="middle">N</text>
-        </svg>
       </div>
     </div>
   );
@@ -431,9 +383,9 @@ export function Location() {
             </div>
 
             <div className="sa-reveal-r loc-category-grid">
-                {categories.filter(c => c.id !== 'connectivity').map(cat => (
-                  <CategoryCard key={cat.id} cat={cat} />
-                ))}
+              {categories.filter(c => c.id !== 'connectivity').map(cat => (
+                <CategoryCard key={cat.id} cat={cat} />
+              ))}
             </div>
           </div>
 
@@ -564,6 +516,18 @@ export function Location() {
             #location .loc-footnote {
               align-items: flex-start;
               flex-direction: column;
+            }
+          }
+
+          @media (max-width: 500px) {
+            .map-overlay-card {
+              flex-direction: column !important;
+              align-items: stretch !important;
+              padding: 16px 20px !important;
+              gap: 12px !important;
+            }
+            .map-overlay-card a {
+              justify-content: center;
             }
           }
         `}</style>

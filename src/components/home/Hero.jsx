@@ -345,10 +345,68 @@ export function Hero({ onOpenModal }) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 0.62, y: 0 }}
               transition={{ duration: 1, delay: 1.15 }}
-              style={{ maxWidth: 480 }}
+              style={{ maxWidth: 480, marginBottom: 20 }}
             >
               Experience the pinnacle of refined residential living. A thoughtfully designed community for those who seek tranquility amidst the vibrant energy of Guwahati.
             </motion.p>
+
+            {/* Price Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.25 }}
+              style={{
+                display: 'inline-flex',
+                flexDirection: 'column',
+                background: 'rgba(255, 255, 255, 0.03)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: `1px solid ${COLORS.primary}33`,
+                borderRadius: '8px',
+                padding: '10px 18px',
+                marginBottom: '28px',
+                maxWidth: 'fit-content',
+                boxShadow: `0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.05)`,
+                position: 'relative',
+                overflow: 'hidden',
+              }}
+            >
+              {/* Top micro-line accent */}
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: `linear-gradient(90deg, ${COLORS.primary}, transparent)` }} />
+              
+              <span style={{
+                fontSize: '9px',
+                fontWeight: 700,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'rgba(255, 255, 255, 0.5)',
+                lineHeight: 1.2,
+                marginBottom: '2px'
+              }}>
+                Starting at
+              </span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+                <span style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: '28px',
+                  fontWeight: 600,
+                  color: COLORS.primary,
+                  lineHeight: 1
+                }}>
+                  45
+                </span>
+                <span style={{
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                  color: '#FFFFFF',
+                  lineHeight: 1
+                }}>
+                  LAC
+                </span>
+              </div>
+            </motion.div>
 
             {/* CTAs */}
             <motion.div

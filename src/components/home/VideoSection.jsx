@@ -4,6 +4,7 @@ import { COLORS } from '../../constants/colors';
 import { WaveDarkToLight } from '../common/Dividers';
 import { SectionLabel } from '../common/SectionLabel';
 import { DecorativeShape } from '../common/DecorativeShape';
+import aerialImage from '../../assets/images/Aerial view .webp';
 
 /* ── helpers ── */
 function hexToRgb(hex) {
@@ -118,6 +119,7 @@ export function VideoSection() {
                 loop
                 muted
                 playsInline
+                poster={aerialImage}
               >
                 <source src={walkthroughVideo} type="video/mp4" />
               </video>
