@@ -5,7 +5,7 @@ import { SectionLabel } from '../common/SectionLabel';
 import { WaveLightToDark } from '../common/Dividers';
 import { projectCategories, developerMetrics } from '../../data/projectsData';
 import { DecorativeShape } from '../common/DecorativeShape';
-import developerLogo from '../../assets/images/developer logo.png';
+import developerLogo from '../../assets/images/Subham_Logo (1) (1).png';
 
 export function About() {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -57,16 +57,18 @@ export function About() {
           {/* LEFT PANEL: Sticky Typography & Metrics */}
           <div className="about-left-panel">
             <div className="about-sticky-content">
-              <SectionLabel onDark={false}>Developer Profile</SectionLabel>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <SectionLabel onDark={false}>Developer Profile</SectionLabel>
 
-              <h2 className="about-canvas-title" style={{ color: COLORS.textDark }}>
-                <span className="line-block">
-                  Time<span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 300, display: 'inline-block', verticalAlign: 'middle', transform: 'translateY(-0.06em)', margin: '0 0.05em' }}>-</span>Bound <em style={{ color: COLORS.primary, fontWeight: 300, fontStyle: 'italic' }}>Projects</em>
-                </span>
-                <span className="line-block">
-                  and Timeless <em style={{ color: COLORS.primary, fontWeight: 300, fontStyle: 'italic' }}>Relationships</em>
-                </span>
-              </h2>
+                <h2 className="about-canvas-title" style={{ color: COLORS.textDark, margin: 0 }}>
+                  <span className="line-block">
+                    Time<span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 300, display: 'inline-block', verticalAlign: 'middle', transform: 'translateY(-0.06em)', margin: '0 0.05em' }}>-</span>Bound <em style={{ color: COLORS.primary, fontWeight: 300, fontStyle: 'italic' }}>Projects</em>
+                  </span>
+                  <span className="line-block">
+                    and Timeless <em style={{ color: COLORS.primary, fontWeight: 300, fontStyle: 'italic' }}>Relationships</em>
+                  </span>
+                </h2>
+              </div>
 
               <div className="about-glass-metrics">
                 {developerMetrics.map(({ target, suffix, label, color }) => (
@@ -120,7 +122,7 @@ export function About() {
                   fontWeight: 500,
                   fontFamily: "var(--sa-font-body), sans-serif",
                 }}>
-                  Since 2007, Subham Group has been Guwahati's premier real estate developer — known for innovations and exceptional service. Every project is a testament to quality living across Northeast India.
+                  Since 2007, Subham Group has been the silent force behind Assam’s skyline, blending architectural bravery with the warmth of a home. Based in Guwahati, we are known for innovation, timely delivery, and dedicated customer support. Driven by passion, we create lasting value through time-bound projects and timeless relationships.
                 </p>
               </div>
 
@@ -255,7 +257,7 @@ export function About() {
           /* ── LEFT PANEL TYPOGRAPHY & METRICS ── */
           .about-canvas-title {
             margin: 0;
-            line-height: 1.15 !important;
+            line-height: 1.05 !important;
             font-size: var(--sa-font-size-h2) !important;
           }
 

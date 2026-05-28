@@ -35,9 +35,9 @@ export default function Home() {
       setFadeout(true);
       const doneTimer = setTimeout(() => {
         setLoading(false);
-      }, 600);
+      }, 700);
       return () => clearTimeout(doneTimer);
-    }, 1800);
+    }, 2400);
     return () => clearTimeout(timer);
   }, []);
 
@@ -105,7 +105,7 @@ export default function Home() {
           
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28, zIndex: 10 }}>
             {/* Elegant Double Ring Pulsing Logo Wrapper */}
-            <div style={{ position: 'relative', width: 96, height: 96, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ position: 'relative', width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               
               {/* Outer micro-dashed rotating ring */}
               <div
@@ -122,7 +122,7 @@ export default function Home() {
               <div
                 style={{
                   position: 'absolute',
-                  inset: 6,
+                  inset: 12,
                   borderRadius: '50%',
                   border: '1px solid rgba(201,164,77,0.09)',
                   borderTopColor: 'rgba(201,164,77,0.3)',
@@ -134,15 +134,15 @@ export default function Home() {
               <div
                 style={{
                   position: 'absolute',
-                  inset: 12,
+                  inset: 24,
                   borderRadius: '50%',
                   background: 'rgba(255, 255, 255, 0.02)',
                   border: '1px solid rgba(201,164,77,0.28)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  padding: 10,
-                  boxShadow: '0 0 30px rgba(201,164,77,0.1)',
+                  padding: 14,
+                  boxShadow: '0 0 40px rgba(201,164,77,0.12)',
                   animation: 'pulseLogo 2.5s ease-in-out infinite',
                 }}
               >
@@ -158,7 +158,7 @@ export default function Home() {
             <div style={{ textAlign: 'center', color: '#FFFFFF', marginTop: 4 }}>
               <div style={{
                 fontFamily: "'Outfit', sans-serif",
-                fontSize: 10,
+                fontSize: 16,
                 fontWeight: 600,
                 letterSpacing: '0.42em',
                 textTransform: 'uppercase',
@@ -170,7 +170,7 @@ export default function Home() {
               </div>
               <div style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 26,
+                fontSize: 44,
                 fontWeight: 300,
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
@@ -231,7 +231,7 @@ export default function Home() {
             @keyframes lineExpand {
               0% { width: 0px; opacity: 0; }
               20% { opacity: 0.8; }
-              100% { width: 150px; opacity: 1; }
+              100% { width: 260px; opacity: 1; }
             }
           `}</style>
         </div>

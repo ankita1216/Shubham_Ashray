@@ -325,7 +325,7 @@ export function Hero({ onOpenModal }) {
               style={{ color: COLORS.primary }}
             >
               <div style={{ width: 40, height: 1, background: COLORS.primary }} />
-              <span>Guwahati, Assam</span>
+              <span>Aerocity, Guwahati</span>
             </motion.div>
 
             {/* AHA LIFE. — Single Line */}
