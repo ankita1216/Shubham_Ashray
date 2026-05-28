@@ -486,8 +486,8 @@ export function FloorPlans({ onOpenModal }) {
 
   const mainTabs = [
     { id: "master", label: "Master Plan", sub: "01" },
-    { id: "units", label: "Unit Plan", sub: "02" },
-    { id: "blocks", label: "Block Plan", sub: "03" },
+    { id: "blocks", label: "Block Plan", sub: "02" },
+    { id: "units", label: "Unit Plan", sub: "03" },
   ];
 
   const openLightbox = (plan) =>

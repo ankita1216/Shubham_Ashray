@@ -22,18 +22,18 @@ export const floorPlansData = {
     image: masterPlan
   },
   units: [
-    { title: "3 BHK Premium SBUA(1197)", image: unitPlan1 },
-    { title: "2 BHK Premium SBUA(875)", image: unitPlan2 },
-    { title: "3 BHK Premium SBUA(1255)", image: unitPlan3 },
-    { title: "2 BHK Smart SBUA(800)", image: unitPlan4 },
-    { title: "3 BHK Smart SBUA(992)", image: unitPlan5 },
+    { title: "Premium 3 BHK – SBUA 1197", image: unitPlan1 },
+    { title: "Premium 2 BHK – SBUA 875", image: unitPlan2 },
+    { title: "Premium 3 BHK – SBUA 1255", image: unitPlan3 },
+    { title: "Smart 2 BHK – SBUA 800", image: unitPlan4 },
+    { title: "Smart 3 BHK – SBUA 992", image: unitPlan5 },
   ],
   blocks: [
     { name: "Block A", image: blockA },
     { name: "Block B & C", image: blockBC },
     { name: "Block D", image: blockD },
     { name: "Block E", image: blockE },
-    { name: "Block F", image: blockF },
+    { name: "Block F & G", image: blockF },
     { name: "Block H", image: blockH },
   ]
 };
