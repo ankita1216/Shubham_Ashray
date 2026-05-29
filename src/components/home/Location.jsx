@@ -222,6 +222,7 @@ function MapCard() {
           height: '100%',
           minHeight: 500,
           objectFit: 'cover',
+          objectPosition: '30% 50%',
           display: 'block',
         }}
       />
@@ -295,8 +296,6 @@ function MapCard() {
 
         <a
           href="https://www.google.com/maps/search/Subham+Ashray+Guwahati"
-          target="_blank"
-          rel="noopener noreferrer"
           className="sa-sans"
           style={{
             display: 'inline-flex',

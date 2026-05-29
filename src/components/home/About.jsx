@@ -5,7 +5,7 @@ import { SectionLabel } from '../common/SectionLabel';
 import { WaveLightToDark } from '../common/Dividers';
 import { projectCategories, developerMetrics } from '../../data/projectsData';
 import { DecorativeShape } from '../common/DecorativeShape';
-import developerLogo from '../../assets/images/Subham_Logo (1) (1).png';
+import developerLogo from '../../assets/images/footer-removebg-preview.png';
 
 export function About() {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -94,25 +94,21 @@ export function About() {
                 flexDirection: "column",
                 gap: "20px",
               }}>
-                {/* Clean, enlarged Developer Logo Container */}
-                <div style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  background: "rgba(255, 255, 255, 0.75)",
-                  border: "1px solid rgba(26, 28, 20, 0.07)",
-                  borderRadius: "12px",
-                  padding: "16px 24px",
-                  maxWidth: "240px",
-                  boxShadow: "0 6px 20px rgba(26, 28, 20, 0.02)",
-                  alignSelf: "flex-start"
-                }}>
-                  <img 
-                    src={developerLogo} 
-                    alt="Developer Logo" 
-                    style={{ width: "100%", height: "auto", maxHeight: "56px", objectFit: "contain", display: "block" }} 
-                  />
-                </div>
+                {/* Clean, enlarged Developer Logo */}
+                <img 
+                  src={developerLogo} 
+                  alt="Developer Logo" 
+                  style={{ 
+                    width: "100%", 
+                    height: "auto", 
+                    maxWidth: "360px", 
+                    maxHeight: "84px", 
+                    objectFit: "contain", 
+                    objectPosition: "left center",
+                    display: "block", 
+                    alignSelf: "flex-start" 
+                  }} 
+                />
 
                 <p style={{
                   fontSize: "13px",
