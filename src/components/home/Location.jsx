@@ -290,7 +290,7 @@ function MapCard() {
             Subham Ashray
           </h3>
           <p style={{ color: COLORS.mutedLight, fontSize: '13px', margin: 0, lineHeight: 1.5, textAlign: 'left' }}>
-            Aerocity Dharapur, Palash Bari Road, Guwahati 781017
+            Aerocity, Dharapur Palash Bari Road, Guwahati - 781017
           </p>
         </div>
 

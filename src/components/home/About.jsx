@@ -58,7 +58,14 @@ export function About() {
           <div className="about-left-panel">
             <div className="about-sticky-content">
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <SectionLabel onDark={false}>Developer Profile</SectionLabel>
+                <div className="developer-profile-header-wrap">
+                  <SectionLabel onDark={false}>Developer Profile</SectionLabel>
+                  <img 
+                    src={developerLogo} 
+                    alt="Developer Logo" 
+                    className="developer-profile-header-logo"
+                  />
+                </div>
 
                 <h2 className="about-canvas-title" style={{ color: COLORS.textDark, margin: 0 }}>
                   <span className="line-block">
@@ -94,22 +101,6 @@ export function About() {
                 flexDirection: "column",
                 gap: "20px",
               }}>
-                {/* Clean, enlarged Developer Logo */}
-                <img 
-                  src={developerLogo} 
-                  alt="Developer Logo" 
-                  style={{ 
-                    width: "100%", 
-                    height: "auto", 
-                    maxWidth: "360px", 
-                    maxHeight: "84px", 
-                    objectFit: "contain", 
-                    objectPosition: "left center",
-                    display: "block", 
-                    alignSelf: "flex-start" 
-                  }} 
-                />
-
                 <p style={{
                   fontSize: "13px",
                   lineHeight: "1.7",
@@ -192,6 +183,34 @@ export function About() {
 
         {/* ═══════════════════════════════════════ STYLES ═══════════════════════════════════════ */}
         <style>{`
+          /* ── DEVELOPER HEADER LOGO ── */
+          .developer-profile-header-wrap {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            flex-wrap: wrap;
+            margin-bottom: var(--sa-spacing-label-to-heading);
+          }
+
+          .developer-profile-header-wrap .sa-label {
+            margin-bottom: 0 !important;
+          }
+
+          .developer-profile-header-logo {
+            height: 88px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            transform: translateY(-16px);
+          }
+
+          @media (max-width: 640px) {
+            .developer-profile-header-logo {
+              height: 64px;
+              transform: translateY(-10px);
+            }
+          }
+
           /* ── LAYOUT FOUNDATION ── */
           .about-split-canvas {
             display: flex;

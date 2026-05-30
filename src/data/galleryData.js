@@ -13,13 +13,13 @@ import landscapeElevation from '../assets/images/Landscape Elevation View 1.webp
 
 export const galleryData = [
   { label: "AERIAL VIEW", image: aerialView, span: 2 },
-  { label: "CLUB DROP OFF VIEW", image: clubDropOff, span: 1 },
+  { label: "CLUB DROP OFF ", image: clubDropOff, span: 1 },
   { label: "COMMON LOUNGE", image: commonLounge, span: 1 },
   { label: "COMMUNITY HALL", image: communityHall, span: 2 },
   { label: "ELEVATION CLOSE VIEW", image: elevationClose, span: 1 },
   { label: "GATE ELEVATION VIEW", image: gateElevation, span: 2 },
   { label: "INDOOR GAME", image: indoorGame, span: 1 },
-  { label: "KIDS PLAY AREA VIEW", image: kidsPlayArea, span: 2 },
+  { label: "KIDS PLAY AREA ", image: kidsPlayArea, span: 2 },
   { label: "LIFT LOBBY", image: liftLobby, span: 1 },
   { label: "SWIMMING POOL", image: swimmingPool, span: 2 },
   { label: "GYM", image: gym, span: 1 },

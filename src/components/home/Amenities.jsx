@@ -171,15 +171,16 @@ function AmenityCard({ name, desc, color, icon, index }) {
 
 export function Amenities() {
   const landscapeFeatures = [
-    "Stepped planter",
+    "Stepped Community Lawn",
     "Open gym",
     "Adda corner",
     "Senior citizens' area",
     "Shaded sitting corner",
-    "Forest orchard",
-    "Community performance space",
+    "Play Lawn",
+    "Seniors' Gathering",
     "Raised lawn",
     "Stepping stone walkway",
+    "Multipurpose Court",
   ];
 
   return (
