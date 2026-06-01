@@ -51,6 +51,8 @@ export default function Home() {
           style={{
             position: 'fixed',
             inset: 0,
+            width: '100%',
+            height: '100%',
             zIndex: 99999,
             background: '#06070A',
             display: 'flex',
@@ -60,6 +62,7 @@ export default function Home() {
             opacity: fadeout ? 0 : 1,
             transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
             pointerEvents: fadeout ? 'none' : 'auto',
+            overflow: 'hidden',
           }}
         >
           {/* Animated luxury backdrop glow */}
@@ -77,8 +80,11 @@ export default function Home() {
           <div
             style={{
               position: 'absolute',
-              width: '400px',
-              height: '400px',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: 'min(400px, 90vw)',
+              height: 'min(400px, 90vw)',
               border: '1px solid rgba(201,164,77,0.03)',
               borderRadius: '50%',
               pointerEvents: 'none',
@@ -87,6 +93,9 @@ export default function Home() {
           <div
             style={{
               position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
               width: '1px',
               height: '240px',
               background: 'linear-gradient(to bottom, transparent, rgba(201,164,77,0.08), transparent)',
@@ -96,6 +105,9 @@ export default function Home() {
           <div
             style={{
               position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
               width: '240px',
               height: '1px',
               background: 'linear-gradient(to right, transparent, rgba(201,164,77,0.08), transparent)',

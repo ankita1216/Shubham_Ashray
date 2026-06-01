@@ -291,15 +291,18 @@ export function Amenities() {
         @media (max-width: 768px) {
           .amenity-grid {
             grid-template-columns: repeat(2, 1fr) !important;
+            gap: 16px !important;
           }
           .amenity-feature-strip {
             grid-template-columns: 1fr !important;
+            gap: 16px !important;
           }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
           .amenity-grid {
-            grid-template-columns: 1fr 1fr !important;
-            grid-auto-rows: 110px !important;
+            grid-template-columns: 1fr !important;
+            grid-auto-rows: auto !important;
+            gap: 16px !important;
           }
         }
       `}</style>

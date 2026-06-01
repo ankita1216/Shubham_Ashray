@@ -597,14 +597,63 @@ export function VideoSection() {
           }
 
           @media (max-width: 640px) {
-            .vs-cinema { aspect-ratio: auto; height: 62vw; min-height: 280px; }
+            .vs-cinema { aspect-ratio: auto; height: 62vw; min-height: 290px; }
             .vs-header { text-align: left; }
             .vs-br-hide { display: none; }
-            .vs-ot-title { font-size: 22px; }
             .vs-moments { grid-template-columns: 1fr; gap: 10px; }
             .vs-play-outer { width: 72px; height: 72px; }
             .vs-play-inner { width: 50px; height: 50px; }
             .vs-pulse-ring { width: 80px; height: 80px; }
+
+            /* Spacing & Alignment enhancements to prevent overlapping text */
+            .vs-overlay {
+              padding: 24px 20px 64px !important;
+              gap: 16px !important;
+            }
+            .vs-overlay-text {
+              gap: 6px !important;
+            }
+            .vs-ot-eyebrow {
+              font-size: 9px !important;
+              letter-spacing: 0.18em !important;
+            }
+            .vs-ot-title {
+              font-size: clamp(20px, 5.5vw, 24px) !important;
+              line-height: 1.25 !important;
+              margin: 4px 0 !important;
+            }
+            .vs-ot-hint {
+              font-size: 12px !important;
+            }
+
+            /* Responsive cinema footer to avoid overlap */
+            .vs-cinema-footer {
+              inset: auto 20px 14px !important;
+            }
+            .vs-cf-name {
+              font-size: 13px !important;
+            }
+            .vs-cf-badge {
+              padding: 4px 10px !important;
+              font-size: 8px !important;
+            }
+          }
+
+          @media (max-width: 400px) {
+            .vs-cinema {
+              min-height: 310px !important;
+            }
+            .vs-overlay {
+              padding: 20px 16px 56px !important;
+              gap: 12px !important;
+            }
+            .vs-cinema-footer {
+              inset: auto 16px 10px !important;
+            }
+            .vs-cf-badge {
+              padding: 3px 8px !important;
+              font-size: 7.5px !important;
+            }
           }
         `}</style>
       </section>
