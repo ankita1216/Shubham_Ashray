@@ -207,16 +207,16 @@ export function Amenities() {
                 <div className="sa-reveal" style={{ marginBottom: 14 }}>
                   <SectionLabel onDark={false}>World-Class Amenities</SectionLabel>
                 </div>
-                <h2 style={{ color: COLORS.textDark, margin: 0 }}>
-                  Every Joy,<br />
+                <h2 className="sa-amenities-heading" style={{ color: COLORS.textDark, margin: 0 }}>
+                  Every Joy, <br className="hidden md:block" />
                   <span style={{ color: COLORS.primary }}>Right Here</span>
                 </h2>
               </div>
 
               {/* Right: stats + desc */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12, paddingTop: 4 }}>
+              <div className="sa-header-right-side" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12, paddingTop: 4 }}>
                 {/* Big stat */}
-                <div style={{ textAlign: "right" }}>
+                <div className="sa-amenities-stat-box" style={{ textAlign: "right" }}>
                   <div style={{ fontSize: "clamp(36px, 4vw, 52px)", fontWeight: 800, color: COLORS.textDark, lineHeight: 1, letterSpacing: "-0.03em" }}>
                     30<span style={{ color: COLORS.primary }}>+</span>
                   </div>

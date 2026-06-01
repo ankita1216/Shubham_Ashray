@@ -117,3 +117,35 @@ p,
   overflow-x: hidden;
   position: relative;
 }
+
+/* Mobile-only left-alignment typography overrides */
+@media (max-width: 767px) {
+  h1, h2, h3, h4, h5, h6,
+  p,
+  .sa-h1, .sa-h2, .sa-p,
+  .sa-serif,
+  .text-center,
+  .text-right {
+    text-align: left !important;
+  }
+
+  .sa-header-right-side {
+    align-items: flex-start !important;
+  }
+  
+  .sa-footer-brand-side {
+    text-align: left !important;
+  }
+
+  .sa-bottom-enquiry-form {
+    display: none !important;
+  }
+
+  .sa-amenities-heading {
+    white-space: nowrap !important;
+  }
+
+  .sa-amenities-stat-box {
+    text-align: left !important;
+  }
+}

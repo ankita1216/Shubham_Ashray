@@ -25,7 +25,7 @@ export function Footer() {
               A landmark residential community in Guwahati's Aerocity corridor. Crafting an extraordinary life through thoughtful design and curated amenities.
             </p>
           </div>
-          <div style={{ flex: "1 1 320px", textAlign: "right" }}>
+          <div className="sa-footer-brand-side" style={{ flex: "1 1 320px", textAlign: "right" }}>
             <div className="sa-serif" style={{ fontSize: "clamp(34px, 5vw, 52px)", fontStyle: "italic", color: COLORS.primary, lineHeight: 1, marginBottom: 0 }}>
               Live the Aha Life.
             </div>

@@ -521,7 +521,7 @@ export function Gallery() {
               </h2>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12, paddingTop: 4 }}>
+            <div className="sa-header-right-side" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12, paddingTop: 4 }}>
               <div style={{ textAlign: 'right' }}>
                 <p style={{
                   fontSize: "clamp(52px, 6vw, 80px)", fontWeight: 800,

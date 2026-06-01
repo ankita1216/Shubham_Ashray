@@ -75,6 +75,7 @@ export default function BottomEnquiryForm() {
     <AnimatePresence>
       {shouldShow && (
         <motion.aside
+          className="sa-bottom-enquiry-form"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 100 }}
