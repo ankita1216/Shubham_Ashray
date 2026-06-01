@@ -48,116 +48,31 @@ export default function Home() {
     <>
       {loading && (
         <div
+          className="sa-preloader-container"
           style={{
-            position: 'fixed',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: 99999,
-            background: '#06070A',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
             opacity: fadeout ? 0 : 1,
-            transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
             pointerEvents: fadeout ? 'none' : 'auto',
-            overflow: 'hidden',
           }}
         >
           {/* Animated luxury backdrop glow */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(201,164,77,0.14) 0%, transparent 60%)',
-              pointerEvents: 'none',
-              animation: 'luxuryGlow 6s ease-in-out infinite',
-            }}
-          />
+          <div className="sa-preloader-glow" />
 
           {/* Blueprint-style fine luxury lines for aesthetic background detail */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: 'min(400px, 90vw)',
-              height: 'min(400px, 90vw)',
-              border: '1px solid rgba(201,164,77,0.03)',
-              borderRadius: '50%',
-              pointerEvents: 'none',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '1px',
-              height: '240px',
-              background: 'linear-gradient(to bottom, transparent, rgba(201,164,77,0.08), transparent)',
-              pointerEvents: 'none',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '240px',
-              height: '1px',
-              background: 'linear-gradient(to right, transparent, rgba(201,164,77,0.08), transparent)',
-              pointerEvents: 'none',
-            }}
-          />
+          <div className="sa-preloader-bg-circle" />
+          <div className="sa-preloader-bg-line-v" />
+          <div className="sa-preloader-bg-line-h" />
           
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28, zIndex: 10 }}>
+          <div className="sa-preloader-content">
             {/* Elegant Double Ring Pulsing Logo Wrapper */}
-            <div style={{ position: 'relative', width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              
+            <div className="sa-preloader-logo-wrap">
               {/* Outer micro-dashed rotating ring */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  borderRadius: '50%',
-                  border: '1px dashed rgba(201,164,77,0.22)',
-                  animation: 'rotateRing 16s linear infinite',
-                }}
-              />
+              <div className="sa-preloader-ring-outer" />
 
               {/* Middle fine solid rotating ring */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 12,
-                  borderRadius: '50%',
-                  border: '1px solid rgba(201,164,77,0.09)',
-                  borderTopColor: 'rgba(201,164,77,0.3)',
-                  animation: 'rotateRingReverse 8s linear infinite',
-                }}
-              />
+              <div className="sa-preloader-ring-middle" />
 
               {/* Inner core card containing the branding image */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 24,
-                  borderRadius: '50%',
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  border: '1px solid rgba(201,164,77,0.28)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: 14,
-                  boxShadow: '0 0 40px rgba(201,164,77,0.12)',
-                  animation: 'pulseLogo 2.5s ease-in-out infinite',
-                }}
-              >
+              <div className="sa-preloader-logo-inner">
                 <img 
                   src={logoImg} 
                   alt="Subham Group" 
@@ -168,53 +83,216 @@ export default function Home() {
 
             {/* Premium Text Branding */}
             <div style={{ textAlign: 'center', color: '#FFFFFF', marginTop: 4 }}>
-              <div style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontSize: 16,
-                fontWeight: 600,
-                letterSpacing: '0.42em',
-                textTransform: 'uppercase',
-                color: 'rgba(255, 255, 255, 0.42)',
-                marginBottom: 8,
-                animation: 'luxuryLetterSpacing 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              }}>
+              <div className="sa-preloader-brand-title">
                 Subham Ashray
               </div>
-              <div style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 44,
-                fontWeight: 300,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: '#C9A44D',
-                fontStyle: 'italic',
-                animation: 'luxuryFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both',
-              }}>
+              <div className="sa-preloader-brand-subtitle">
                 Aha Life
               </div>
             </div>
 
             {/* Symmetrical hair-thin loading bar */}
-            <div style={{
-              height: 1,
-              background: 'rgba(201, 164, 77, 0.08)',
-              borderRadius: 9,
-              marginTop: 10,
-              position: 'relative',
-              animation: 'lineExpand 1.5s cubic-bezier(0.16, 1, 0.3, 1) both',
-            }}>
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(90deg, transparent, #C9A44D, transparent)',
-                  borderRadius: 9,
-                }}
-              />
+            <div className="sa-preloader-bar">
+              <div className="sa-preloader-bar-inner" />
             </div>
           </div>
 
           <style>{`
+            .sa-preloader-container {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100vw;
+              height: 100dvh;
+              z-index: 99999;
+              background: #06070A;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+              overflow: hidden;
+              --loading-bar-width: 260px;
+            }
+            .sa-preloader-glow {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-image: radial-gradient(circle at 50% 50%, rgba(201,164,77,0.14) 0%, transparent 60%);
+              pointer-events: none;
+              animation: luxuryGlow 6s ease-in-out infinite;
+            }
+            .sa-preloader-bg-circle {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: min(400px, 90vw);
+              height: min(400px, 90vw);
+              border: 1px solid rgba(201,164,77,0.03);
+              border-radius: 50%;
+              pointer-events: none;
+            }
+            .sa-preloader-bg-line-v {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 1px;
+              height: 240px;
+              background: linear-gradient(to bottom, transparent, rgba(201,164,77,0.08), transparent);
+              pointer-events: none;
+            }
+            .sa-preloader-bg-line-h {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 240px;
+              height: 1px;
+              background: linear-gradient(to right, transparent, rgba(201,164,77,0.08), transparent);
+              pointer-events: none;
+            }
+            .sa-preloader-content {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 28px;
+              z-index: 10;
+            }
+            .sa-preloader-logo-wrap {
+              position: relative;
+              width: 180px;
+              height: 180px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .sa-preloader-ring-outer {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              border-radius: 50%;
+              border: 1px dashed rgba(201,164,77,0.22);
+              animation: rotateRing 16s linear infinite;
+            }
+            .sa-preloader-ring-middle {
+              position: absolute;
+              top: 12px;
+              left: 12px;
+              right: 12px;
+              bottom: 12px;
+              border-radius: 50%;
+              border: 1px solid rgba(201,164,77,0.09);
+              border-top-color: rgba(201,164,77,0.3);
+              animation: rotateRingReverse 8s linear infinite;
+            }
+            .sa-preloader-logo-inner {
+              position: absolute;
+              top: 24px;
+              left: 24px;
+              right: 24px;
+              bottom: 24px;
+              border-radius: 50%;
+              background: rgba(255, 255, 255, 0.02);
+              border: 1px solid rgba(201,164,77,0.28);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 14px;
+              box-shadow: 0 0 40px rgba(201,164,77,0.12);
+              animation: pulseLogo 2.5s ease-in-out infinite;
+            }
+            .sa-preloader-brand-title {
+              font-family: 'Outfit', sans-serif;
+              font-size: 16px;
+              font-weight: 600;
+              letter-spacing: 0.42em;
+              text-transform: uppercase;
+              color: rgba(255, 255, 255, 0.42);
+              margin-bottom: 8px;
+              animation: luxuryLetterSpacing 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+            .sa-preloader-brand-subtitle {
+              font-family: 'Cormorant Garamond', serif;
+              font-size: 44px;
+              font-weight: 300;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              color: #C9A44D;
+              font-style: italic;
+              animation: luxuryFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+            }
+            .sa-preloader-bar {
+              height: 1px;
+              background: rgba(201, 164, 77, 0.08);
+              border-radius: 9px;
+              margin-top: 10px;
+              position: relative;
+              animation: lineExpand 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+            }
+            .sa-preloader-bar-inner {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background: linear-gradient(90deg, transparent, #C9A44D, transparent);
+              border-radius: 9px;
+            }
+
+            @media (max-width: 480px) {
+              .sa-preloader-container {
+                --loading-bar-width: 180px;
+              }
+              .sa-preloader-bg-circle {
+                width: min(280px, 85vw);
+                height: min(280px, 85vw);
+              }
+              .sa-preloader-bg-line-v {
+                height: 180px;
+              }
+              .sa-preloader-bg-line-h {
+                width: 180px;
+              }
+              .sa-preloader-content {
+                gap: 20px;
+              }
+              .sa-preloader-logo-wrap {
+                width: 130px;
+                height: 130px;
+              }
+              .sa-preloader-ring-middle {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+              }
+              .sa-preloader-logo-inner {
+                top: 16px;
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                padding: 10px;
+                box-shadow: 0 0 25px rgba(201,164,77,0.1);
+              }
+              .sa-preloader-brand-title {
+                font-size: 12px;
+                letter-spacing: 0.32em;
+                margin-bottom: 6px;
+              }
+              .sa-preloader-brand-subtitle {
+                font-size: 32px;
+                letter-spacing: 0.12em;
+              }
+            }
+
             @keyframes pulseLogo {
               0%, 100% { transform: scale(1); opacity: 0.95; box-shadow: 0 0 30px rgba(201,164,77,0.1); }
               50% { transform: scale(1.04); opacity: 1; box-shadow: 0 0 50px rgba(201,164,77,0.22); }
@@ -243,7 +321,7 @@ export default function Home() {
             @keyframes lineExpand {
               0% { width: 0px; opacity: 0; }
               20% { opacity: 0.8; }
-              100% { width: 260px; opacity: 1; }
+              100% { width: var(--loading-bar-width, 260px); opacity: 1; }
             }
           `}</style>
         </div>

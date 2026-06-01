@@ -38,6 +38,9 @@ export function Overview() {
           @media (max-width: 500px) {
             .ov-features { grid-template-columns: 1fr 1fr !important; }
           }
+          @media (max-width: 420px) {
+            .ov-features { grid-template-columns: 1fr !important; }
+          }
           .about-canvas-quote {
             position: relative;
             padding-left: 20px;
