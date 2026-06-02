@@ -204,7 +204,7 @@ export function Amenities() {
             {/* Top row */}
             <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
               <div>
-                <div className="sa-reveal" style={{ marginBottom: 14 }}>
+                <div className="sa-reveal amenities-label-wrap" style={{ marginBottom: 14 }}>
                   <SectionLabel onDark={false}>World-Class Amenities</SectionLabel>
                 </div>
                 <h2 className="sa-amenities-heading" style={{ color: COLORS.textDark, margin: 0 }}>

@@ -69,7 +69,7 @@ export function Overview() {
         <div className="sa-container relative z-10">
 
           {/* ── Top eyebrow row ── */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 52 }}>
+          <div className="ov-header-wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 52 }}>
             <SectionLabel onDark={false}>Project Overview</SectionLabel>
           </div>
 

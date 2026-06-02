@@ -148,4 +148,36 @@ p,
   .sa-amenities-stat-box {
     text-align: left !important;
   }
+
+  /* Section top/bottom spacing consistency */
+  #overview,
+  #amenities,
+  #walkthrough-video,
+  #floor-plans,
+  #location,
+  #contact,
+  #about {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+  #gallery .sa-container:first-of-type {
+    padding-top: 60px !important;
+  }
+  #gallery > div:last-of-type {
+    padding-bottom: 60px !important;
+  }
+
+  /* Heading & Subheading Spacing consistency */
+  .ov-header-wrap {
+    margin-bottom: 16px !important;
+  }
+  .amenities-label-wrap {
+    margin-bottom: 16px !important;
+  }
+  .vs-h2 {
+    margin-top: 0 !important;
+  }
+  #floor-plans .floor-title {
+    margin-top: 0 !important;
+  }
 }

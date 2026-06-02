@@ -20,6 +20,7 @@ export function VideoSection() {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const moments = [
     { num: '01', title: 'Leave the phone behind', copy: 'Tune in with your child and let the day slow down.' },
@@ -120,6 +121,15 @@ export function VideoSection() {
                 muted
                 playsInline
                 poster={aerialImage}
+                onTimeUpdate={() => {
+                  if (videoRef.current) {
+                    const current = videoRef.current.currentTime;
+                    const duration = videoRef.current.duration;
+                    if (duration) {
+                      setProgress((current / duration) * 100);
+                    }
+                  }
+                }}
               >
                 <source src={walkthroughVideo} type="video/mp4" />
               </video>
@@ -177,6 +187,37 @@ export function VideoSection() {
 
               {/* permanent edge vignette (survives overlay fade) */}
               <div className="vs-vignette" />
+
+              {/* ── video progress bar (mobile only) ── */}
+              <div 
+                className="vs-progress-wrap"
+                onClick={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
+                onTouchStart={(e) => e.stopPropagation()}
+                onKeyDown={(e) => e.stopPropagation()}
+              >
+                <input
+                  type="range"
+                  className="vs-progress-bar"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value={progress}
+                  style={{
+                    background: `linear-gradient(to right, ${COLORS.primary} 0%, ${COLORS.primary} ${progress}%, rgba(255, 255, 255, 0.24) ${progress}%, rgba(255, 255, 255, 0.24) 100%)`
+                  }}
+                  onChange={(e) => {
+                    if (videoRef.current) {
+                      const newPct = parseFloat(e.target.value);
+                      const duration = videoRef.current.duration;
+                      if (duration) {
+                        videoRef.current.currentTime = (newPct / 100) * duration;
+                        setProgress(newPct);
+                      }
+                    }
+                  }}
+                />
+              </div>
 
               {/* bottom cinema footer */}
               <div className="vs-cinema-footer">
@@ -441,9 +482,57 @@ export function VideoSection() {
 
           /* ── cinema footer bar ── */
           .vs-cinema-footer {
-            position: absolute; inset: auto 24px 22px;
+            position: absolute; inset: auto 24px 34px;
             display: flex; justify-content: space-between; align-items: flex-end;
             z-index: 6; pointer-events: none;
+          }
+
+          /* ── Walkthrough video slider (desktop & mobile) ── */
+          .vs-progress-wrap {
+            position: absolute;
+            bottom: 16px;
+            left: 24px;
+            right: 24px;
+            z-index: 10;
+            pointer-events: auto;
+          }
+          .vs-progress-bar {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            outline: none;
+            margin: 0;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.24);
+          }
+          .vs-progress-bar::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #c6ba42;
+            cursor: pointer;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+            transition: transform 0.1s ease;
+          }
+          .vs-progress-bar:active::-webkit-slider-thumb {
+            transform: scale(1.3);
+          }
+          .vs-progress-bar::-moz-range-thumb {
+            width: 10px;
+            height: 10px;
+            border: 0;
+            border-radius: 50%;
+            background: #c6ba42;
+            cursor: pointer;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+            transition: transform 0.1s ease;
+          }
+          .vs-progress-bar:active::-moz-range-thumb {
+            transform: scale(1.3);
           }
           .vs-cf-brand { display: flex; flex-direction: column; gap: 3px; }
           .vs-cf-eyebrow {
@@ -546,6 +635,8 @@ export function VideoSection() {
             transform: translateY(-3px);
           }
 
+
+
           /* ghost numeral watermark */
           .vs-moment-ghost {
             position: absolute; right: -4px; bottom: -18px;
@@ -628,7 +719,7 @@ export function VideoSection() {
 
             /* Responsive cinema footer to avoid overlap */
             .vs-cinema-footer {
-              inset: auto 20px 14px !important;
+              inset: auto 20px 32px !important;
             }
             .vs-cf-name {
               font-size: 13px !important;
@@ -636,6 +727,13 @@ export function VideoSection() {
             .vs-cf-badge {
               padding: 4px 10px !important;
               font-size: 8px !important;
+            }
+
+            /* Custom Walkthrough video slider */
+            .vs-progress-wrap {
+              bottom: 12px;
+              left: 20px;
+              right: 20px;
             }
           }
 
@@ -648,11 +746,16 @@ export function VideoSection() {
               gap: 12px !important;
             }
             .vs-cinema-footer {
-              inset: auto 16px 10px !important;
+              inset: auto 16px 30px !important;
             }
             .vs-cf-badge {
               padding: 3px 8px !important;
               font-size: 7.5px !important;
+            }
+            .vs-progress-wrap {
+              bottom: 10px;
+              left: 16px;
+              right: 16px;
             }
           }
         `}</style>
