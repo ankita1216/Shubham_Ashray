@@ -205,9 +205,15 @@ export function About() {
           }
 
           @media (max-width: 640px) {
+            .developer-profile-header-wrap {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 16px;
+            }
             .developer-profile-header-logo {
-              height: 64px;
-              transform: translateY(-10px);
+              height: 76px;
+              transform: translateY(0);
+              align-self: center;
             }
           }
 
