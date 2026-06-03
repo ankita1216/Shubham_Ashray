@@ -60,9 +60,9 @@ export function About() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div className="developer-profile-header-wrap">
                   <SectionLabel onDark={false}>Developer Profile</SectionLabel>
-                  <img 
-                    src={developerLogo} 
-                    alt="Developer Logo" 
+                  <img
+                    src={developerLogo}
+                    alt="Developer Logo"
                     className="developer-profile-header-logo"
                   />
                 </div>
@@ -213,7 +213,8 @@ export function About() {
             .developer-profile-header-logo {
               height: 76px;
               transform: translateY(0);
-              align-self: center;
+              align-self: flex-start;
+              margin-left: 78px;
             }
           }
 
