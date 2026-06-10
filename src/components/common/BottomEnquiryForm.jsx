@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Send, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
+import { submitFormData } from "../../services/formService";
 
 const initialFormData = {
   name: "",
@@ -42,6 +43,25 @@ export default function BottomEnquiryForm() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [utms, setUtms] = useState({
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: ""
+  });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setUtms({
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || ""
+    });
+  }, []);
+
   const shouldShow = isVisible;
 
   const update = (field, value) =>
@@ -52,7 +72,9 @@ export default function BottomEnquiryForm() {
     setIsSubmitting(true);
     // small delay for UX feel
     await new Promise((r) => setTimeout(r, 600));
-    console.log("Bottom enquiry captured:", formData);
+    const finalData = { ...formData, ...utms };
+    console.log("Bottom enquiry captured:", finalData);
+    await submitFormData(finalData);
     setFormData(initialFormData);
     setIsSubmitting(false);
     navigate("/thank-you");
@@ -146,6 +168,12 @@ export default function BottomEnquiryForm() {
                   }}
                   className="sa-no-scrollbar"
                 >
+                  <input type="hidden" name="utm_source" value={utms.utm_source} />
+                  <input type="hidden" name="utm_medium" value={utms.utm_medium} />
+                  <input type="hidden" name="utm_campaign" value={utms.utm_campaign} />
+                  <input type="hidden" name="utm_term" value={utms.utm_term} />
+                  <input type="hidden" name="utm_content" value={utms.utm_content} />
+
                   <input
                     required
                     type="text"
@@ -186,17 +214,15 @@ export default function BottomEnquiryForm() {
                     <option value="3bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>3 BHK</option>
                   </select>
 
-                  <select
+                  <input
                     required
+                    type="text"
+                    placeholder="Pincode"
                     value={formData.location}
                     onChange={(e) => update("location", e.target.value)}
-                    style={{ ...inputStyle, flex: "0 0 110px", cursor: "pointer" }}
+                    style={{ ...inputStyle, flex: "0 0 110px" }}
                     className="hidden md:block"
-                  >
-                    <option value="" disabled style={{ background: COLORS.darkMid, color: "#fff" }}>Location</option>
-                    <option value="dharapur" style={{ background: COLORS.darkMid, color: "#fff" }}>Dharapur</option>
-                    <option value="guwahati" style={{ background: COLORS.darkMid, color: "#fff" }}>Guwahati</option>
-                  </select>
+                  />
 
                   <motion.button
                     type="submit"

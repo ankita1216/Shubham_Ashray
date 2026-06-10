@@ -1,16 +1,47 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageCircle } from 'lucide-react';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveDarkToLight } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
+import { submitFormData } from "../../services/formService";
 
 export function Contact() {
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    requirement: "",
+    location: ""
+  });
+
+  const [utms, setUtms] = useState({
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: ""
+  });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setUtms({
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || ""
+    });
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real app, you'd send data to an API here
+    const finalData = { ...formData, ...utms };
+    console.log("Contact form captured:", finalData);
+    await submitFormData(finalData);
     navigate('/thank-you');
   };
 
@@ -52,29 +83,38 @@ export function Contact() {
             <h3 className="sa-serif text-white mb-1" style={{ fontSize: 24, fontWeight: 700 }}>Book Site Visit</h3>
             <p style={{ fontSize: 13, color: COLORS.mutedDark, marginBottom: 28 }}>Our team will reach out within 24 hours</p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <input type="hidden" name="utm_source" value={utms.utm_source} />
+              <input type="hidden" name="utm_medium" value={utms.utm_medium} />
+              <input type="hidden" name="utm_campaign" value={utms.utm_campaign} />
+              <input type="hidden" name="utm_term" value={utms.utm_term} />
+              <input type="hidden" name="utm_content" value={utms.utm_content} />
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                 <div>
                   <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Full Name</label>
-                  <input required type="text" placeholder="Your name" className="sa-form-input-dark" />
+                  <input required type="text" placeholder="Your name" className="sa-form-input-dark" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
                 </div>
                 <div>
                   <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Phone Number</label>
-                  <input required type="tel" placeholder="+91..." className="sa-form-input-dark" />
+                  <input required type="tel" placeholder="+91..." className="sa-form-input-dark" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
                 </div>
               </div>
               <div>
                 <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Email Address</label>
-                <input required type="email" placeholder="your@email.com" className="sa-form-input-dark" />
+                <input required type="email" placeholder="your@email.com" className="sa-form-input-dark" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
               </div>
-              <div>
-                <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred BHK </label>
-
-                <select className="sa-form-input-dark">
-                  <option value="" disabled style={{ background: COLORS.darkMid, color: "#fff" }}>BHK</option>
-                  <option>2 BHK </option>
-                  <option>3 BHK </option>
-
-                </select>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                <div>
+                  <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Preferred BHK </label>
+                  <select className="sa-form-input-dark" required value={formData.requirement} onChange={(e) => setFormData({...formData, requirement: e.target.value})}>
+                    <option value="" disabled style={{ background: COLORS.darkMid, color: "#fff" }}>BHK</option>
+                    <option value="2bhk">2 BHK</option>
+                    <option value="3bhk">3 BHK</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block" style={{ display: 'block', marginBottom: '12px', fontSize: 10, fontWeight: 700, letterSpacing: 1.6, textTransform: "uppercase", color: COLORS.mutedDark }}>Pincode</label>
+                  <input required type="text" placeholder="Enter Pincode" className="sa-form-input-dark" value={formData.location} onChange={(e) => setFormData({...formData, location: e.target.value})} />
+                </div>
               </div>
               <button type="submit" className="sa-hero-cta sa-sans">
                 Book Site Visit

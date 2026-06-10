@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
+import { submitFormData } from "../../services/formService";
 
 export default function LeadModal({ isOpen, onClose }) {
   const navigate = useNavigate();
@@ -26,9 +27,30 @@ export default function LeadModal({ isOpen, onClose }) {
     };
   }, [isOpen]);
 
-  const handleSubmit = (e) => {
+  const [utms, setUtms] = useState({
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: ""
+  });
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setUtms({
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || ""
+    });
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Lead captured:", formData);
+    const finalData = { ...formData, ...utms };
+    console.log("Lead captured:", finalData);
+    await submitFormData(finalData);
     onClose();
     navigate("/thank-you");
   };
@@ -186,6 +208,11 @@ export default function LeadModal({ isOpen, onClose }) {
 
               {/* Form */}
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+                <input type="hidden" name="utm_source" value={utms.utm_source} />
+                <input type="hidden" name="utm_medium" value={utms.utm_medium} />
+                <input type="hidden" name="utm_campaign" value={utms.utm_campaign} />
+                <input type="hidden" name="utm_term" value={utms.utm_term} />
+                <input type="hidden" name="utm_content" value={utms.utm_content} />
 
                 {/* Full Name */}
                 <div>
@@ -246,21 +273,15 @@ export default function LeadModal({ isOpen, onClose }) {
                     </div>
                   </div>
                   <div style={{ position: "relative" }}>
-                    <label className="lead-label">Location</label>
-                    <select
+                    <label className="lead-label">Pincode</label>
+                    <input
                       required
+                      type="text"
                       className="lead-input"
-                      style={{ paddingRight: 40, cursor: "pointer" }}
+                      placeholder="Enter Pincode"
                       value={formData.location}
                       onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    >
-                      <option value="" disabled style={{ background: COLORS.darkNavy, color: "#fff" }}>Select City</option>
-                      <option value="dharapur" style={{ background: COLORS.darkNavy, color: "#fff" }}>Dharapur</option>
-                      <option value="guwahati" style={{ background: COLORS.darkNavy, color: "#fff" }}>Guwahati</option>
-                    </select>
-                    <div style={{ position: "absolute", right: 16, bottom: 20, pointerEvents: "none", opacity: 0.4 }}>
-                      <svg width="11" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </div>
+                    />
                   </div>
                 </div>
 

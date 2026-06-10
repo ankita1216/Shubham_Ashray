@@ -61,25 +61,27 @@ export default function ThankYou() {
 
           {/* Buttons Section - Fixed thickness and gaps */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 w-full max-w-2xl">
-            <motion.button
+            <motion.a
+              href="#"
+              download
               whileHover={{ scale: 1.02, y: -4 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-[280px] group flex items-center justify-center gap-3 bg-[#C9A44D] text-[#07111F] px-8 py-4 md:py-5 rounded-full font-bold text-[13px] md:text-sm uppercase tracking-widest transition-all hover:shadow-[0_20px_40px_rgba(201,164,77,0.25)]"
+              className="w-full sm:w-[280px] h-[56px] md:h-[64px] group flex items-center justify-center gap-3 bg-[#C9A44D] text-[#07111F] px-8 rounded-full font-bold text-[13px] md:text-sm uppercase tracking-widest transition-all hover:shadow-[0_20px_40px_rgba(201,164,77,0.25)]"
             >
               <Download size={18} className="transition-transform group-hover:scale-110" />
               Download Brochure
-            </motion.button>
+            </motion.a>
 
-            <Link to="/" className="w-full sm:w-[280px]">
-              <motion.button
-                whileHover={{ scale: 1.02, y: -4 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-3 border border-white/20 text-white px-8 py-4 md:py-5 rounded-full font-bold text-[13px] md:text-sm uppercase tracking-widest transition-all hover:bg-white hover:text-[#07111F] hover:border-white"
-              >
+            <motion.div
+              whileHover={{ scale: 1.02, y: -4 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full sm:w-[280px]"
+            >
+              <Link to="/" className="w-full h-[56px] md:h-[64px] flex items-center justify-center gap-3 border border-white/20 text-white px-8 rounded-full font-bold text-[13px] md:text-sm uppercase tracking-widest transition-all hover:bg-white hover:text-[#07111F] hover:border-white">
                 <Home size={18} />
                 Back to Home
-              </motion.button>
-            </Link>
+              </Link>
+            </motion.div>
           </div>
 
           {/* Footer Branding */}
