@@ -1,6 +1,6 @@
 import React from 'react';
 import { COLORS } from '../../constants/colors';
-import logoImg from '../../assets/images/logo.png';
+import logoImg from '../../assets/images/logo.webp';
 
 export function Navbar({ scrolled, onOpenModal }) {
   return (
@@ -43,9 +43,9 @@ export function Navbar({ scrolled, onOpenModal }) {
         <button 
           onClick={onOpenModal}
           className="sa-btn-primary sa-sans" 
-          style={{ padding: "10px 24px", fontSize: 13, textDecoration: "none", border: "none" }}
+          style={{ padding: "12px 24px", fontSize: 12, textDecoration: "none", border: "none", borderRadius: 0, letterSpacing: "0.12em", textTransform: "uppercase" }}
         >
-          Book Site Visit
+          Book a Site Visit
         </button>
       </div>
       </div>

@@ -265,8 +265,8 @@ export default function LeadModal({ isOpen, onClose }) {
                       onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
                     >
                       <option value="" disabled style={{ background: COLORS.darkNavy, color: "#fff" }}>Select BHK</option>
-                      <option value="2bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>2 BHK</option>
-                      <option value="3bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>3 BHK</option>
+                      <option value="2bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>2 BHK · ₹36–38 Lakhs</option>
+                      <option value="3bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>3 BHK · ₹46–59 Lakhs</option>
                     </select>
                     <div style={{ position: "absolute", right: 16, bottom: 20, pointerEvents: "none", opacity: 0.4 }}>
                       <svg width="11" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>

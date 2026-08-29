@@ -301,6 +301,255 @@
   box-shadow: 0 8px 28px rgba(198, 186, 66, .4); 
 }
 
+.sa-contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(440px, 1.1fr);
+  align-items: center;
+  gap: clamp(48px, 7vw, 96px);
+}
+
+.sa-contact-copy > p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.sa-contact-price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.sa-contact-price-card {
+  position: relative;
+  padding: 20px;
+  border: 1px solid rgba(198, 186, 66, .24);
+  background: linear-gradient(145deg, rgba(198, 186, 66, .09), rgba(255, 255, 255, .025));
+}
+
+.sa-contact-price-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 34px;
+  height: 2px;
+  background: #c6ba42;
+}
+
+.sa-contact-price-card span,
+.sa-contact-price-card small {
+  display: block;
+}
+
+.sa-contact-price-card span {
+  color: rgba(253, 251, 247, .55);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.sa-contact-price-card strong {
+  display: block;
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(23px, 2.1vw, 30px);
+  line-height: 1.15;
+  margin: 9px 0 5px;
+}
+
+.sa-contact-price-card small {
+  color: rgba(253, 251, 247, .38);
+  font-size: 10px;
+}
+
+.sa-contact-location {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(253, 251, 247, .65);
+  font-size: 13px;
+  margin-bottom: 26px;
+}
+
+.sa-contact-location svg {
+  color: #c6ba42;
+}
+
+.sa-contact-whatsapp {
+  max-width: 100%;
+  padding: 15px 18px !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, .04) !important;
+  border: 1px solid rgba(255, 255, 255, .09) !important;
+}
+
+.sa-contact-whatsapp:hover {
+  background: rgba(255, 255, 255, .07) !important;
+}
+
+.sa-contact-whatsapp-arrow {
+  color: #c6ba42;
+  margin-left: auto;
+}
+
+.sa-contact-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 4vw, 46px);
+  border: 1px solid rgba(198, 186, 66, .22);
+  border-radius: 4px;
+  background: linear-gradient(145deg, rgba(42, 46, 32, .98), rgba(26, 28, 20, .98));
+  box-shadow: 0 32px 90px rgba(0, 0, 0, .32);
+}
+
+.sa-contact-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #c6ba42, #9a9032 55%, transparent);
+}
+
+.sa-contact-form-heading {
+  padding-bottom: 25px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
+}
+
+.sa-contact-form-heading > span {
+  display: block;
+  color: #c6ba42;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.sa-contact-form-heading h3 {
+  color: #fff;
+  font-size: clamp(27px, 3vw, 35px);
+  margin: 0 0 8px;
+}
+
+.sa-contact-form-heading p {
+  color: rgba(253, 251, 247, .5);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sa-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sa-contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sa-contact-label {
+  display: block;
+  color: rgba(253, 251, 247, .52);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin: 0 0 8px 1px;
+}
+
+.sa-contact-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 3px;
+  outline: none;
+  appearance: none;
+  background: rgba(255, 255, 255, .045);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  transition: border-color .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.sa-contact-input::placeholder {
+  color: rgba(253, 251, 247, .25);
+}
+
+.sa-contact-input:focus {
+  border-color: #c6ba42;
+  background: rgba(198, 186, 66, .05);
+  box-shadow: 0 0 0 3px rgba(198, 186, 66, .1);
+}
+
+.sa-contact-input option {
+  color: #fff;
+  background: #22251b;
+}
+
+.sa-contact-submit {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  padding: 13px 24px;
+  border: 0;
+  border-radius: 0;
+  background: #c6ba42;
+  color: #15170f;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  transition: background .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+
+.sa-contact-submit:hover {
+  background: #9a9032;
+  box-shadow: 0 12px 32px rgba(198, 186, 66, .2);
+  transform: translateY(-2px);
+}
+
+.sa-contact-privacy {
+  color: rgba(253, 251, 247, .32);
+  font-size: 10px;
+  letter-spacing: .04em;
+  text-align: center;
+  margin: -4px 0 0;
+}
+
+@media (max-width: 960px) {
+  .sa-contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sa-contact-copy {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 560px) {
+  .sa-contact-price-grid,
+  .sa-contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sa-contact-card {
+    padding: 28px 20px;
+  }
+}
+
 .sa-video-wrap { 
   transition: border-color .4s; 
   cursor: pointer; 

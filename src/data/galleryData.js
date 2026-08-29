@@ -8,7 +8,7 @@ import gym from '../assets/images/GYM_.webp';
 import indoorGame from '../assets/images/INDOOR GAME_.webp';
 import kidsPlayArea from '../assets/images/Kids Play Area View.webp';
 import liftLobby from '../assets/images/LIFT LOBBY_.webp';
-import swimmingPool from '../assets/images/swimmingpool.jpg';
+import swimmingPool from '../assets/images/swimmingpool.webp';
 import landscapeElevation from '../assets/images/Landscape Elevation View 1.webp';
 
 export const galleryData = [

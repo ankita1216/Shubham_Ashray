@@ -5,7 +5,7 @@ import { SectionLabel } from '../common/SectionLabel';
 import { WaveLightToDark } from '../common/Dividers';
 import { projectCategories, developerMetrics } from '../../data/projectsData';
 import { DecorativeShape } from '../common/DecorativeShape';
-import developerLogo from '../../assets/images/footer-removebg-preview.png';
+import developerLogo from '../../assets/images/footer-removebg-preview.webp';
 
 export function About() {
   const [activeCategory, setActiveCategory] = useState(0);

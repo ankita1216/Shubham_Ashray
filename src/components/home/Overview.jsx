@@ -3,7 +3,7 @@ import { COLORS } from '../../constants/colors';
 import { ShieldCheck, Zap, Lock, Leaf } from 'lucide-react';
 import { SectionLabel } from '../common/SectionLabel';
 import { DecorativeShape } from '../common/DecorativeShape';
-import chairmanImg from '../../assets/images/Chairman.jpg';
+import chairmanImg from '../../assets/images/Chairman.webp';
 
 export function Overview() {
   const [hoveredFeature, setHoveredFeature] = useState(null);

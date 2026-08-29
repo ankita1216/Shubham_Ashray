@@ -13,7 +13,7 @@ import { Contact } from '../components/home/Contact';
 import LeadModal from '../components/common/LeadModal';
 import BottomEnquiryForm from '../components/common/BottomEnquiryForm';
 import { useReveal } from '../hooks/useReveal';
-import logoImg from '../assets/images/logo.png';
+import logoImg from '../assets/images/logo.webp';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);

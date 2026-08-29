@@ -1,10 +1,11 @@
 import React from 'react';
 import { COLORS } from '../../constants/colors';
 import { DecorativeShape } from './DecorativeShape';
-import logoImg from '../../assets/images/logo.png';
+import logoImg from '../../assets/images/logo.webp';
 
 export function Footer() {
   const projectLinks = ["Overview", "Amenities", "Gallery", "Floor Plans", "Location"];
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="sa-sans" style={{ background: COLORS.darkNavy, borderTop: "1px solid rgba(255,255,255,0.06)", padding: "100px 0 40px", position: "relative", overflow: "hidden" }}>
@@ -99,7 +100,7 @@ export function Footer() {
             </div>
             <div style={{ textAlign: "right" }}>
               <p style={{ fontSize: 12, color: COLORS.hintDark, margin: 0, fontWeight: 500 }}>
-                © 2024 Subham Group. <span style={{ color: "rgba(255,255,255,0.35)" }}>All rights reserved.</span>
+                © {currentYear} Subham Group. <span style={{ color: "rgba(255,255,255,0.35)" }}>All rights reserved.</span>
               </p>
             </div>
           </div>

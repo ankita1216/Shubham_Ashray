@@ -2,7 +2,7 @@ import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveLightToDark } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
-import locationImg from '../../assets/images/location.jpg';
+import locationImg from '../../assets/images/location.webp';
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 const categories = [

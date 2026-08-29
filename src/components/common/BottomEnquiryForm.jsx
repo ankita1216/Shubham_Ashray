@@ -206,12 +206,12 @@ export default function BottomEnquiryForm() {
                     required
                     value={formData.requirement}
                     onChange={(e) => update("requirement", e.target.value)}
-                    style={{ ...inputStyle, flex: "0 0 110px", cursor: "pointer" }}
+                    style={{ ...inputStyle, flex: "0 0 180px", cursor: "pointer" }}
                     className="hidden sm:block"
                   >
                     <option value="" disabled style={{ background: COLORS.darkMid, color: "#fff" }}>BHK</option>
-                    <option value="2bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>2 BHK</option>
-                    <option value="3bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>3 BHK</option>
+                    <option value="2bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>2 BHK · ₹36–38 Lakhs</option>
+                    <option value="3bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>3 BHK · ₹46–59 Lakhs</option>
                   </select>
 
                   <input

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import shapeImage from '../../assets/images/Shape1-removebg-preview.png';
+import shapeImage from '../../assets/images/Shape1-removebg-preview.webp';
 
 export function DecorativeShape({ 
   size = 300, 
