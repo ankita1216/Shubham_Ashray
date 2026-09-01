@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Send, Home } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
 import { submitFormData } from "../../services/formService";
 
@@ -14,7 +13,6 @@ const initialFormData = {
 };
 
 export default function BottomEnquiryForm() {
-  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,7 +75,7 @@ export default function BottomEnquiryForm() {
     await submitFormData(finalData);
     setFormData(initialFormData);
     setIsSubmitting(false);
-    navigate("/thank-you");
+    window.location.assign(`${import.meta.env.BASE_URL}thank-you`);
   };
 
   const inputStyle = {

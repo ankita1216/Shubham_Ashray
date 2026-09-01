@@ -1,12 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../constants/colors";
 import { submitFormData } from "../../services/formService";
 
 export default function LeadModal({ isOpen, onClose }) {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -52,7 +50,7 @@ export default function LeadModal({ isOpen, onClose }) {
     console.log("Lead captured:", finalData);
     await submitFormData(finalData);
     onClose();
-    navigate("/thank-you");
+    window.location.assign(`${import.meta.env.BASE_URL}thank-you`);
   };
 
   const THEME_DARK = COLORS.darkNavy;

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight, MapPin, MessageCircle } from 'lucide-react';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
@@ -8,8 +7,6 @@ import { DecorativeShape } from '../common/DecorativeShape';
 import { submitFormData } from "../../services/formService";
 
 export function Contact() {
-  const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -42,7 +39,7 @@ export function Contact() {
     const finalData = { ...formData, ...utms };
     console.log("Contact form captured:", finalData);
     await submitFormData(finalData);
-    navigate('/thank-you');
+    window.location.assign(`${import.meta.env.BASE_URL}thank-you`);
   };
 
   return (
