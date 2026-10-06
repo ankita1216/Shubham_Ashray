@@ -220,16 +220,16 @@ export function Hero({ onOpenModal }) {
             padding: 6,
           }}>
             {/* Inner image */}
-            <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden', background: COLORS.darkNavy }}>
               <img
                 src={gateElevationImage}
                 alt="Gate elevation view of Subham Ashray"
                 style={{
                   width: '100%',
                   height: '100%',
-                  objectFit: 'cover',
-                  objectPosition: 'right center',
-                  filter: 'brightness(0.72) saturate(0.8) sepia(0.08)',
+                  objectFit: 'contain',
+                  objectPosition: 'center',
+                  filter: 'none',
                   display: 'block',
                 }}
               />
@@ -433,12 +433,12 @@ export function Hero({ onOpenModal }) {
                 </span>
                 <span style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: '28px',
+                  fontSize: '20px',
                   fontWeight: 600,
                   color: COLORS.primary,
                   lineHeight: 1
                 }}>
-                  Near Gau Airport, <span style={{ color: '#FFFFFF', fontSize: '20px' }}>Guwahati</span>
+                  Near Guwahati Airport
                 </span>
               </div>
             </motion.div>
@@ -476,7 +476,7 @@ export function Hero({ onOpenModal }) {
                   e.currentTarget.style.boxShadow = '0 0 0 rgba(198,186,66,0)';
                 }}
               >
-                Book a Site Visit
+                Download Brochure
               </button>
               <a
                 href="#overview"
@@ -656,16 +656,16 @@ export function Hero({ onOpenModal }) {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: right center;
-            filter: brightness(0.78) saturate(0.82) sepia(0.06);
+            object-fit: contain;
+            object-position: center;
+            filter: none;
           }
 
           @media (min-width: 768px) and (max-width: 1100px) {
             .hero-property-frame {
               top: 104px !important;
               right: auto !important;
-              left: 32px !important;
+              left: 48px !important;
               bottom: 102px !important;
               width: 44vw !important;
               max-width: 44vw !important;
@@ -673,6 +673,12 @@ export function Hero({ onOpenModal }) {
 
             .hero-copy {
               max-width: 52vw !important;
+            }
+          }
+
+          @media (min-width: 1200px) and (max-width: 1599px) {
+            .hero-property-frame {
+              left: 64px !important;
             }
           }
 
@@ -691,6 +697,7 @@ export function Hero({ onOpenModal }) {
 
             .hero-copy {
               margin-left: 0 !important;
+              margin-right: 0 !important;
             }
 
             .hero-stats-bar {

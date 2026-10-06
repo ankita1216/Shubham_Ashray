@@ -216,13 +216,14 @@ export default function BottomEnquiryForm() {
 
                   <motion.button
                     type="submit"
+                    className="sa-floating-enquiry-cta"
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     style={{
                       flexShrink: 0,
                       height: "42px",
-                      borderRadius: "10px",
+                      borderRadius: 0,
                       padding: "0 24px",
                       fontSize: "11px",
                       fontWeight: "800",

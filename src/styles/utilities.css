@@ -86,11 +86,6 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1399px) {
-  .sa-navbar-container {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
   .sa-navbar-menu {
     gap: 24px;
   }
@@ -281,6 +276,19 @@
 .sa-btn-primary:hover { 
   transform: translateY(-3px); 
   box-shadow: 0 12px 40px rgba(198, 186, 66, .45); 
+}
+
+/* Shared square-corner treatment for all customer-facing CTA actions. */
+.sa-btn-primary,
+.sa-btn-outline-dark,
+.sa-hero-cta,
+.sa-contact-submit,
+.lead-submit,
+.sa-floating-enquiry-cta,
+.map-directions-btn,
+.floor-brochure-btn,
+.upc-cta-btn {
+  border-radius: 0 !important;
 }
 
 .sa-btn-outline-dark { 

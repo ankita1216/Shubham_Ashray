@@ -60,11 +60,6 @@ export function About() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div className="developer-profile-header-wrap">
                   <SectionLabel onDark={false}>Developer Profile</SectionLabel>
-                  <img
-                    src={developerLogo}
-                    alt="Developer Logo"
-                    className="developer-profile-header-logo"
-                  />
                 </div>
 
                 <h2 className="about-canvas-title" style={{ color: COLORS.textDark, margin: 0 }}>
@@ -109,7 +104,7 @@ export function About() {
                   fontWeight: 500,
                   fontFamily: "var(--sa-font-body), sans-serif",
                 }}>
-                  Since 2007, Subham Group has been the silent force behind Assam’s skyline, blending architectural bravery with the warmth of a home. Based in Guwahati, we are known for innovation, timely delivery, and dedicated customer support. Driven by passion, we create lasting value through time-bound projects and timeless relationships.
+                  Since 2007, Subham Group has created thoughtfully designed homes across Assam, guided by quality, timely delivery, and customer care.
                 </p>
               </div>
 
@@ -127,7 +122,6 @@ export function About() {
                 {completedProjectsCount} DELIVERED
               </span>
             </div>
-
             <div className="portfolio-category-grid">
               {projectCategories.map(({ title, eyebrow, projects }, i) => {
                 const isActive = activeCategory === i;
@@ -177,6 +171,12 @@ export function About() {
               })}
             </div>
 
+            <img
+              src={developerLogo}
+              alt="Subham Group logo"
+              className="developer-profile-portfolio-logo"
+            />
+
 
           </div>
         </div>
@@ -196,26 +196,19 @@ export function About() {
             margin-bottom: 0 !important;
           }
 
-          .developer-profile-header-logo {
+          .developer-profile-portfolio-logo {
             height: 88px;
             width: auto;
+            max-width: 100%;
             object-fit: contain;
             display: block;
-            margin-left: auto;
-            transform: translateY(-16px);
+            margin: -2px 0 8px;
           }
 
           @media (max-width: 640px) {
-            .developer-profile-header-wrap {
-              flex-direction: column;
-              align-items: flex-start;
-              gap: 16px;
-            }
-            .developer-profile-header-logo {
+            .developer-profile-portfolio-logo {
               height: 76px;
-              transform: translateY(0);
-              align-self: flex-start;
-              margin-left: 78px;
+              margin: 0 0 8px;
             }
           }
 

@@ -77,7 +77,7 @@ export function Contact() {
 
             <div className="sa-reveal sa-d3 sa-contact-location">
               <MapPin size={16} aria-hidden="true" />
-              <span>Dharapur / Azara, Guwahati</span>
+              <span>Near Gau Airport Guwahati</span>
             </div>
 
           </div>

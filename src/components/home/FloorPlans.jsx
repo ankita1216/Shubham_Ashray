@@ -597,7 +597,7 @@ export function FloorPlans({ onOpenModal }) {
                         alt="Master Plan"
                         className="floor-plan-image"
                       />
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                      <div className="floor-inspect-overlay">
                         <button
                           onClick={() =>
                             setLightbox({
@@ -605,7 +605,8 @@ export function FloorPlans({ onOpenModal }) {
                               title: 'Master Plan',
                             })
                           }
-                          className="px-8 py-3 bg-white text-black rounded-full text-xs font-bold uppercase tracking-widest flex items-center gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform"
+                          className="floor-inspect-btn"
+                          aria-label="Open the Master Plan in the detailed viewer"
                         >
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                             <circle cx="11" cy="11" r="8" />
@@ -744,6 +745,30 @@ export function FloorPlans({ onOpenModal }) {
           max-width: 100%; max-height: 100%; object-fit: contain;
           filter: drop-shadow(0 20px 50px rgba(0,0,0,0.45));
         }
+        #floor-plans .floor-inspect-overlay {
+          position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+          opacity: 0; background: linear-gradient(180deg, rgba(7,9,5,.08), rgba(7,9,5,.62));
+          backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);
+          transition: opacity .28s ease;
+        }
+        #floor-plans .floor-plan-card:hover .floor-inspect-overlay,
+        #floor-plans .floor-plan-card:focus-within .floor-inspect-overlay { opacity: 1; }
+        #floor-plans .floor-inspect-btn {
+          display: inline-flex; align-items: center; gap: 10px;
+          border: 1px solid ${COLORS.primary}; border-radius: 0;
+          background: ${COLORS.primary}; color: ${COLORS.darkNavy};
+          padding: 14px 20px; font-size: 10px; font-weight: 900;
+          letter-spacing: .15em; text-transform: uppercase; cursor: pointer;
+          transform: translateY(12px); transition: transform .28s ease, background .2s ease, color .2s ease;
+          box-shadow: 0 12px 32px rgba(0,0,0,.3);
+        }
+        #floor-plans .floor-plan-card:hover .floor-inspect-btn,
+        #floor-plans .floor-plan-card:focus-within .floor-inspect-btn { transform: translateY(0); }
+        #floor-plans .floor-inspect-btn:hover,
+        #floor-plans .floor-inspect-btn:focus-visible {
+          background: #fff; border-color: #fff; color: ${COLORS.darkNavy}; outline: none;
+        }
+        #floor-plans .floor-inspect-btn:focus-visible { box-shadow: 0 0 0 3px rgba(180,163,100,.38), 0 12px 32px rgba(0,0,0,.3); }
 
         /* ── Sidebar ── */
         #floor-plans .floor-side { position: sticky; top: 96px; display: grid; gap: 16px; }
@@ -1002,6 +1027,11 @@ export function FloorPlans({ onOpenModal }) {
           #floor-plans .floor-tabs button { text-align: center; }
           #floor-plans .floor-plan-card { height: 560px; }
           #floor-plans .floor-image-wrap { padding: 24px; }
+          #floor-plans .floor-inspect-overlay {
+            opacity: 1; align-items: flex-end; padding-bottom: 24px;
+            background: linear-gradient(180deg, transparent 45%, rgba(7,9,5,.56));
+          }
+          #floor-plans .floor-inspect-btn { transform: none; padding: 12px 16px; }
           #floor-plans .floor-side { grid-template-columns: 1fr; }
           .upc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
           .upc-scroll { padding: 22px 14px 12px 22px; }

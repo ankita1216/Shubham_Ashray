@@ -214,7 +214,7 @@ function MapCard() {
     >
       <iframe
         title="Subham Ashray location on Google Maps"
-        src="https://maps.google.com/maps?q=SUBHAM%20ASHRAY%2C%20Dharapur%20Palash%20Bari%20Road%2C%20Guwahati&z=17&t=m&output=embed"
+        src="https://maps.google.com/maps?q=SUBHAM%20ASHRAY%2C%20Dharapur%20Palash%20Bari%20Road%2C%20Guwahati&z=15&t=m&output=embed"
         allowFullScreen
         loading="lazy"
         referrerPolicy="strict-origin-when-cross-origin"
@@ -227,25 +227,6 @@ function MapCard() {
         }}
       />
 
-      <div className="map-overlay-card">
-        <div className="map-overlay-copy">
-          <h3 className="sa-serif">Subham Ashray</h3>
-          <p>Near Gau Airport, Dharapur Palash Bari Road, Guwahati - 781017</p>
-        </div>
-
-        <a
-          href="https://www.google.com/maps/dir/?api=1&destination=SUBHAM%20ASHRAY%2C%20Near%20Gau%20Airport%2C%20Dharapur%20Palash%20Bari%20Road%2C%20Guwahati%20781017"
-          target="_blank"
-          rel="noreferrer"
-          className="map-directions-btn sa-sans"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          Get Directions
-        </a>
-      </div>
     </div>
   );
 }
