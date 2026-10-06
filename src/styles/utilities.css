@@ -14,7 +14,14 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .sa-container {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media (min-width: 1600px) {
   .sa-container {
     padding-left: 32px;
     padding-right: 32px;
@@ -76,6 +83,34 @@
 
 .sa-nav-link:hover::after { 
   width: 100%; 
+}
+
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .sa-navbar-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .sa-navbar-menu {
+    gap: 24px;
+  }
+
+  .sa-navbar-links {
+    gap: 20px;
+  }
+
+  .sa-navbar-links .sa-nav-link {
+    font-size: 10px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .sa-navbar-cta {
+    padding: 11px 16px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.08em !important;
+    white-space: nowrap;
+  }
 }
 
 .sa-nav-link-light { 
@@ -506,6 +541,14 @@
 .sa-contact-input option {
   color: #fff;
   background: #22251b;
+}
+
+.sa-contact-form select.sa-contact-input {
+  padding-right: 42px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23c6ba42' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
 }
 
 .sa-contact-submit {

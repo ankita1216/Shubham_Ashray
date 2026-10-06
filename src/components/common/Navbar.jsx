@@ -11,7 +11,7 @@ export function Navbar({ scrolled, onOpenModal }) {
         backdropFilter: scrolled ? "blur(24px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "none",
       }}>
-      <div className="sa-container flex items-center justify-between"
+      <div className="sa-container sa-navbar-container flex items-center justify-between"
         style={{
           paddingTop: scrolled ? "4px" : "8px",
           paddingBottom: scrolled ? "4px" : "8px",
@@ -28,8 +28,8 @@ export function Navbar({ scrolled, onOpenModal }) {
           }} 
         />
       </div>
-      <div className="hidden lg:flex items-center gap-12">
-        <ul className="flex items-center gap-9" style={{ listStyle: "none" }}>
+      <div className="sa-navbar-menu hidden lg:flex items-center gap-12">
+        <ul className="sa-navbar-links flex items-center gap-9" style={{ listStyle: "none" }}>
           {["Overview", "Amenities", "Walkthrough Video", "Gallery", "Floor Plans", "Location", "Contact", "About"].map((item) => (
             <li key={item}>
               <a href={`#${item.toLowerCase().replace(" ", "-")}`} className="sa-nav-link sa-sans">{item}</a>
@@ -38,7 +38,7 @@ export function Navbar({ scrolled, onOpenModal }) {
         </ul>
         <button 
           onClick={onOpenModal}
-          className="sa-btn-primary sa-sans" 
+          className="sa-btn-primary sa-sans sa-navbar-cta"
           style={{ padding: "12px 24px", fontSize: 12, textDecoration: "none", border: "none", borderRadius: 0, letterSpacing: "0.12em", textTransform: "uppercase" }}
         >
           Book a Site Visit

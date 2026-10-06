@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { COLORS } from '../../constants/colors';
 import { WaveDarkToLight } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
-import gateElevationImage from "../../assets/images/Gate Elevation View.webp";
+import gateElevationImage from "../../assets/images/Gate Elevation View-BPM1sYP8 (1).webp";
 
 // ── Architectural Corner Brackets ────────────────────────────────────────────
 function CornerBrackets({ size = 32, thickness = 2, color = COLORS.primary, opacity = 1 }) {
@@ -185,7 +185,7 @@ export function Hero({ onOpenModal }) {
           size={500}
           opacity={0.15}
           rotate={-15}
-          className="-top-20 -left-20"
+          className="-top-20 -right-20"
         />
         <DecorativeShape
           size={400}
@@ -202,8 +202,8 @@ export function Hero({ onOpenModal }) {
           style={{
             position: 'absolute',
             top: '100px',
-            right: 'max(32px, calc((100vw - 1600px) / 2 + 32px))',
-            bottom: '72px',
+            left: 'max(32px, calc((100vw - 1600px) / 2 + 32px))',
+            bottom: '102px',
             width: 'clamp(360px, 48vw, 900px)',
             maxWidth: 'calc(50vw - 16px)',
             zIndex: 10,
@@ -228,6 +228,7 @@ export function Hero({ onOpenModal }) {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
+                  objectPosition: 'right center',
                   filter: 'brightness(0.72) saturate(0.8) sepia(0.08)',
                   display: 'block',
                 }}
@@ -284,7 +285,7 @@ export function Hero({ onOpenModal }) {
           className="hidden md:block"
           style={{
             position: 'absolute', inset: 0, zIndex: 15, pointerEvents: 'none',
-            background: `linear-gradient(to right, ${COLORS.darkNavy} 0%, ${COLORS.darkNavy} 32%, ${COLORS.darkNavy}D9 42%, ${COLORS.darkNavy}4D 55%, transparent 65%)`,
+            background: `linear-gradient(to left, ${COLORS.darkNavy} 0%, ${COLORS.darkNavy} 32%, ${COLORS.darkNavy}D9 42%, ${COLORS.darkNavy}4D 55%, transparent 65%)`,
           }}
         />
 
@@ -302,7 +303,7 @@ export function Hero({ onOpenModal }) {
             paddingBottom: '0px',
           }}
         >
-          <div style={{ maxWidth: 640 }}>
+          <div className="hero-copy" style={{ maxWidth: 640, marginLeft: 'auto' }}>
 
             {/* Location tag */}
             <motion.div
@@ -437,7 +438,7 @@ export function Hero({ onOpenModal }) {
                   color: COLORS.primary,
                   lineHeight: 1
                 }}>
-                  Garal, <span style={{ color: '#FFFFFF', fontSize: '20px' }}>Guwahati</span>
+                  Near Gau Airport, <span style={{ color: '#FFFFFF', fontSize: '20px' }}>Guwahati</span>
                 </span>
               </div>
             </motion.div>
@@ -656,19 +657,21 @@ export function Hero({ onOpenModal }) {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: right center;
             filter: brightness(0.78) saturate(0.82) sepia(0.06);
           }
 
           @media (min-width: 768px) and (max-width: 1100px) {
             .hero-property-frame {
               top: 104px !important;
-              right: 32px !important;
-              bottom: 76px !important;
+              right: auto !important;
+              left: 32px !important;
+              bottom: 102px !important;
               width: 44vw !important;
               max-width: 44vw !important;
             }
 
-            .hero-content-shell > div {
+            .hero-copy {
               max-width: 52vw !important;
             }
           }
@@ -684,6 +687,10 @@ export function Hero({ onOpenModal }) {
               justify-content: flex-start !important;
               padding-top: 118px !important;
               padding-bottom: 36px !important;
+            }
+
+            .hero-copy {
+              margin-left: 0 !important;
             }
 
             .hero-stats-bar {

@@ -86,7 +86,7 @@ export function Contact() {
             <div className="sa-contact-card-accent" />
             <div className="sa-contact-form-heading">
               <span>Private Appointment</span>
-              <h3 className="sa-serif">Book a Site Visit</h3>
+              <h3 className="sa-serif">Enquire Now</h3>
               <p>Share your preferences and our property advisor will call you within 24 hours.</p>
             </div>
             <form onSubmit={handleSubmit} className="sa-contact-form">
@@ -124,7 +124,7 @@ export function Contact() {
                 </div>
               </div>
               <button type="submit" className="sa-contact-submit sa-sans">
-                Book a Site Visit <ArrowUpRight size={17} aria-hidden="true" />
+                Enquire Now <ArrowUpRight size={17} aria-hidden="true" />
               </button>
               <p className="sa-contact-privacy">Your information is secure and never shared.</p>
             </form>

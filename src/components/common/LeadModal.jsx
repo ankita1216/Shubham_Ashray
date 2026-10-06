@@ -114,6 +114,17 @@ export default function LeadModal({ isOpen, onClose }) {
                 box-shadow: 0 0 0 3px ${COLORS.primary}1A, 0 1px 4px rgba(0,0,0,0.04);
                 background: rgba(255,255,255,0.05);
               }
+              .lead-requirement {
+                color-scheme: dark;
+              }
+              .lead-requirement option {
+                background-color: #4f5f2b !important;
+                color: #fff !important;
+              }
+              .lead-requirement option:checked {
+                background-color: #65783a !important;
+                color: #fff !important;
+              }
               .lead-label {
                 display: block;
                 font-size: 9.5px;
@@ -190,9 +201,13 @@ export default function LeadModal({ isOpen, onClose }) {
                   style={{
                     color: "#fff",
                     margin: "0 0 14px",
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: "clamp(36px, 4vw, 50px)",
+                    fontWeight: 500,
+                    lineHeight: 1,
                   }}
                 >
-                  Enquire Now
+                  Book a Site Visit
                 </h3>
                 <div style={{ width: 40, height: 1.5, background: THEME_GOLD, margin: "0 auto 14px", opacity: 0.5 }} />
                 <p style={{
@@ -259,14 +274,14 @@ export default function LeadModal({ isOpen, onClose }) {
                     <label className="lead-label">Requirement</label>
                     <select
                       required
-                      className="lead-input"
+                      className="lead-input lead-requirement"
                       style={{ paddingRight: 40, cursor: "pointer" }}
                       value={formData.requirement}
                       onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
                     >
-                      <option value="" disabled style={{ background: COLORS.darkNavy, color: "#fff" }}>Select BHK</option>
-                      <option value="2bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>2 BHK · ₹45 Lakhs Onwards</option>
-                      <option value="3bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>3 BHK · ₹56 Lakhs Onwards</option>
+                      <option value="" disabled style={{ backgroundColor: "#4f5f2b", color: "#fff" }}>Select BHK</option>
+                      <option value="2bhk" style={{ backgroundColor: "#4f5f2b", color: "#fff" }}>2 BHK · ₹45 Lakhs Onwards</option>
+                      <option value="3bhk" style={{ backgroundColor: "#4f5f2b", color: "#fff" }}>3 BHK · ₹56 Lakhs Onwards</option>
                     </select>
                     <div style={{ position: "absolute", right: 16, bottom: 20, pointerEvents: "none", opacity: 0.4 }}>
                       <svg width="11" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
