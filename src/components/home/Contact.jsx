@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { ArrowUpRight, MapPin, MessageCircle } from 'lucide-react';
+import { ArrowUpRight, MapPin } from 'lucide-react';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveDarkToLight } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
 import { submitFormData } from "../../services/formService";
+import { goToThankYouPage, markLeadSubmittedThisVisit } from "../../utils/leadVisit";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -39,7 +40,8 @@ export function Contact() {
     const finalData = { ...formData, ...utms };
     console.log("Contact form captured:", finalData);
     await submitFormData(finalData);
-    window.location.assign(`${import.meta.env.BASE_URL}thank-you`);
+    markLeadSubmittedThisVisit();
+    goToThankYouPage();
   };
 
   return (
@@ -63,13 +65,13 @@ export function Contact() {
             <div className="sa-reveal sa-d3 sa-contact-price-grid">
               <div className="sa-contact-price-card">
                 <span>2 BHK Apartments</span>
-                <strong>₹36–38 Lakhs</strong>
-                <small>Indicative starting range</small>
+                <strong>₹45 Lakhs Onwards</strong>
+                <small>Indicative starting price</small>
               </div>
               <div className="sa-contact-price-card">
                 <span>3 BHK Apartments</span>
-                <strong>₹46–59 Lakhs</strong>
-                <small>Indicative price range</small>
+                <strong>₹56 Lakhs Onwards</strong>
+                <small>Indicative starting price</small>
               </div>
             </div>
 
@@ -78,18 +80,6 @@ export function Contact() {
               <span>Dharapur / Azara, Guwahati</span>
             </div>
 
-            <div className="sa-reveal sa-d3 flex flex-col gap-5">
-              <a href="https://wa.me/919854043000" target="_blank" rel="noreferrer" className="sa-channel-btn sa-sans sa-contact-whatsapp">
-                <div style={{ width: 44, height: 44, borderRadius: 4, background: `${COLORS.primary}20`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <MessageCircle size={21} strokeWidth={2.2} color={COLORS.primary} />
-                </div>
-                <div>
-                  <span style={{ display: "block", fontSize: 11, fontWeight: 500, letterSpacing: 1, textTransform: "uppercase", color: COLORS.mutedDark, marginBottom: 2 }}>WhatsApp</span>
-                  <span style={{ fontSize: 16, fontWeight: 700, color: '#fff' }}>Chat With Our Sales Team</span>
-                </div>
-                <ArrowUpRight size={18} className="sa-contact-whatsapp-arrow" aria-hidden="true" />
-              </a>
-            </div>
           </div>
 
           <div className="sa-reveal sa-d2 sa-contact-card">
@@ -124,8 +114,8 @@ export function Contact() {
                   <label className="sa-contact-label">Preferred Home</label>
                   <select className="sa-contact-input" required value={formData.requirement} onChange={(e) => setFormData({...formData, requirement: e.target.value})}>
                     <option value="" disabled>Select configuration</option>
-                    <option value="2bhk">2 BHK · ₹36–38 Lakhs</option>
-                    <option value="3bhk">3 BHK · ₹46–59 Lakhs</option>
+                    <option value="2bhk">2 BHK · ₹45 Lakhs Onwards</option>
+                    <option value="3bhk">3 BHK · ₹56 Lakhs Onwards</option>
                   </select>
                 </div>
                 <div>

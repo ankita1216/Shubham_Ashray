@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { COLORS } from '../../constants/colors';
 import { WaveDarkToLight } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
-import aerialImage from "../../assets/images/Aerial view .webp";
+import gateElevationImage from "../../assets/images/Gate Elevation View.webp";
 
 // ── Architectural Corner Brackets ────────────────────────────────────────────
 function CornerBrackets({ size = 32, thickness = 2, color = COLORS.primary, opacity = 1 }) {
@@ -141,6 +141,7 @@ export function Hero({ onOpenModal }) {
     <>
       <section
         ref={containerRef}
+        className="sa-hero-section"
         style={{
           position: 'relative',
           height: '100vh',
@@ -200,14 +201,15 @@ export function Hero({ onOpenModal }) {
           transition={{ duration: 1.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           style={{
             position: 'absolute',
-            top: '120px',
-            right: '5%', // Shifted slightly left to connect with content
-            width: 'clamp(300px, 50%, 700px)',
-            height: 'calc(85% - 120px)',
+            top: '100px',
+            right: 'max(32px, calc((100vw - 1600px) / 2 + 32px))',
+            bottom: '72px',
+            width: 'clamp(360px, 48vw, 900px)',
+            maxWidth: 'calc(50vw - 16px)',
             zIndex: 10,
             transform: 'rotate(-0.4deg)',
           }}
-          className="hidden md:block"
+          className="hero-property-frame hidden md:block"
         >
           {/* Outer golden border */}
           <div style={{
@@ -220,8 +222,8 @@ export function Hero({ onOpenModal }) {
             {/* Inner image */}
             <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
               <img
-                src={aerialImage}
-                alt="Aerial view of AHA Life residential community"
+                src={gateElevationImage}
+                alt="Gate elevation view of Subham Ashray"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -277,20 +279,6 @@ export function Hero({ onOpenModal }) {
         </motion.div>
 
         {/* Mobile image — full bleed behind content */}
-        <div
-          className="md:hidden absolute inset-0 z-10"
-          style={{ opacity: 1 }}
-        >
-          <img
-            src={aerialImage}
-            alt="Aerial view of AHA Life residential community"
-            style={{
-              width: '100%', height: '100%', objectFit: 'cover',
-              filter: 'brightness(0.55) saturate(0.8)',
-            }}
-          />
-        </div>
-
         {/* ── Dark bleed from left — desktop ──────────────────────── */}
         <div
           className="hidden md:block"
@@ -302,7 +290,7 @@ export function Hero({ onOpenModal }) {
 
         {/* ── Main Text Content ─────────────────────────────────────── */}
         <div
-          className="sa-container"
+          className="sa-container hero-content-shell"
           style={{
             position: 'relative',
             zIndex: 30,
@@ -325,7 +313,7 @@ export function Hero({ onOpenModal }) {
               style={{ color: COLORS.primary }}
             >
               <div style={{ width: 40, height: 1, background: COLORS.primary }} />
-              <span>Aerocity, Guwahati</span>
+              <span>A Little More Life</span>
             </motion.div>
 
             {/* AHA LIFE. — Single Line */}
@@ -350,6 +338,7 @@ export function Hero({ onOpenModal }) {
               Experience the pinnacle of refined residential living. A thoughtfully designed community for those who seek tranquility amidst the vibrant energy of Guwahati.
             </motion.p>
 
+            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 16, marginBottom: 24 }}>
             {/* Price Badge */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -364,7 +353,6 @@ export function Hero({ onOpenModal }) {
                 border: `1px solid ${COLORS.primary}33`,
                 borderRadius: '8px',
                 padding: '10px 18px',
-                marginBottom: '28px',
                 maxWidth: 'fit-content',
                 boxShadow: `0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.05)`,
                 position: 'relative',
@@ -413,6 +401,52 @@ export function Hero({ onOpenModal }) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.35 }}
+              style={{ display: 'flex', alignItems: 'center' }}
+            >
+              <div
+                style={{
+                  display: 'inline-flex',
+                  flexDirection: 'column',
+                  padding: '10px 18px',
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: `1px solid ${COLORS.primary}33`,
+                  borderRadius: '8px',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,0.05)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: `linear-gradient(90deg, ${COLORS.primary}, transparent)` }} />
+                <span style={{
+                  fontSize: '9px',
+                  fontWeight: 700,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(255, 255, 255, 0.5)',
+                  lineHeight: 1.2,
+                  marginBottom: '2px'
+                }}>
+                  Location
+                </span>
+                <span style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: '28px',
+                  fontWeight: 600,
+                  color: COLORS.primary,
+                  lineHeight: 1
+                }}>
+                  Garal, <span style={{ color: '#FFFFFF', fontSize: '20px' }}>Guwahati</span>
+                </span>
+              </div>
+            </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.35 }}
               style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 28 }}
             >
               <button
@@ -443,7 +477,6 @@ export function Hero({ onOpenModal }) {
               >
                 Book a Site Visit
               </button>
-
               <a
                 href="#overview"
                 className="group"
@@ -478,6 +511,21 @@ export function Hero({ onOpenModal }) {
         </div>
 
         {/* ── Rotating Badge ───────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.35 }}
+          className="hero-mobile-property md:hidden"
+        >
+          <div className="hero-mobile-property-inner">
+            <img
+              src={gateElevationImage}
+              alt="Gate elevation view of Subham Ashray"
+            />
+            <CornerBrackets size={24} thickness={2} color={COLORS.primary} opacity={1} />
+          </div>
+        </motion.div>
+
         <RotatingBadge />
 
         {/* ── Vertical Scroll Indicator ────────────────────────────── */}
@@ -520,6 +568,7 @@ export function Hero({ onOpenModal }) {
 
         {/* ── Stats Bar ────────────────────────────────────────────── */}
         <motion.div
+          className="hero-stats-bar"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.65 }}
@@ -540,7 +589,8 @@ export function Hero({ onOpenModal }) {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'stretch',
-              padding: '20px 0',
+              paddingTop: '20px',
+              paddingBottom: '20px',
             }}
           >
             {stats.map((s, i) => (
@@ -585,6 +635,63 @@ export function Hero({ onOpenModal }) {
             ))}
           </div>
         </motion.div>
+
+        <style>{`
+          .hero-mobile-property {
+            position: relative;
+            z-index: 30;
+            margin: 0 24px 28px;
+            padding: 6px;
+            border: 1px solid ${COLORS.primary}47;
+          }
+
+          .hero-mobile-property-inner {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+          }
+
+          .hero-mobile-property img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.78) saturate(0.82) sepia(0.06);
+          }
+
+          @media (min-width: 768px) and (max-width: 1100px) {
+            .hero-property-frame {
+              top: 104px !important;
+              right: 32px !important;
+              bottom: 76px !important;
+              width: 44vw !important;
+              max-width: 44vw !important;
+            }
+
+            .hero-content-shell > div {
+              max-width: 52vw !important;
+            }
+          }
+
+          @media (max-width: 767px) {
+            .sa-hero-section {
+              height: auto !important;
+              min-height: 100vh;
+            }
+
+            .hero-content-shell {
+              height: auto !important;
+              justify-content: flex-start !important;
+              padding-top: 118px !important;
+              padding-bottom: 36px !important;
+            }
+
+            .hero-stats-bar {
+              position: relative !important;
+              inset: auto !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* ── Wave Divider ─────────────────────────────────────────────── */}

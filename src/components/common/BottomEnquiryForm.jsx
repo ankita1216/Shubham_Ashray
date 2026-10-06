@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Send, Home } from "lucide-react";
 import { COLORS } from "../../constants/colors";
 import { submitFormData } from "../../services/formService";
+import { goToThankYouPage, hasSubmittedLeadThisVisit, markLeadSubmittedThisVisit } from "../../utils/leadVisit";
 
 const initialFormData = {
   name: "",
@@ -60,7 +61,7 @@ export default function BottomEnquiryForm() {
     });
   }, []);
 
-  const shouldShow = isVisible;
+  const shouldShow = isVisible && !hasSubmittedLeadThisVisit();
 
   const update = (field, value) =>
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -73,9 +74,10 @@ export default function BottomEnquiryForm() {
     const finalData = { ...formData, ...utms };
     console.log("Bottom enquiry captured:", finalData);
     await submitFormData(finalData);
+    markLeadSubmittedThisVisit();
     setFormData(initialFormData);
     setIsSubmitting(false);
-    window.location.assign(`${import.meta.env.BASE_URL}thank-you`);
+    goToThankYouPage();
   };
 
   const inputStyle = {
@@ -126,16 +128,6 @@ export default function BottomEnquiryForm() {
               boxShadow: "0 24px 60px rgba(0,0,0,0.5)",
               padding: "14px 20px"
             }}>
-              {/* Gold top accent line */}
-              <div style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: "2px",
-                background: `linear-gradient(90deg, transparent, ${COLORS.primary} 30%, ${COLORS.primary} 70%, transparent)`
-              }} />
-
               <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
                 {/* Brand badge - hidden on very small screens */}
                 <div style={{
@@ -208,8 +200,8 @@ export default function BottomEnquiryForm() {
                     className="hidden sm:block"
                   >
                     <option value="" disabled style={{ background: COLORS.darkMid, color: "#fff" }}>BHK</option>
-                    <option value="2bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>2 BHK · ₹36–38 Lakhs</option>
-                    <option value="3bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>3 BHK · ₹46–59 Lakhs</option>
+                    <option value="2bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>2 BHK · ₹45 Lakhs Onwards</option>
+                    <option value="3bhk" style={{ background: COLORS.darkMid, color: "#fff" }}>3 BHK · ₹56 Lakhs Onwards</option>
                   </select>
 
                   <input
@@ -239,6 +231,9 @@ export default function BottomEnquiryForm() {
                       background: COLORS.primary,
                       color: COLORS.darkNavy,
                       border: "none",
+                      outline: "none",
+                      textDecoration: "none",
+                      WebkitTapHighlightColor: "transparent",
                       cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
@@ -248,7 +243,7 @@ export default function BottomEnquiryForm() {
                   >
                     {isSubmitting ? "..." : (
                       <>
-                        Book <Send size={12} />
+                        Enquire Now <Send size={12} />
                       </>
                     )}
                   </motion.button>

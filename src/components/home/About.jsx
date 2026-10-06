@@ -201,6 +201,7 @@ export function About() {
             width: auto;
             object-fit: contain;
             display: block;
+            margin-left: auto;
             transform: translateY(-16px);
           }
 
@@ -295,7 +296,7 @@ export function About() {
 
           .about-glass-metrics {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 0;
             background: rgba(255,255,255,0.5);
             backdrop-filter: blur(16px);
@@ -687,13 +688,17 @@ export function About() {
               position: static;
             }
             .about-glass-metrics {
-              grid-template-columns: repeat(3, 1fr);
+              grid-template-columns: repeat(4, 1fr);
             }
           }
 
           @media (max-width: 640px) {
             .about-glass-metrics {
-              grid-template-columns: repeat(3, 1fr);
+              grid-template-columns: repeat(2, 1fr);
+            }
+
+            .canvas-metric-item:nth-child(2n)::after {
+              display: none;
             }
 
             .canvas-metric-item {

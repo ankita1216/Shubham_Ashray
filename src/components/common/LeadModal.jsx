@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { COLORS } from "../../constants/colors";
 import { submitFormData } from "../../services/formService";
+import { goToThankYouPage, markLeadSubmittedThisVisit } from "../../utils/leadVisit";
 
 export default function LeadModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -49,8 +50,9 @@ export default function LeadModal({ isOpen, onClose }) {
     const finalData = { ...formData, ...utms };
     console.log("Lead captured:", finalData);
     await submitFormData(finalData);
+    markLeadSubmittedThisVisit();
     onClose();
-    window.location.assign(`${import.meta.env.BASE_URL}thank-you`);
+    goToThankYouPage();
   };
 
   const THEME_DARK = COLORS.darkNavy;
@@ -263,8 +265,8 @@ export default function LeadModal({ isOpen, onClose }) {
                       onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
                     >
                       <option value="" disabled style={{ background: COLORS.darkNavy, color: "#fff" }}>Select BHK</option>
-                      <option value="2bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>2 BHK · ₹36–38 Lakhs</option>
-                      <option value="3bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>3 BHK · ₹46–59 Lakhs</option>
+                      <option value="2bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>2 BHK · ₹45 Lakhs Onwards</option>
+                      <option value="3bhk" style={{ background: COLORS.darkNavy, color: "#fff" }}>3 BHK · ₹56 Lakhs Onwards</option>
                     </select>
                     <div style={{ position: "absolute", right: 16, bottom: 20, pointerEvents: "none", opacity: 0.4 }}>
                       <svg width="11" height="7" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 6L11 1" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>

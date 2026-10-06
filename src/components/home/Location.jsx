@@ -2,7 +2,6 @@ import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveLightToDark } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
-import locationImg from '../../assets/images/location.webp';
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 const categories = [
@@ -213,119 +212,37 @@ function MapCard() {
         border: '1px solid rgba(26,28,20,0.06)',
       }}
     >
-      {/* High-quality map image as background */}
-      <img
-        src={locationImg}
-        alt="Subham Ashray Location Map"
+      <iframe
+        title="Subham Ashray location on Google Maps"
+        src="https://maps.google.com/maps?q=SUBHAM%20ASHRAY%2C%20Dharapur%20Palash%20Bari%20Road%2C%20Guwahati&z=17&t=m&output=embed"
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="strict-origin-when-cross-origin"
         style={{
+          border: 0,
           width: '100%',
           height: '100%',
           minHeight: 500,
-          objectFit: 'cover',
-          objectPosition: '30% 50%',
           display: 'block',
         }}
       />
 
-      {/* Elegant dark radial overlay to blend image */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to bottom, rgba(26,28,20,0.05) 0%, rgba(26,28,20,0.3) 100%)',
-          pointerEvents: 'none'
-        }}
-      />
-
-      {/* Top Airport Distance Badge */}
-      <div style={{
-        position: 'absolute', top: 24, left: 24,
-        background: COLORS.primary, color: COLORS.darkNavy,
-        fontSize: 11, fontWeight: 800, letterSpacing: '.8px', textTransform: 'uppercase',
-        borderRadius: 99, padding: '7px 16px', zIndex: 2,
-        boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-      }}>
-        3.9 km to Airport
-      </div>
-
-      {/* Dynamic luxury compass overlay in top right */}
-      <div style={{
-        position: 'absolute', top: 24, right: 24, zIndex: 2,
-        width: 36, height: 36, opacity: 0.6,
-      }}>
-        <svg viewBox="0 0 40 40" fill="none">
-          <path d="M20 4 L22 18 L20 20 L18 18 Z" fill={COLORS.primary} />
-          <path d="M20 36 L22 22 L20 20 L18 22 Z" fill={COLORS.primary} opacity=".5" />
-          <path d="M4 20 L18 18 L20 20 L18 22 Z" fill={COLORS.primary} opacity=".5" />
-          <path d="M36 20 L22 18 L20 20 L22 22 Z" fill={COLORS.primary} />
-          <circle cx="20" cy="20" r="2.5" fill={COLORS.primary} />
-          <text x="19" y="10" fill={COLORS.primary} fontSize="6" fontWeight="bold" textAnchor="middle">N</text>
-        </svg>
-      </div>
-
-      {/* Premium Glassmorphic Overlay Panel */}
-      <div
-        className="map-overlay-card"
-        style={{
-          position: 'absolute',
-          bottom: '24px',
-          left: '24px',
-          right: '24px',
-          background: 'rgba(255, 255, 255, 0.88)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(26, 28, 20, 0.08)',
-          borderRadius: '20px',
-          padding: '20px 24px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '16px',
-          boxShadow: '0 16px 40px rgba(26, 28, 20, 0.08)',
-          zIndex: 10,
-        }}
-      >
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <h3 className="sa-serif" style={{ color: COLORS.textDark, fontSize: '20px', fontWeight: 700, margin: '0 0 4px 0', textAlign: 'left' }}>
-            Subham Ashray
-          </h3>
-          <p style={{ color: COLORS.mutedLight, fontSize: '13px', margin: 0, lineHeight: 1.5, textAlign: 'left' }}>
-            Aerocity, Dharapur Palash Bari Road, Guwahati - 781017
-          </p>
+      <div className="map-overlay-card">
+        <div className="map-overlay-copy">
+          <h3 className="sa-serif">Subham Ashray</h3>
+          <p>Near Gau Airport, Dharapur Palash Bari Road, Guwahati - 781017</p>
         </div>
 
         <a
-          href="https://www.google.com/maps/search/Subham+Ashray+Guwahati"
-          className="sa-sans"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '12px 20px',
-            background: COLORS.primary,
-            color: COLORS.darkNavy,
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '0.05em',
-            textTransform: 'uppercase',
-            textDecoration: 'none',
-            borderRadius: '8px',
-            boxShadow: `0 4px 14px ${COLORS.primary}30`,
-            transition: 'all 0.3s ease',
-            whiteSpace: 'nowrap',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.background = COLORS.darkNavy;
-            e.currentTarget.style.color = '#FFFFFF';
-            e.currentTarget.style.boxShadow = `0 4px 14px rgba(0,0,0,0.15)`;
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.background = COLORS.primary;
-            e.currentTarget.style.color = COLORS.darkNavy;
-            e.currentTarget.style.boxShadow = `0 4px 14px ${COLORS.primary}30`;
-          }}
+          href="https://www.google.com/maps/dir/?api=1&destination=SUBHAM%20ASHRAY%2C%20Near%20Gau%20Airport%2C%20Dharapur%20Palash%20Bari%20Road%2C%20Guwahati%20781017"
+          target="_blank"
+          rel="noreferrer"
+          className="map-directions-btn sa-sans"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
           Get Directions
         </a>
       </div>
@@ -395,6 +312,69 @@ export function Location() {
         </div>
 
         <style>{`
+          #location .map-overlay-card {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            left: 24px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 24px;
+            border: 1px solid rgba(26,28,20,0.08);
+            border-radius: 20px;
+            background: rgba(255,255,255,0.94);
+            box-shadow: 0 16px 40px rgba(26,28,20,0.14);
+            backdrop-filter: blur(20px);
+          }
+
+          #location .map-overlay-copy {
+            flex: 1;
+            min-width: 0;
+          }
+
+          #location .map-overlay-copy h3 {
+            margin: 0 0 4px;
+            color: ${COLORS.textDark};
+            font-size: 20px;
+            font-weight: 700;
+            text-align: left;
+          }
+
+          #location .map-overlay-copy p {
+            margin: 0;
+            color: ${COLORS.mutedLight};
+            font-size: 13px !important;
+            line-height: 1.5;
+            text-align: left;
+          }
+
+          #location .map-directions-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background: ${COLORS.primary};
+            color: ${COLORS.darkNavy};
+            box-shadow: 0 4px 14px ${COLORS.primary}30;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: background .3s ease, color .3s ease, box-shadow .3s ease;
+          }
+
+          #location .map-directions-btn:hover {
+            background: ${COLORS.darkNavy};
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+          }
+
           #location .loc-category-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -508,6 +488,19 @@ export function Location() {
           }
 
           @media (max-width: 720px) {
+            #location .map-overlay-card {
+              right: 14px;
+              bottom: 14px;
+              left: 14px;
+              flex-direction: column;
+              align-items: stretch;
+              padding: 16px 18px;
+            }
+
+            #location .map-directions-btn {
+              justify-content: center;
+            }
+
             #location .loc-category-grid {
               grid-template-columns: 1fr;
             }
@@ -518,17 +511,6 @@ export function Location() {
             }
           }
 
-          @media (max-width: 500px) {
-            .map-overlay-card {
-              flex-direction: column !important;
-              align-items: stretch !important;
-              padding: 16px 20px !important;
-              gap: 12px !important;
-            }
-            .map-overlay-card a {
-              justify-content: center;
-            }
-          }
         `}</style>
       </section>
 

@@ -1,6 +1,6 @@
 .sa-container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
@@ -16,9 +16,22 @@
 
 @media (min-width: 1200px) {
   .sa-container {
-    padding-left: 64px;
-    padding-right: 64px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
+}
+
+/* Keep the floating enquiry form horizontally scrollable without exposing
+   the browser scrollbar as an underline on hover/focus. */
+.sa-bottom-enquiry-form .sa-no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sa-bottom-enquiry-form .sa-no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .sa-section {

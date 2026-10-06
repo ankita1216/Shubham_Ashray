@@ -3,14 +3,22 @@ import { useEffect } from 'react';
 export function useCounter() {
   useEffect(() => {
     const animate = (el) => {
-      const target = parseInt(el.dataset.target, 10);
+      const rawTarget = el.dataset.target;
+      const target = Number.parseFloat(rawTarget);
       if (!target) return;
+      const decimalPlaces = rawTarget.includes('.') ? rawTarget.split('.')[1].length : 0;
       let cur = 0;
       const duration = 1800; // Total duration in ms
       const step = target / (duration / 16);
       const iv = setInterval(() => {
         cur = Math.min(cur + step, target);
-        el.textContent = Math.floor(cur).toLocaleString();
+        const displayedValue = decimalPlaces > 0
+          ? Number(cur.toFixed(decimalPlaces))
+          : Math.floor(cur);
+        el.textContent = displayedValue.toLocaleString('en-IN', {
+          minimumFractionDigits: decimalPlaces,
+          maximumFractionDigits: decimalPlaces,
+        });
         if (cur >= target) clearInterval(iv);
       }, 16);
     };

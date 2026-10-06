@@ -288,6 +288,9 @@ export function VideoSection() {
             margin: 0 auto 58px;
             max-width: 760px;
           }
+          .vs-header .sa-label {
+            justify-content: center;
+          }
           .vs-h2 {
             color: #fff;
             margin: 18px 0 var(--sa-spacing-heading-to-p);
@@ -295,7 +298,9 @@ export function VideoSection() {
           .vs-h2 em { color: ${COLORS.primary}; font-style: italic; }
           .vs-header p {
             color: ${COLORS.mutedDark};
-            margin: 0;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
           }
 
           /* ── cinema wrapper ── */
@@ -690,6 +695,8 @@ export function VideoSection() {
           @media (max-width: 640px) {
             .vs-cinema { aspect-ratio: auto; height: 62vw; min-height: 290px; }
             .vs-header { text-align: left; }
+            .vs-header .sa-label { justify-content: flex-start; }
+            .vs-header p { margin-left: 0; text-align: left; }
             .vs-br-hide { display: none; }
             .vs-moments { grid-template-columns: 1fr; gap: 10px; }
             .vs-play-outer { width: 72px; height: 72px; }

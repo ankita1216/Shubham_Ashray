@@ -14,6 +14,7 @@ import LeadModal from '../components/common/LeadModal';
 import BottomEnquiryForm from '../components/common/BottomEnquiryForm';
 import { useReveal } from '../hooks/useReveal';
 import logoImg from '../assets/images/logo.webp';
+import { goToThankYouPage, hasSubmittedLeadThisVisit } from '../utils/leadVisit';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,7 +42,14 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  const openModal = () => setIsModalOpen(true);
+  const openModal = () => {
+    if (hasSubmittedLeadThisVisit()) {
+      goToThankYouPage();
+      return;
+    }
+
+    setIsModalOpen(true);
+  };
   const closeModal = () => setIsModalOpen(false);
 
   return (

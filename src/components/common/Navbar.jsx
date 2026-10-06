@@ -11,12 +11,8 @@ export function Navbar({ scrolled, onOpenModal }) {
         backdropFilter: scrolled ? "blur(24px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "none",
       }}>
-      <div className="flex items-center justify-between"
+      <div className="sa-container flex items-center justify-between"
         style={{
-          maxWidth: "1320px",
-          margin: "0 auto",
-          paddingLeft: "20px",
-          paddingRight: "20px",
           paddingTop: scrolled ? "4px" : "8px",
           paddingBottom: scrolled ? "4px" : "8px",
           transition: "all 0.3s ease"
