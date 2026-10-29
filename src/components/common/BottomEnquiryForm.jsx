@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Send, Home } from "lucide-react";
 import { COLORS } from "../../constants/colors";
-import { submitFormData } from "../../services/formService";
-import { goToThankYouPage, hasSubmittedLeadThisVisit, markLeadSubmittedThisVisit } from "../../utils/leadVisit";
+import { useLeadSubmission } from "../../hooks/useLeadSubmission";
+import { hasSubmittedLeadThisVisit } from "../../utils/leadVisit";
 
 const initialFormData = {
   name: "",
@@ -16,7 +16,7 @@ const initialFormData = {
 export default function BottomEnquiryForm() {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { submitLead, isSubmitting, submitError } = useLeadSubmission();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,16 +68,7 @@ export default function BottomEnquiryForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    // small delay for UX feel
-    await new Promise((r) => setTimeout(r, 600));
-    const finalData = { ...formData, ...utms };
-    console.log("Bottom enquiry captured:", finalData);
-    await submitFormData(finalData);
-    markLeadSubmittedThisVisit();
-    setFormData(initialFormData);
-    setIsSubmitting(false);
-    goToThankYouPage();
+    await submitLead({ ...formData, ...utms });
   };
 
   const inputStyle = {
@@ -248,7 +239,8 @@ export default function BottomEnquiryForm() {
                       </>
                     )}
                   </motion.button>
-                </form>
+                {submitError && <p role="alert" style={{ color: "#ffb4b4" }}>{submitError}</p>}
+              </form>
 
               </div>
             </div>

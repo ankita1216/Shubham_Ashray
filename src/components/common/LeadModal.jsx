@@ -2,10 +2,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { COLORS } from "../../constants/colors";
-import { submitFormData } from "../../services/formService";
-import { goToThankYouPage, markLeadSubmittedThisVisit } from "../../utils/leadVisit";
+import { useLeadSubmission } from "../../hooks/useLeadSubmission";
 
 export default function LeadModal({ isOpen, onClose }) {
+  const { submitLead, isSubmitting, submitError } = useLeadSubmission();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -47,12 +47,7 @@ export default function LeadModal({ isOpen, onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const finalData = { ...formData, ...utms };
-    console.log("Lead captured:", finalData);
-    await submitFormData(finalData);
-    markLeadSubmittedThisVisit();
-    onClose();
-    goToThankYouPage();
+    await submitLead({ ...formData, ...utms });
   };
 
   const THEME_DARK = COLORS.darkNavy;
@@ -302,13 +297,14 @@ export default function LeadModal({ isOpen, onClose }) {
 
                 {/* Submit */}
                 <div style={{ paddingTop: 8 }}>
-                  <button type="submit" className="lead-submit">
-                    Confirm Interest
+                  <button type="submit" disabled={isSubmitting} className="lead-submit">
+                    {isSubmitting ? "Submitting..." : "Confirm Interest"}
                   </button>
                   <p style={{ textAlign: "center", fontSize: 10, color: "rgba(255,255,255,0.3)", marginTop: 14, letterSpacing: "0.04em" }}>
                     Your information is kept strictly private
                   </p>
                 </div>
+              {submitError && <p role="alert" style={{ color: "#ffb4b4" }}>{submitError}</p>}
               </form>
             </div>
           </motion.div>

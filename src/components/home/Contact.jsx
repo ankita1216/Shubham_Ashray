@@ -4,10 +4,10 @@ import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveDarkToLight } from '../common/Dividers';
 import { DecorativeShape } from '../common/DecorativeShape';
-import { submitFormData } from "../../services/formService";
-import { goToThankYouPage, markLeadSubmittedThisVisit } from "../../utils/leadVisit";
+import { useLeadSubmission } from "../../hooks/useLeadSubmission";
 
 export function Contact() {
+  const { submitLead, isSubmitting, submitError } = useLeadSubmission();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -37,11 +37,7 @@ export function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const finalData = { ...formData, ...utms };
-    console.log("Contact form captured:", finalData);
-    await submitFormData(finalData);
-    markLeadSubmittedThisVisit();
-    goToThankYouPage();
+    await submitLead({ ...formData, ...utms });
   };
 
   return (
@@ -123,11 +119,12 @@ export function Contact() {
                   <input required type="text" autoComplete="postal-code" inputMode="numeric" placeholder="Enter pincode" className="sa-contact-input" value={formData.location} onChange={(e) => setFormData({...formData, location: e.target.value})} />
                 </div>
               </div>
-              <button type="submit" className="sa-contact-submit sa-sans">
-                Enquire Now <ArrowUpRight size={17} aria-hidden="true" />
+              <button type="submit" disabled={isSubmitting} className="sa-contact-submit sa-sans">
+                {isSubmitting ? "Submitting..." : "Enquire Now"} <ArrowUpRight size={17} aria-hidden="true" />
               </button>
               <p className="sa-contact-privacy">Your information is secure and never shared.</p>
-            </form>
+            {submitError && <p role="alert" style={{ color: "#ffb4b4" }}>{submitError}</p>}
+              </form>
           </div>
         </div>
       </section>
