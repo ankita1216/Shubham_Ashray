@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComplianceLink } from './ComplianceLink';
 import { COLORS } from '../../constants/colors';
 import { DecorativeShape } from './DecorativeShape';
 import logoImg from '../../assets/images/logo.webp';
@@ -94,6 +95,7 @@ export function Footer() {
 
         {/* ── Tier 3: Compliance & Copyright ── */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 36 }}>
+          <div style={{ marginBottom: 28 }}><ComplianceLink /></div>
           <div className="flex flex-wrap items-center justify-between gap-10">
             <div>
               <span style={{ fontSize: 11, color: COLORS.hintDark, fontWeight: 500, letterSpacing: "0.05em" }}>ESTD. 2007</span>

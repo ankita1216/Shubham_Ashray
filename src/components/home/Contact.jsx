@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ArrowUpRight, MapPin } from 'lucide-react';
+import { ComplianceLink } from '../common/ComplianceLink';
 import { COLORS } from '../../constants/colors';
 import { SectionLabel } from '../common/SectionLabel';
 import { WaveDarkToLight } from '../common/Dividers';
@@ -125,6 +126,7 @@ export function Contact() {
               <p className="sa-contact-privacy">Your information is secure and never shared.</p>
             {submitError && <p role="alert" style={{ color: "#ffb4b4" }}>{submitError}</p>}
               </form>
+            <ComplianceLink />
           </div>
         </div>
       </section>
